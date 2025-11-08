@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login - Hero Public Safety Commission</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+  <img src="img/HPSC.jpeg" alt="Hero Public Safety Commission emblem" class="emblem" />
+      <div>
+        <div class="site-title">Hero Public Safety Commission</div>
+        <div class="site-sub">Secure access for commission staff</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+      <section class="auth-card card">
+        <h2 style="margin-top:0; font-family:Merriweather, serif; color:var(--brand-navy)">Sign in</h2>
+        <form id="loginForm">
+          <label>Username
+            <input type="text" id="username" autocomplete="username" required />
+          </label>
+          <label>Password
+            <input type="password" id="password" autocomplete="current-password" required />
+          </label>
+          <div style="margin-top:12px; display:flex; gap:8px; align-items:center">
+            <button class="btn btn-primary" type="submit">Sign in</button>
+            <a href="index.html" class="btn btn-secondary" style="text-decoration:none;">Home</a>
+          </div>
+        </form>
+        <div id="message" class="note muted" style="margin-top:12px"></div>
+      </section>
+
+      <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const form = document.getElementById('loginForm');
+      const msg = document.getElementById('message');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const u = document.getElementById('username').value.trim();
+        const p = document.getElementById('password').value;
+        const ok = Auth.login(u, p);
+        if (ok) {
+          // redirect to protected page after login
+          location.href = 'protected.html';
+        } else {
+          msg.textContent = 'Invalid credentials. (demo users: admin / password123  or  red / chimara1976)';
+        }
+      });
+    </script>
+  </body>
+</html>
