@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Subject #2037 - Chimara</title>
+    <title>Subject #1396 - Chimara</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -109,49 +109,6 @@
           <h3 style="font-size:1.1rem; margin:0 0 8px 0; font-family:Merriweather, serif; color:var(--brand-navy)">Director Reports</h3>
           <div class="muted" style="font-style:italic">No reports filed.</div>
         </div>
-
-        <p style="margin-top:14px">
-          <a href="../chimara-secret.html" class="btn btn-secondary" style="text-decoration:none">Back to Subjects</a>
-        </p>
-      </section>
-
-      <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
-    </main>
-
-    <script src="../js/auth.js"></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-      Auth.requireAuth('login.html');
-      try{
-        const s = JSON.parse(localStorage.getItem('chimara_access'));
-        if (!s || !s.username || s.username.toLowerCase() !== 'red') location.href = '../chimara.html';
-      }catch(e){ location.href = '../chimara.html'; }
-    </script>
-  </body>
-</html>
-
-
-    <main class="container">
-      <nav class="site-nav">
-        <a href="../index.html">Home</a>
-        <a href="../protected.html">Projects</a>
-        <a href="../chimara.html">Chimara</a>
-      </nav>
-
-      <section class="card" style="margin-top:18px">
-        <h2 style="margin-top:0; font-family:Merriweather, serif; color:var(--brand-navy)">Subject #1396</h2>
-        <p class="muted">Restricted Chimara subject record (placeholder)</p>
-
-        <dl style="margin-top:12px">
-          <dt style="font-weight:600">Subject ID</dt>
-          <dd>1396</dd>
-
-          <dt style="font-weight:600; margin-top:8px">Status</dt>
-          <dd>Confidential</dd>
-
-          <dt style="font-weight:600; margin-top:8px">Notes</dt>
-          <dd>Placeholder record for Subject #1396.</dd>
-        </dl>
 
         <p style="margin-top:14px">
           <a href="../chimara-secret.html" class="btn btn-secondary" style="text-decoration:none">Back to Subjects</a>
