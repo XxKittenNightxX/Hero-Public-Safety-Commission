@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Protected - Hero Public Safety Commission</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+  <img src="/img/HPSC.jpeg" alt="Hero Public Safety Commission emblem" class="emblem" />
+      <div>
+        <div class="site-title">Hero Public Safety Commission</div>
+        <div class="site-sub">Restricted Access</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="site-nav">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+      </nav>
+
+      <section class="card" style="margin-top:18px">
+        <h2>Protected Area</h2>
+        <div id="content">Checking authentication…</div>
+      </section>
+
+      <section class="card" style="margin-top:18px">
+        <h2 style="margin-top:0; font-family:Merriweather, serif; color:var(--brand-navy)">Commission Projects</h2>
+        <p class="muted">Browse active and planned projects for the Hero Public Safety Commission (MHA partnership).</p>
+
+        <div style="margin-top:12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+          <label for="projectSearch" class="muted" style="margin:0; font-weight:600">Search projects</label>
+          <input id="projectSearch" type="search" placeholder="Search by title, description, lead, or tag" style="flex:1; min-width:220px; padding:8px 10px; border-radius:6px; border:1px solid #d1d5db" />
+          <button id="clearSearch" class="btn btn-secondary">Clear</button>
+        </div>
+
+        <div id="projectsList" style="margin-top:14px"></div>
+      </section>
+
+      <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/projects.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // require authentication and show content
+      Auth.requireAuth('login.html');
+
+      // show welcome and logout
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <p>Welcome, <strong>${Auth.getUsername()}</strong>. This page is restricted to logged-in users.</p>
+        <p><button class="btn btn-primary" id="logoutBtn">Logout</button></p>
+      `;
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        Auth.logout();
+        location.href = 'login.html';
+      });
+
+      // Projects search and render
+      const listEl = document.getElementById('projectsList');
+      const searchInput = document.getElementById('projectSearch');
+      const clearBtn = document.getElementById('clearSearch');
+
+      // initial render (no query)
+      Projects.render(listEl, '');
+
+      const doSearch = Projects.debounce((e) => {
+        const q = (e && e.target) ? e.target.value : '';
+        Projects.render(listEl, q);
+      }, 200);
+
+      searchInput.addEventListener('input', doSearch);
+      clearBtn.addEventListener('click', () => { searchInput.value = ''; Projects.render(listEl, ''); searchInput.focus(); });
+    </script>
+  </body>
+</html>

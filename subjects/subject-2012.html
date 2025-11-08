@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Subject #2037 - Chimara</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+  <img src="/img/HPSC.jpeg" alt="Hero Public Safety Commission emblem" class="emblem" />
+      <div>
+        <div class="site-title">Hero Public Safety Commission</div>
+        <div class="site-sub">Chimara — Subject Detail</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="site-nav">
+        <a href="../home.html">Home</a>
+        <a href="../protected.html">Projects</a>
+        <a href="../chimara.html">Chimara</a>
+      </nav>
+
+      <section class="card" style="margin-top:18px">
+        <h2 style="margin-top:0; font-family:Merriweather, serif; color:var(--brand-navy)">Subject #2012 - Solar</h2>
+        <p class="muted">Restricted Chimara subject record</p>
+        
+        <div style="display:grid; grid-template-columns:300px 1fr; gap:24px; margin-top:16px">
+          <!-- Subject image -->
+          <div style="background:#f3f4f6; border:1px solid #e5e7eb; height:300px; overflow:hidden">
+            <img src="/subjects/img/Placeholder.jpg" alt="Subject #2012" style="width:100%; height:100%; object-fit:cover">
+          </div>
+
+          <!-- Subject details -->
+          <div>
+            <dl style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:12px 24px; margin:0">
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Subject ID</dt>
+                <dd style="margin:4px 0 0 0">2012</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Title(s)</dt>
+                <dd style="margin:4px 0 0 0">
+                    <ul style="list-style:none; padding:0; margin:0">
+                    <li style="display:inline-block; background:var(--brand-navy); color:white; padding:4px 8px; border-radius:4px; margin:0 4px 4px 0; font-size:0.9em">N/a</li>
+                  </ul>
+                </dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Power Class</dt>
+                <dd style="margin:4px 0 0 0">[Placeholder]</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Clearance Level</dt>
+                <dd style="margin:4px 0 0 0">[Placeholder]</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Status</dt>
+                <dd style="margin:4px 0 0 0">Alive ( Missing )</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Current Age</dt>
+                <dd style="margin:4px 0 0 0">15 years old</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Birth Date</dt>
+                <dd style="margin:4px 0 0 0">[Placeholder]</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Height</dt>
+                <dd style="margin:4px 0 0 0">4ft 8in (outdated)</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Blood Type</dt>
+                <dd style="margin:4px 0 0 0">Type o+</dd>
+              </div>
+
+              <div>
+                <dt style="font-weight:600; color:var(--brand-navy)">Ethnicity</dt>
+                <dd style="margin:4px 0 0 0">Asian</dd>
+              </div>
+            </dl>
+
+            <!-- Quirk section -->
+            <div style="margin-top:24px">
+              <h3 style="font-size:1.1rem; margin:0 0 8px 0; font-family:Merriweather, serif; color:var(--brand-navy)">Quirk Details</h3>
+              <dl>
+                <dt style="font-weight:600; color:var(--brand-navy)">Quirk Name</dt>
+                <dd style="margin:4px 0 12px 0">Sun</dd>
+
+                <dt style="font-weight:600; color:var(--brand-navy)">Quirk Description</dt>
+                <dd style="margin:4px 0 0 0">Something with the sun, light, and fire</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reports section -->
+        <div style="margin-top:24px">
+          <h3 style="font-size:1.1rem; margin:0 0 8px 0; font-family:Merriweather, serif; color:var(--brand-navy)">Director Reports</h3>
+          <div class="muted" style="font-style:italic">No reports filed.</div>
+        </div>
+
+        <p style="margin-top:14px">
+          <a href="../chimara-secret.html" class="btn btn-secondary" style="text-decoration:none">Back to Subjects</a>
+        </p>
+      </section>
+
+      <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      Auth.requireAuth('login.html');
+      try{
+        const s = JSON.parse(localStorage.getItem('chimara_access'));
+        if (!s || !s.username || s.username.toLowerCase() !== 'red') location.href = '../chimara.html';
+      }catch(e){ location.href = '../chimara.html'; }
+    </script>
+  </body>
+</html>
