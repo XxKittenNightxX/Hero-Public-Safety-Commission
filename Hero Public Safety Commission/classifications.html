@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chimara — Classifications</title>
+    <link rel="stylesheet" href="css/style.css" />
+      <style>
+        /* Small, local styles to improve layout of the classifications page */
+        .charts-grid{display:block; gap:18px}
+        .chart-card{background:#fff;padding:12px;border-radius:6px;border:1px solid #eef2ff}
+        .chart-table th, .chart-table td{padding:8px}
+        @media(min-width:900px){
+          .charts-grid{display:grid; grid-template-columns:1fr 1fr}
+        }
+        .toc a{color:var(--brand-navy); text-decoration:none; margin-right:12px}
+      </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="emblem" aria-hidden>H</div>
+      <div>
+        <div class="site-title">Hero Public Safety Commission</div>
+        <div class="site-sub">Chimara — Classifications</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="site-nav">
+        <a href="home.html">Home</a>
+        <a href="protected.html">Projects</a>
+        <a href="chimara.html">Chimara</a>
+      </nav>
+
+        <section class="card" style="margin-top:18px">
+          <div style="margin-top:12px">
+            <nav class="toc" aria-label="Table of contents" style="margin-bottom:12px">
+              <strong>Contents:</strong>
+              <a href="#class-chart">Class Chart</a>
+              <a href="#level-chart">Level Chart</a>
+              <a href="#years-chart">Years Chart</a>
+            </nav>
+
+            <div class="charts-grid">
+              <div id="class-chart" class="chart-card">
+                <h3 style="margin-top:0">Class Chart</h3>
+                <table class="chart-table" style="width:100%; border-collapse:collapse;">
+                  <thead>
+                    <tr>
+                      <th style="text-align:left; padding:8px; border-bottom:2px solid #e6edf3">Class</th>
+                      <th style="text-align:left; padding:8px; border-bottom:2px solid #e6edf3">Info</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding:8px; vertical-align:top; width:220px"><strong>SSS+ Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace the #1 Hero in Japan.</td>
+                    </tr>
+                    <tr style="background:#fbfbff">
+                      <td style="padding:8px; vertical-align:top"><strong>SS Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 10 Heroes in Japan.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px; vertical-align:top"><strong>S Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 50 Heroes in Japan.</td>
+                    </tr>
+                    <tr style="background:#fbfbff">
+                      <td style="padding:8px; vertical-align:top"><strong>A Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 100 Heroes in Japan.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px; vertical-align:top"><strong>B Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 500 Heroes in Japan.</td>
+                    </tr>
+                    <tr style="background:#fbfbff">
+                      <td style="padding:8px; vertical-align:top"><strong>C Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 7,000 Heroes in Japan.</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px; vertical-align:top"><strong>D Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 13,500 Heroes in Japan.</td>
+                    </tr>
+                    <tr style="background:#fbfbff">
+                      <td style="padding:8px; vertical-align:top"><strong>E Class</strong></td>
+                      <td style="padding:8px">Has the power output to replace one of the Top 51,300 Heroes in Japan.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div id="level-chart" class="chart-card">
+                <h3 style="margin-top:0">Level Chart</h3>
+                <ul style="padding:0; margin:0; list-style:none">
+                  <li id="unclassified" style="margin:8px 0; padding:8px; border-radius:6px; background:#f8fafc">
+                    <strong>Unclassified / Public</strong>
+                    <div class="muted">Information that can be freely shared.</div>
+                  </li>
+
+                  <li id="level1" style="margin:8px 0; padding:8px; border-radius:6px; background:#eef2ff">
+                    <strong>Level 1</strong>
+                    <div class="muted">Low risk — internal but low sensitivity.</div>
+                  </li>
+
+                  <li id="level2" style="margin:8px 0; padding:8px; border-radius:6px; background:#e6fffa">
+                    <strong>Level 2</strong>
+                    <div class="muted">Moderate sensitivity — restricted to Chimara staff.</div>
+                  </li>
+
+                  <li id="level3" style="margin:8px 0; padding:8px; border-radius:6px; background:#fff7ed">
+                    <strong>Level 3</strong>
+                    <div class="muted">High sensitivity — requires Level 3 clearance to access.</div>
+                  </li>
+
+                  <li id="level4" style="margin:8px 0; padding:8px; border-radius:6px; background:#fff1f2">
+                    <strong>Level 4</strong>
+                    <div class="muted">Critical — limited access; operational security measures apply.</div>
+                  </li>
+
+                  <li id="level5" style="margin:8px 0; padding:8px; border-radius:6px; background:#fdf2f8">
+                    <strong>Level 5</strong>
+                    <div class="muted">Extreme / Director-only materials. Do not share.</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="years-chart" class="chart-card" style="margin-top:18px">
+              <h3 style="margin-top:0">Years ago — Subject Ranges</h3>
+              <div style="overflow:auto; max-width:100%;">
+                <table style="width:100%; border-collapse:collapse;" class="chart-table">
+                  <thead>
+                    <tr>
+                      <th style="text-align:left; padding:8px; border-bottom:2px solid #e6edf3">Years ago</th>
+                      <th style="text-align:left; padding:8px; border-bottom:2px solid #e6edf3">Subject number</th>
+                      <th style="text-align:left; padding:8px; border-bottom:2px solid #e6edf3">Years ago</th>
+                      <th style="text-align:left; padding:8px; border-bottom:2px solid #e6edf3">Subject number</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td style="padding:6px">-1</td><td style="padding:6px">2501 - 2600</td><td style="padding:6px">-27</td><td style="padding:6px">1101 - 1200</td></tr>
+                    <tr style="background:#fbfbff"><td style="padding:6px">-3</td><td style="padding:6px">2401 - 2500</td><td style="padding:6px">-29</td><td style="padding:6px">1001 - 1100</td></tr>
+                    <tr><td style="padding:6px">-5</td><td style="padding:6px">2301 - 2400</td><td style="padding:6px">-31</td><td style="padding:6px">0901 - 1000</td></tr>
+                    <tr style="background:#fbfbff"><td style="padding:6px">-7</td><td style="padding:6px">2201 - 2300</td><td style="padding:6px">-33</td><td style="padding:6px">0801 - 0900</td></tr>
+                    <tr><td style="padding:6px">-9</td><td style="padding:6px">2101 - 2200</td><td style="padding:6px">-35</td><td style="padding:6px">0701 - 0800</td></tr>
+                    <tr style="background:#fbfbff"><td style="padding:6px">-11</td><td style="padding:6px">2001 - 2100</td><td style="padding:6px">-37</td><td style="padding:6px">0601 - 0700</td></tr>
+                    <tr><td style="padding:6px">-13</td><td style="padding:6px">1801 - 1900</td><td style="padding:6px">-39</td><td style="padding:6px">0501 - 0600</td></tr>
+                    <tr style="background:#fbfbff"><td style="padding:6px">-15</td><td style="padding:6px">1701 - 1800</td><td style="padding:6px">-41</td><td style="padding:6px">0401 - 0500</td></tr>
+                    <tr><td style="padding:6px">-17</td><td style="padding:6px">1601 - 1700</td><td style="padding:6px">-43</td><td style="padding:6px">0301 - 0400</td></tr>
+                    <tr style="background:#fbfbff"><td style="padding:6px">-19</td><td style="padding:6px">1501 - 1600</td><td style="padding:6px">-45</td><td style="padding:6px">0201 - 0300</td></tr>
+                    <tr><td style="padding:6px">-21</td><td style="padding:6px">1401 - 1500</td><td style="padding:6px">-47</td><td style="padding:6px">0101 - 0200</td></tr>
+                    <tr style="background:#fbfbff"><td style="padding:6px">-23</td><td style="padding:6px">1301 - 1400</td><td style="padding:6px">-49</td><td style="padding:6px">0001 - 0100</td></tr>
+                    <tr><td style="padding:6px">-25</td><td style="padding:6px">1201 - 1300</td><td style="padding:6px"> </td><td style="padding:6px"> </td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="margin-top:18px">
+                <p class="muted">Notes: Text updated and reorganized per Director request. If you want different wording (capitalization, punctuation, or splitting charts) tell me and I'll adjust.</p>
+              </div>
+
+              <p style="margin-top:14px">
+                <a href="chimara-secret.html" class="btn btn-secondary" style="text-decoration:none">Back to Director Portal</a>
+              </p>
+            </div>
