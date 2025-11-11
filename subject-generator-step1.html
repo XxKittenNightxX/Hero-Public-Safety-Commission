@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Subject Generator (Step 1) - HPSC</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .card{margin-top:18px}
+      .field-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+      .field-row input{flex:1;min-width:160px;padding:8px 10px;border:1px solid #d1d5db;border-radius:6px}
+      .title-pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0 0}
+      .title-pill{background:#eef2ff;color:var(--brand-navy);padding:4px 10px;border-radius:14px;font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:6px}
+      .title-pill button{background:none;border:0;color:#0f3d91;cursor:pointer;font-size:.75rem}
+      #titlesEmpty{color:var(--muted);font-size:.8rem;margin-top:6px}
+      .btn-inline{padding:8px 12px;border-radius:6px;border:0;background:var(--brand-navy);color:#fff;cursor:pointer;font-size:.85rem}
+      .btn-secondary-inline{background:#eef2ff;color:var(--brand-navy);border:1px solid rgba(11,61,145,.15)}
+      .muted{color:var(--muted);font-size:.85rem}
+      pre#output{background:#f8fafc;border:1px solid #e2e8f0;padding:12px;border-radius:8px;white-space:pre-wrap;font-size:.75rem;line-height:1.4;margin-top:18px}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <img src="img/HPSC.jpeg" alt="Hero Public Safety Commission emblem" class="emblem" />
+      <div>
+        <div class="site-title">Hero Public Safety Commission</div>
+        <div class="site-sub">Subject Generator (Step 1: Titles)</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="protected.html">Projects</a>
+        <a href="chimara.html">Chimara</a>
+      </nav>
+
+      <section class="card" id="titlesSection">
+        <h2 style="margin-top:0;font-family:Merriweather,serif;color:var(--brand-navy);font-size:1.3rem">Subject Titles</h2>
+        <p class="muted">Add one or more titles for the subject (e.g., Trainee, Student, Candidate). We'll build the rest after this works.</p>
+
+        <div class="field-row">
+          <input id="titleInput" type="text" placeholder="Enter a title" />
+          <button id="addTitleBtn" class="btn-inline" type="button">Add Title</button>
+          <button id="clearTitlesBtn" class="btn-inline btn-secondary-inline" type="button">Clear All</button>
+        </div>
+
+        <div id="titlesContainer" class="title-pills"></div>
+        <div id="titlesEmpty">No titles added yet.</div>
+
+        <div style="margin-top:14px">
+          <button id="generateSnippetBtn" type="button" class="btn-inline">Generate HTML Snippet</button>
+        </div>
+        <pre id="output" style="display:none"></pre>
+      </section>
+
+      <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script>
+      // Minimal script for step 1
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // (Auth check can be re-enabled later)
+
+      const titleInput = document.getElementById('titleInput');
+      const addBtn = document.getElementById('addTitleBtn');
+      const clearBtn = document.getElementById('clearTitlesBtn');
+      const container = document.getElementById('titlesContainer');
+      const emptyMsg = document.getElementById('titlesEmpty');
+      const output = document.getElementById('output');
+      const genBtn = document.getElementById('generateSnippetBtn');
+
+      let titles = [];
+
+      function renderTitles(){
+        container.innerHTML = '';
+        if(titles.length === 0){
+          emptyMsg.style.display = 'block';
+          return;
+        }
+        emptyMsg.style.display = 'none';
+        titles.forEach((t, idx) => {
+          const pill = document.createElement('div');
+          pill.className = 'title-pill';
+          pill.innerHTML = `<span>${escapeHtml(t)}</span><button data-index="${idx}" aria-label="Remove ${escapeHtml(t)}">×</button>`;
+          container.appendChild(pill);
+        });
+      }
+
+      function escapeHtml(str){
+        const div = document.createElement('div');
+        div.textContent = str; return div.innerHTML;
+      }
+
+      addBtn.addEventListener('click', () => {
+        const val = (titleInput.value || '').trim();
+        if(!val){ titleInput.focus(); return; }
+        titles.push(val);
+        titleInput.value='';
+        renderTitles();
+        titleInput.focus();
+      });
+
+      titleInput.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter'){ e.preventDefault(); addBtn.click(); }
+      });
+
+      clearBtn.addEventListener('click', () => {
+        titles = []; renderTitles(); titleInput.focus();
+      });
+
+      container.addEventListener('click', (e) => {
+        if(e.target.tagName === 'BUTTON' && e.target.dataset.index){
+          const i = parseInt(e.target.dataset.index, 10);
+          titles.splice(i,1); renderTitles();
+        }
+      });
+
+      genBtn.addEventListener('click', () => {
+        const snippet = titles.length ? titles.map(t => `<span class=\"title-badge\">${escapeHtml(t)}<\/span>`).join('\n') : '<!-- No titles provided -->';
+        output.textContent = snippet; output.style.display = 'block';
+      });
+
+      // Initial render
+      renderTitles();
+    </script>
+  </body>
+</html>

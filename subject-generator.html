@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Subject Generator - Hero Public Safety Commission</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .generator-form{max-width:800px;margin:0 auto}
+      .form-section{margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid #eef2ff}
+      .form-section:last-of-type{border-bottom:none}
+      .form-section h3{color:var(--brand-navy);font-family:Merriweather,serif;margin:0 0 14px 0;font-size:1.1rem}
+      .form-row{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px}
+      @media(min-width:600px){
+        .form-row.two-col{grid-template-columns:1fr 1fr}
+        .form-row.three-col{grid-template-columns:1fr 1fr 1fr}
+      }
+      .form-field label{display:block;font-weight:600;color:#374151;margin-bottom:6px;font-size:.9rem}
+      .form-field input,.form-field select,.form-field textarea{width:100%;padding:9px 11px;border:1px solid #d1d5db;border-radius:6px;font-family:inherit;font-size:.9rem}
+      .form-field textarea{min-height:100px;resize:vertical;font-family:Inter,system-ui,sans-serif;line-height:1.5}
+      .form-field small{display:block;margin-top:4px;color:var(--muted);font-size:.8rem}
+      .btn-generate{width:100%;padding:13px;background:var(--brand-navy);color:#fff;border:0;border-radius:6px;cursor:pointer;font-size:1rem;font-weight:600;margin-top:10px}
+      .btn-generate:hover{background:#0a326b}
+      .output-box{margin-top:20px;padding:16px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;display:none}
+      .output-box h4{margin:0 0 10px 0;color:var(--brand-navy);font-size:1rem}
+      .output-box textarea{width:100%;min-height:300px;font-family:'Courier New',monospace;font-size:.75rem;padding:10px;border:1px solid #d1d5db;border-radius:6px;line-height:1.4}
+      .btn-copy{padding:8px 14px;background:#eef2ff;color:var(--brand-navy);border:1px solid rgba(11,61,145,.15);border-radius:6px;cursor:pointer;font-size:.85rem;margin-top:8px}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <img src="img/HPSC.jpeg" alt="Hero Public Safety Commission emblem" class="emblem" />
+      <div>
+        <div class="site-title">Hero Public Safety Commission</div>
+        <div class="site-sub">Subject File Generator</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="protected.html">Projects</a>
+        <a href="chimara-secret.html">Chimara</a>
+      </nav>
+      <section class="card generator-form" style="margin-top:18px">
+        <h2 style="margin-top:0;color:var(--brand-navy);font-family:Merriweather,serif;font-size:1.4rem">Generate Subject File</h2>
+        <p class="muted" style="margin-bottom:20px">Fill out the information below to generate a subject HTML page.</p>
+
+        <form id="subjectForm">
+          <!-- Basic Information -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="subjectName">Subject Name <span style="color:#dc2626">*</span></label>
+                <input type="text" id="subjectName" required placeholder="e.g., John Doe" />
+              </div>
+              <div class="form-field">
+                <label for="subjectId">Subject ID <span style="color:#dc2626">*</span></label>
+                <input type="text" id="subjectId" required placeholder="e.g., 0001-ABCD" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="titles">Titles (comma-separated)</label>
+              <input type="text" id="titles" placeholder="e.g., Student, Trainee, Candidate" />
+              <small>Separate multiple titles with commas</small>
+            </div>
+          </div>
+
+          <!-- Classification -->
+          <div class="form-section">
+            <h3>Classification</h3>
+            <div class="form-row three-col">
+              <div class="form-field">
+                <label for="status">Status <span style="color:#dc2626">*</span></label>
+                <select id="status" required>
+                  <option value="">Select status</option>
+                  <option value="Alive Missing">Alive Missing</option>
+                  <option value="Alive Tracked">Alive Tracked</option>
+                  <option value="Missing">Missing</option>
+                  <option value="Dead">Dead</option>
+                  <option value="Terminated">Terminated</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="powerClass">Power Class <span style="color:#dc2626">*</span></label>
+                <select id="powerClass" required>
+                  <option value="">Select class</option>
+                  <option value="SSS Class">SSS Class</option>
+                  <option value="SS Class">SS Class</option>
+                  <option value="S Class">S Class</option>
+                  <option value="A Class">A Class</option>
+                  <option value="B Class">B Class</option>
+                  <option value="C Class">C Class</option>
+                  <option value="D Class">D Class</option>
+                  <option value="E Class">E Class</option>
+                  <option value="F Class">F Class</option>
+                  <option value="Unclassified">Unclassified</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="clearanceLevel">Clearance Level <span style="color:#dc2626">*</span></label>
+                <select id="clearanceLevel" required>
+                  <option value="">Select level</option>
+                  <option value="1">Level 1</option>
+                  <option value="2">Level 2</option>
+                  <option value="3">Level 3</option>
+                  <option value="4">Level 4</option>
+                  <option value="5">Level 5</option>
+                  <option value="Unclassified">Unclassified</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Details -->
+          <div class="form-section">
+            <h3>Personal Details</h3>
+            <div class="form-row three-col">
+              <div class="form-field">
+                <label for="age">Age <span style="color:#dc2626">*</span></label>
+                <input type="number" id="age" required placeholder="e.g., 16" min="0" />
+              </div>
+              <div class="form-field">
+                <label for="dob">Date of Birth (MM/DD) <span style="color:#dc2626">*</span></label>
+                <input type="text" id="dob" required placeholder="e.g., 03/15" />
+                <small>Month and day only (no year)</small>
+              </div>
+              <div class="form-field">
+                <label for="height">Height <span style="color:#dc2626">*</span></label>
+                <input type="text" id="height" required placeholder="e.g., 5'8&quot; or 173cm" />
+              </div>
+            </div>
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="bloodType">Blood Type <span style="color:#dc2626">*</span></label>
+                <input type="text" id="bloodType" required placeholder="e.g., A+, O-, AB+" />
+              </div>
+              <div class="form-field">
+                <label for="ethnicity">Ethnicity <span style="color:#dc2626">*</span></label>
+                <input type="text" id="ethnicity" required placeholder="e.g., Japanese, Mixed" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Quirk Information -->
+          <div class="form-section">
+            <h3>Quirk Information</h3>
+            <div class="form-field">
+              <label for="quirkName">Quirk Name <span style="color:#dc2626">*</span></label>
+              <input type="text" id="quirkName" required placeholder="e.g., One For All, Explosion" />
+            </div>
+            <div class="form-field">
+              <label for="quirkDetails">Quirk Description <span style="color:#dc2626">*</span></label>
+              <textarea id="quirkDetails" required placeholder="Detailed description of the quirk, including its primary function, limitations, and any known side effects or drawbacks..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-generate">Generate Subject File</button>
+        </form>
+
+        <!-- Output Section -->
+        <div class="output-box" id="outputBox">
+          <h4>Generated HTML</h4>
+          <p class="muted" style="margin:0 0 8px 0">Save as: <code id="fileName" style="background:#e2e8f0;padding:2px 6px;border-radius:4px"></code></p>
+          <textarea id="outputHTML" readonly></textarea>
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button type="button" class="btn-copy" id="downloadBtn">Download File</button>
+            <button type="button" class="btn-copy" id="copyBtn">Copy to Clipboard</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/generator.js"></script>
+  </body>
+</html>
