@@ -78,3 +78,8 @@ footer.site-footer{margin-top:36px; padding:18px 0; text-align:center; color:var
 .report-label{font-weight:700;margin-bottom:6px;color:var(--brand-navy);display:block}
 
 .notes-muted{color:var(--muted);font-size:0.95rem;margin-top:0;margin-bottom:8px}
+
+/* Subject title badges */
+.title-badges{margin:8px 0 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.title-badge{display:inline-block;padding:4px 12px;background:#eef2ff;color:var(--brand-navy);border-radius:6px;font-size:0.95rem;font-weight:600;border:1px solid rgba(11,61,145,.1)}
+
