@@ -130,7 +130,7 @@ form.addEventListener('submit', function(e) {
 '      <nav class="site-nav">\n' +
 '        <a href="../index.html">Home</a>\n' +
 '        <a href="../protected.html">Projects</a>\n' +
-'        <a href="../chimara-secret.html">Chimara</a>\n' +
+'        <a href="../chimara-secret.html">Chimara Files</a>\n' +
 '      </nav>\n' +
 '\n' +
 '      <section class="card" style="margin-top:18px">\n' +
@@ -237,7 +237,7 @@ form.addEventListener('submit', function(e) {
 '        <div class="report-grid">\n' +
 '          <div class="report-slot">\n' +
 '            <span class="report-label">Report #[Report Number] — [Report Name]</span>\n' +
-'[Subject report info]\n' +
+'            <p>[Subject report info]</p>\n' +
 '          </div>\n' +
 '        </div>\n' +
 '\n' +
