@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimera Project - Secure Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-project="chimara">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-section">
+                <img src="../../img/HPSC.jpeg" alt="HPSC Logo" class="login-logo">
+                <h1>The Chimera Project</h1>
+                <p class="classified-badge">CLASSIFIED ACCESS</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">User ID</label>
+                    <input type="text" id="username" name="username" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <button type="submit" class="login-btn">ACCESS SYSTEM</button>
+            </form>
+            
+            <div class="security-notice">
+                <p>⚠️ Authorized Personnel Only</p>
+                <p class="small-text">All access attempts are logged and monitored by HPSC Security Division</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../auth.js"></script>
+</body>
+</html>

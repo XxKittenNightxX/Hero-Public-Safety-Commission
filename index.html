@@ -1,52 +1,379 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Hero Public Safety Commission - Home</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
-        <header class="site-header">
-            <img src="img/HPSC.jpeg" alt="Hero Public Safety Commission emblem" class="emblem" />
-            <div>
-                <div class="site-title">Hero Public Safety Commission</div>
-                <div class="site-sub">Protecting our community — public safety & oversight</div>
-            </div>
-        </header>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Public Safety Commission - Project Directory</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
         <div class="container">
-            <nav class="site-nav">
-                <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="protected.html">Protected</a>
+            <div class="logo">
+                <img src="img/HPSC.jpeg" alt="Hero Public Safety Commission Logo" class="logo-image">
+                <div class="logo-text">
+                    <h1>Hero Public Safety Commission</h1>
+                    <p class="tagline">Protecting Society Through Hero Excellence</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
-
-            <section class="hero card" style="margin-top:18px">
-                <h1>Welcome</h1>
-                <p>The Hero Public Safety Commission works to ensure a safe, fair, and accountable community. Use the links above to sign in and access restricted resources.</p>
-
-                <div class="status" id="status">Checking login status…</div>
-            </section>
-
-            <footer class="site-footer">© <span id="year"></span> Hero Public Safety Commission</footer>
         </div>
+    </header>
 
-        <script src="js/auth.js"></script>
-        <script>
-            // small scripts for status and year
-            document.getElementById('year').textContent = new Date().getFullYear();
-            const statusEl = document.getElementById('status');
-            if (Auth.isLoggedIn()) {
-                statusEl.innerHTML = `Logged in as <strong>${Auth.getUsername()}</strong>. `;
-                const btn = document.createElement('button');
-                btn.textContent = 'Logout';
-                btn.className = 'btn btn-secondary';
-                btn.addEventListener('click', () => { Auth.logout(); location.reload(); });
-                statusEl.appendChild(btn);
-            } else {
-                statusEl.innerHTML = 'Not logged in.';
-            }
-        </script>
-    </body>
+    <section class="hero-section">
+        <div class="container">
+            <h2>Active Commission Projects</h2>
+            <p>Overseeing hero operations and public safety initiatives across Japan</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>Current Projects</h2>
+            
+            <div class="search-container">
+                <input type="text" id="projectSearch" class="search-bar" placeholder="Search projects...">
+            </div>
+            
+            <div class="project-grid">
+                <!-- Hero Ranking System -->
+                <div class="project-card priority-high">
+                    <div class="project-header">
+                        <h3>National Hero Billboard Chart</h3>
+                        <span class="badge priority">Priority</span>
+                    </div>
+                    <p class="project-description">
+                        Quarterly ranking and evaluation system measuring hero performance, public approval ratings, 
+                        resolved incidents, and contribution to public safety. Maintains transparency and accountability 
+                        within the professional hero community.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Rankings Division</span>
+                    </div>
+                </div>
+
+                <!-- Hero License Program -->
+                <div class="project-card priority-high">
+                    <div class="project-header">
+                        <h3>Professional Hero Licensing Program</h3>
+                        <span class="badge priority">Priority</span>
+                    </div>
+                    <p class="project-description">
+                        Administration of provisional and professional hero license examinations. Includes curriculum 
+                        development, testing standards, renewal procedures, and enforcement of licensing violations.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Licensing Bureau</span>
+                    </div>
+                </div>
+
+                <!-- Special Operations -->
+                <div class="project-card priority-classified">
+                    <div class="project-header">
+                        <h3>Project: Hawks Initiative</h3>
+                        <span class="badge classified">Classified</span>
+                    </div>
+                    <p class="project-description">
+                        Deep-cover intelligence operation focused on infiltrating villain organizations. 
+                        Strategic placement of select heroes for long-term intelligence gathering on emerging threats.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Special Operations</span>
+                    </div>
+                </div>
+
+                <!-- Chimera Project -->
+                <a href="projects/chimara/login.html" class="project-link">
+                    <div class="project-card priority-classified">
+                        <div class="project-header">
+                            <h3>The Chimera Project</h3>
+                            <span class="badge classified">Classified</span>
+                        </div>
+                        <p class="project-description">
+                            The Chimara Project is an innovative initiative 
+                            designed to train and empower 
+                            youth to become formidable heroes. This 
+                            program aims to ensure that there is always 
+                            a new generation of protectors ready to 
+                            step in whenever an active hero retires or, 
+                            unfortunately, passes away.
+                        </p>
+                        <div class="project-meta">
+                            <span class="status active">Active</span>
+                            <span class="department">Special Operations</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quirk Registry -->
+                <a href="projects/Quirk Registry/login.html" class="project-link">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>National Quirk Registration Database</h3>
+                            <span class="badge standard">Standard</span>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive database tracking quirk manifestations, characteristics, and hereditary patterns. 
+                            Essential for public safety planning and hero-villain incident response coordination.
+                        </p>
+                        <div class="project-meta">
+                            <span class="status active">Active</span>
+                            <span class="department">Data Management</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Villain Rehabilitation -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Villain Rehabilitation Initiative</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Programs aimed at reforming apprehended villains through counseling, quirk management training, 
+                        and social reintegration support. Coordination with Tartarus and regional detention facilities.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Rehabilitation Services</span>
+                    </div>
+                </div>
+
+                <!-- Emergency Response -->
+                <div class="project-card priority-high">
+                    <div class="project-header">
+                        <h3>Rapid Hero Deployment System</h3>
+                        <span class="badge priority">Priority</span>
+                    </div>
+                    <p class="project-description">
+                        Real-time incident monitoring and hero dispatch coordination. Integration with police departments, 
+                        emergency services, and hero agencies for optimal response times during crisis situations.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Emergency Operations</span>
+                    </div>
+                </div>
+
+                <!-- Hero School Oversight -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Hero Academy Oversight Program</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Regulatory oversight of hero training institutions including U.A., Shiketsu, and other accredited 
+                        academies. Safety protocols, curriculum standards, and internship program coordination.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Education Division</span>
+                    </div>
+                </div>
+
+                <!-- Support Equipment -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Hero Support Equipment Certification</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Testing and approval of support items, hero costumes, and specialized equipment. Collaboration 
+                        with support companies to ensure safety standards and legal compliance of hero gear.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Equipment Standards</span>
+                    </div>
+                </div>
+
+                <!-- Meta Liberation Army Counter -->
+                <div class="project-card priority-classified">
+                    <div class="project-header">
+                        <h3>Paranormal Liberation Front Counter-Operations</h3>
+                        <span class="badge classified">Classified</span>
+                    </div>
+                    <p class="project-description">
+                        Strategic intelligence gathering and tactical response planning against organized villain networks. 
+                        Coordination with top heroes and law enforcement for large-scale threat neutralization.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Special Operations</span>
+                    </div>
+                </div>
+
+                <!-- International Hero Relations -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>International Hero Relations Program</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Diplomatic coordination with foreign hero commissions and agencies. Management of international 
+                        hero exchanges, cross-border villain pursuit protocols, and global hero standard initiatives.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">International Affairs</span>
+                    </div>
+                </div>
+
+                <!-- Public Relations -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Hero Image Management & PR</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Strategic public relations campaigns to maintain public trust in the hero system. Crisis 
+                        communication, media training for heroes, and management of public perception during incidents.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Public Relations</span>
+                    </div>
+                </div>
+
+                <!-- Nomu Investigation -->
+                <div class="project-card priority-classified">
+                    <div class="project-header">
+                        <h3>Artificial Human Research Task Force</h3>
+                        <span class="badge classified">Classified</span>
+                    </div>
+                    <p class="project-description">
+                        Investigation into engineered villains (Nomu) and bio-modification threats. Analysis of quirk 
+                        manipulation techniques and development of counter-strategies against artificial combatants.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Research & Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Disaster Response -->
+                <div class="project-card priority-high">
+                    <div class="project-header">
+                        <h3>Large-Scale Disaster Response Framework</h3>
+                        <span class="badge priority">Priority</span>
+                    </div>
+                    <p class="project-description">
+                        Coordination protocols for natural disasters and large-scale emergencies. Resource allocation, 
+                        hero specialization deployment, and civilian evacuation procedures during catastrophic events.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Emergency Operations</span>
+                    </div>
+                </div>
+
+                <!-- Youth Hero Program -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Work-Study Authorization Program</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Oversight of provisional license holder work-study placements with professional heroes. 
+                        Monitoring student safety, evaluating hero mentor qualifications, and tracking training progress.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Education Division</span>
+                    </div>
+                </div>
+
+                <!-- Hero Ethics -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Hero Conduct & Ethics Enforcement</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Investigation of hero misconduct, ethics violations, and abuse of authority. License suspension 
+                        reviews, disciplinary actions, and enforcement of professional hero code of conduct.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Ethics Committee</span>
+                    </div>
+                </div>
+
+                <!-- Quirk Counseling -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Quirk Counseling & Support Services</h3>
+                        <span class="badge standard">Standard</span>
+                    </div>
+                    <p class="project-description">
+                        Psychological support and quirk management training for citizens struggling with quirk control. 
+                        Early intervention programs to prevent quirk-related incidents and social integration support.
+                    </p>
+                    <div class="project-meta">
+                        <span class="status active">Active</span>
+                        <span class="department">Social Services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About the Commission</h2>
+            <p>
+                The Hero Public Safety Commission serves as the primary governing body overseeing all professional 
+                hero activities in Japan. Established in the early days of quirk emergence, our mission is to maintain 
+                public order, regulate hero operations, and ensure the safety of all citizens in a world where 80% of 
+                the population possesses unique abilities.
+            </p>
+            <p>
+                Through strategic coordination, rigorous licensing standards, and comprehensive oversight programs, 
+                we work to uphold the integrity of the hero system while adapting to evolving threats against society.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>Emergency Hero Dispatch</h3>
+                    <p>24/7 Incident Response: 110</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Licensing Bureau</h3>
+                    <p>Email: licensing@hpsc.go.jp</p>
+                </div>
+                <div class="contact-item">
+                    <h3>General Inquiries</h3>
+                    <p>Email: info@hpsc.go.jp</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Headquarters</h3>
+                    <p>Tokyo, Japan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hero Public Safety Commission. All Rights Reserved.</p>
+            <p class="disclaimer">Confidential information is protected under Hero Information Security Act</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
 </html>
