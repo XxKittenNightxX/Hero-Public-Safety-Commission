@@ -10,6 +10,25 @@ function loadQuirkData() {
     const data = quirkRegistryData[registryId];
     if (!data) return;
     
+    // Check clearance level access based on the subject's clearance requirement
+    if (data.clearanceNumber) {
+        const accessLevels = {
+            1: 'viewer',
+            2: 'clerk',
+            3: 'researcher',
+            4: 'admin',
+            5: 'director'
+        };
+        
+        const requiredAccess = accessLevels[data.clearanceNumber];
+        if (requiredAccess && !hasAccessLevel(requiredAccess)) {
+            document.body.style.display = 'none';
+            alert(`ACCESS DENIED: ${data.clearanceLevel} required\nYour access level: ${sessionStorage.getItem('accessLevel')}`);
+            window.location.href = '../Registry.html';
+            return;
+        }
+    }
+    
     // Populate basic info
     const subjectNameElement = document.querySelector('.subject-name');
     subjectNameElement.textContent = data.subjectName;
