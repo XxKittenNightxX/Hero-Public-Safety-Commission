@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Page Generator - HPSC Chimera Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #8e44ad;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(142, 68, 173, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-section h2 {
+            color: #9b59b6;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(142, 68, 173, 0.4);
+            border-radius: 6px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        #output {
+            background: #1a1a2e;
+            border: 2px solid #8e44ad;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #htmlCode {
+            background: #0d1117;
+            color: #c9d1d9;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .tag-input {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag-input input {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .report-section {
+            background: rgba(142, 68, 173, 0.1);
+            border: 1px solid rgba(142, 68, 173, 0.3);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .report-section h3 {
+            color: #9b59b6;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .js-indicator {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: #ffc107;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body data-project="chimara">
+    <script src="../auth.js"></script>
+    <script>protectPage('admin');</script>
+    <div class="container">
+        <h1>📋 Subject Page Generator</h1>
+        <p class="subtitle">Interactive tool to generate subject HTML pages from the template</p>
+        <div class="js-indicator">⚙️ This page contains JavaScript for form processing and HTML generation</div>
+
+        <form id="generatorForm">
+            <!-- Basic Information -->
+            <div class="form-section">
+                <h2>Basic Information</h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Subject ID *</label>
+                        <input type="number" id="subjectId" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject Name *</label>
+                        <input type="text" id="subjectName" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Status *</label>
+                        <select id="status" required>
+                            <option value="">Select Status</option>
+                            <option value="Alive">Alive</option>
+                            <option value="Deceased">Deceased</option>
+                            <option value="Alive Tracked">Alive Tracked</option>
+                            <option value="Tracked">Tracked</option>
+                            <option value="MIA">MIA</option>
+                            <option value="KIA">KIA</option>
+                            <option value="Missing">Missing</option>
+                            <option value="Under Observation">Under Observation</option>
+                            <option value="Escaped">Escaped</option>
+                            <option value="Terminated">Terminated</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Classification *</label>
+                        <input type="text" id="classification" placeholder="e.g., SS, A, B+" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="text" id="age" placeholder="e.g., 25">
+                    </div>
+                    <div class="form-group">
+                        <label>Birth Date</label>
+                        <input type="text" id="birthDate" placeholder="e.g., January 15, 2000">
+                    </div>
+                    <div class="form-group">
+                        <label>Blood Type</label>
+                        <input type="text" id="bloodType" placeholder="e.g., O+">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Height</label>
+                        <input type="text" id="height" placeholder="e.g., 5'10&quot;">
+                    </div>
+                    <div class="form-group">
+                        <label>Clearance Level</label>
+                        <input type="text" id="clearanceLevel" placeholder="e.g., Level 4">
+                    </div>
+                    <div class="form-group">
+                        <label>Recruitment Date</label>
+                        <input type="text" id="recruitmentDate" placeholder="e.g., March 2020">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Titles -->
+            <div class="form-section">
+                <h2>Titles</h2>
+                <div class="tag-input">
+                    <input type="text" id="tag1" placeholder="Title 1">
+                    <input type="text" id="tag2" placeholder="Title 2">
+                    <input type="text" id="tag3" placeholder="Title 3">
+                    <input type="text" id="tag4" placeholder="Title 4">
+                    <input type="text" id="tag5" placeholder="Title 5">
+                </div>
+            </div>
+
+            <!-- Quirk Information -->
+            <div class="form-section">
+                <h2>Quirk Information</h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Quirk Name</label>
+                        <input type="text" id="quirkName" placeholder="e.g., Energy Manipulation">
+                    </div>
+                    <div class="form-group">
+                        <label>Quirk Type</label>
+                        <input type="text" id="quirkType" placeholder="e.g., Emitter">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Quirk Description</label>
+                    <textarea id="quirkDescription" placeholder="Detailed description of the quirk..."></textarea>
+                </div>
+            </div>
+
+            <!-- Abilities -->
+            <div class="form-section">
+                <h2>Abilities</h2>
+                <div class="form-group">
+                    <label>Ability 1 Name</label>
+                    <input type="text" id="ability1Name" placeholder="e.g., Mind Control">
+                </div>
+                <div class="form-group">
+                    <label>Ability 1 Description</label>
+                    <textarea id="ability1Desc"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Ability 2 Name</label>
+                    <input type="text" id="ability2Name">
+                </div>
+                <div class="form-group">
+                    <label>Ability 2 Description</label>
+                    <textarea id="ability2Desc"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Ability 3 Name</label>
+                    <input type="text" id="ability3Name">
+                </div>
+                <div class="form-group">
+                    <label>Ability 3 Description</label>
+                    <textarea id="ability3Desc"></textarea>
+                </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="form-section">
+                <h2>Additional Notes</h2>
+                <div class="form-group">
+                    <textarea id="additionalNotes" placeholder="Any additional information about the subject..."></textarea>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="form-section">
+                <h2>Reports</h2>
+                <div class="report-section">
+                    <h3>Report 1</h3>
+                    <div class="form-group">
+                        <label>Report Name</label>
+                        <input type="text" id="report1Name" placeholder="e.g., Creation">
+                    </div>
+                    <div class="form-group">
+                        <label>Report Content</label>
+                        <textarea id="report1Content"></textarea>
+                    </div>
+                </div>
+                <div class="report-section">
+                    <h3>Report 2</h3>
+                    <div class="form-group">
+                        <label>Report Name</label>
+                        <input type="text" id="report2Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Report Content</label>
+                        <textarea id="report2Content"></textarea>
+                    </div>
+                </div>
+                <div class="report-section">
+                    <h3>Report 3</h3>
+                    <div class="form-group">
+                        <label>Report Name</label>
+                        <input type="text" id="report3Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Report Content</label>
+                        <textarea id="report3Content"></textarea>
+                    </div>
+                </div>
+                <div class="report-section">
+                    <h3>Report 4</h3>
+                    <div class="form-group">
+                        <label>Report Name</label>
+                        <input type="text" id="report4Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Report Content</label>
+                        <textarea id="report4Content"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Generate HTML</button>
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('generatorForm').reset()">Clear Form</button>
+        </form>
+
+        <div id="output">
+            <h2>Generated HTML</h2>
+            <p style="color: #aaa; margin-bottom: 15px;">Save this file as: <strong id="filename"></strong> in the <code>list/</code> folder</p>
+            <button class="btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button class="btn btn-secondary" onclick="downloadHTML()">Download File</button>
+            <pre id="htmlCode"></pre>
+        </div>
+    </div>
+
+    <script>
+        let generatedHTML = '';
+
+        document.getElementById('generatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateHTML();
+        });
+
+        function generateHTML() {
+            const subjectId = document.getElementById('subjectId').value;
+            const subjectName = document.getElementById('subjectName').value;
+            const status = document.getElementById('status').value;
+            const statusClass = status.toLowerCase().replace(/\s+/g, '-');
+            
+            const templateContent = `<!DOCTYPE html>
+<html lang="en">
+<!--
+Subject ID         - ${String(subjectId).padStart(4, '0')}
+Full Name          - ${subjectName}
+
+Alive or Deceased  - ${statusClass}
+Status             - ${status}
+
+CLASSIFICATION     - ${document.getElementById('classification').value} Class
+Age                - ${document.getElementById('age').value || 'Unknown'}
+Birth Date         - ${document.getElementById('birthDate').value || 'Unknown'}
+Blood Type         - ${document.getElementById('bloodType').value || 'Unknown'}
+Height             - ${document.getElementById('height').value || 'Unknown'}
+Clearance Level    - ${document.getElementById('clearanceLevel').value || 'Level 1'}
+Recruitment Date   - ${document.getElementById('recruitmentDate').value || 'Unknown'}
+Titles             - ${document.getElementById('tag1').value || ''}, ${document.getElementById('tag2').value || ''}, ${document.getElementById('tag3').value || ''}, ${document.getElementById('tag4').value || ''}, ${document.getElementById('tag5').value || ''}
+Subject Image      - ../img/Placeholder.jpg
+
+Quirk Name         - ${document.getElementById('quirkName').value || 'Unknown'}
+Quirk Type         - ${document.getElementById('quirkType').value || 'Unknown'}
+Quirk Description  - ${document.getElementById('quirkDescription').value || 'No description available.'}
+
+Ability 1 Name     - ${document.getElementById('ability1Name').value || 'Ability 1'}
+Ability 1 Desc     - ${document.getElementById('ability1Desc').value || 'No description available.'}
+
+Ability 2 Name     - ${document.getElementById('ability2Name').value || 'Ability 2'}
+Ability 2 Desc     - ${document.getElementById('ability2Desc').value || 'No description available.'}
+
+Ability 3 Name     - ${document.getElementById('ability3Name').value || 'Ability 3'}
+Ability 3 Desc     - ${document.getElementById('ability3Desc').value || 'No description available.'}
+
+Additional Notes   - ${document.getElementById('additionalNotes').value || 'No additional notes.'}
+
+Report 1 Name      - ${document.getElementById('report1Name').value || 'Report 1'}
+Report 1 Content   - ${document.getElementById('report1Content').value || 'No content available.'}
+
+Report 2 Name      - ${document.getElementById('report2Name').value || 'Report 2'}
+Report 2 Content   - ${document.getElementById('report2Content').value || 'No content available.'}
+
+Report 3 Name      - ${document.getElementById('report3Name').value || 'Report 3'}
+Report 3 Content   - ${document.getElementById('report3Content').value || 'No content available.'}
+
+Report 4 Name      - ${document.getElementById('report4Name').value || 'Report 4'}
+Report 4 Content   - ${document.getElementById('report4Content').value || 'No content available.'}
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject #${subjectId} - ${subjectName}</title>
+    <link rel="stylesheet" href="../../style.css    ">
+    <link rel="stylesheet" href="../subject-detail-style.css">
+</head>
+<body>
+    <header class="project-header">
+        <div class="container">
+            <div class="header-content">
+                <img src="../../../../img/HPSC.jpeg" alt="HPSC Logo" class="header-logo">
+                <div class="header-text">
+                    <h1>The Chimera Project</h1>
+                    <p class="project-subtitle">Next Generation Hero Development Program</p>
+                </div>
+            </div>
+            <nav class="project-nav">
+                <a href="../../home.html">Dashboard</a>
+                <a href="../list.html">Subjects</a>
+                <a href="../../Classifications.html">Classifications</a>
+                <a href="../../../../index.html" class="logout-btn">← Logout</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="subject-page">
+        <div class="container">
+            <div class="subject-header">
+                <div class="subject-id">SUBJECT #${String(subjectId).padStart(4, '0')}</div>
+                <h1 class="subject-title">${subjectName}</h1>
+                <div class="titles-row">
+                    <span class="title-badge">${document.getElementById('tag1').value || ''}</span>
+                    <span class="title-badge">${document.getElementById('tag2').value || ''}</span>
+                    <span class="title-badge">${document.getElementById('tag3').value || ''}</span>
+                    <span class="title-badge">${document.getElementById('tag4').value || ''}</span>
+                    <span class="title-badge">${document.getElementById('tag5').value || ''}</span>
+                </div>
+                <div class="status-info">
+                    <span class="status-badge-large ${statusClass}">${status}</span>
+                    <span class="classification-badge">${document.getElementById('classification').value} Class</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Basic Information</h2>
+                <div class="basic-info-layout">
+                    <div class="subject-image-container">
+                        <img src="../img/Placeholder.jpg" alt="Subject ${String(subjectId).padStart(4, '0')} - ${subjectName}" class="subject-image">
+                        <div class="image-label">SUBJECT PHOTOGRAPH</div>
+                    </div>
+                    <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Subject ID</div>
+                        <div class="info-value">#${String(subjectId).padStart(4, '0')}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Name</div>
+                        <div class="info-value">${subjectName}</div>
+                    </div>
+                    <div class="info-item status-item">
+                        <div class="info-label">Status</div>
+                        <div class="info-value">
+                            <span class="status-badge-small ${statusClass}">${status}</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Classification</div>
+                        <div class="info-value">${document.getElementById('classification').value} Class</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Age</div>
+                        <div class="info-value">${document.getElementById('age').value || 'Unknown'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Birth Date</div>
+                        <div class="info-value">${document.getElementById('birthDate').value || 'Unknown'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Blood Type</div>
+                        <div class="info-value">${document.getElementById('bloodType').value || 'Unknown'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Height</div>
+                        <div class="info-value">${document.getElementById('height').value || 'Unknown'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Clearance Level</div>
+                        <div class="info-value">${document.getElementById('clearanceLevel').value || 'Level 1'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Recruitment Date</div>
+                        <div class="info-value">${document.getElementById('recruitmentDate').value || 'Unknown'}</div>
+                    </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="info-section">
+                <h2>Quirk Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Quirk Name</div>
+                        <div class="info-value">${document.getElementById('quirkName').value || 'Unknown'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Quirk Type</div>
+                        <div class="info-value">${document.getElementById('quirkType').value || 'Unknown'}</div>
+                    </div>
+                </div>
+                <p class="description">
+                    ${document.getElementById('quirkDescription').value || 'No description available.'}
+                </p>
+            </div>
+            
+            <div class="info-section">
+                <h2>Abilities</h2>
+                
+                <div class="ability-item">
+                    <div class="ability-header">
+                        <h3 class="ability-name">${document.getElementById('ability1Name').value || 'Ability 1'}</h3>
+                    </div>
+                    <p class="ability-description">${document.getElementById('ability1Desc').value || 'No description available.'}</p>
+                </div>
+
+                <div class="ability-item">
+                    <div class="ability-header">
+                        <h3 class="ability-name">${document.getElementById('ability2Name').value || 'Ability 2'}</h3>
+                    </div>
+                    <p class="ability-description">${document.getElementById('ability2Desc').value || 'No description available.'}</p>
+                </div>
+
+                <div class="ability-item">
+                    <div class="ability-header">
+                        <h3 class="ability-name">${document.getElementById('ability3Name').value || 'Ability 3'}</h3>
+                    </div>
+                    <p class="ability-description">${document.getElementById('ability3Desc').value || 'No description available.'}</p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Notes</h2>
+                <p class="description">
+                    ${document.getElementById('additionalNotes').value || 'No additional notes.'}
+                </p>
+            </div>
+
+            <div class="info-section">
+                <h2>Reports</h2>
+                
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 1</span>
+                        <span class="report-title">${document.getElementById('report1Name').value || 'Report 1'}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>${document.getElementById('report1Content').value || 'No content available.'}</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 2</span>
+                        <span class="report-title">${document.getElementById('report2Name').value || 'Report 2'}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>${document.getElementById('report2Content').value || 'No content available.'}</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 3</span>
+                        <span class="report-title">${document.getElementById('report3Name').value || 'Report 3'}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>${document.getElementById('report3Content').value || 'No content available.'}</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 4</span>
+                        <span class="report-title">${document.getElementById('report4Name').value || 'Report 4'}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>${document.getElementById('report4Content').value || 'No content available.'}</p>
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+
+            <div class="nav-buttons">
+                <a href="../list.html" class="btn btn-primary">← Back to Subject List</a>
+                <a href="../../home.html" class="btn btn-secondary">Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="project-footer">
+        <div class="container">
+            <p>&copy; 2025 Hero Public Safety Commission - The Chimera Project</p>
+            <p class="security-text">CLASSIFIED - Level 4 Clearance Required</p>
+        </div>
+    </footer>
+</body>
+</html>`;
+
+            generatedHTML = templateContent;
+            document.getElementById('htmlCode').textContent = templateContent;
+            document.getElementById('filename').textContent = `${subjectId} - ${subjectName}.html`;
+            document.getElementById('output').style.display = 'block';
+            document.getElementById('output').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(generatedHTML).then(() => {
+                alert('HTML copied to clipboard!');
+            });
+        }
+
+        function downloadHTML() {
+            const subjectId = document.getElementById('subjectId').value;
+            const subjectName = document.getElementById('subjectName').value;
+            const filename = `${subjectId} - ${subjectName}.html`;
+            
+            const blob = new Blob([generatedHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
