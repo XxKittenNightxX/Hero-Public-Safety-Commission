@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quirk Registry - Dashboard</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>body { visibility: hidden; }</style>
 </head>
-<body>
+<body data-project="quirk-registry">
+    <script src="../../projects/auth.js"></script>
+    <script>
+        protectPage('viewer');
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.visibility = 'visible';
+        });
+    </script>
     <header class="project-header">
         <div class="container">
             <div class="header-content">
