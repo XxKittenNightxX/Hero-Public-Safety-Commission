@@ -18,7 +18,7 @@ const subjectImages = {
     2037: 'Michi.png', //Michi
     2099: 'Mia.png', //Mia
     1821: 'Selene.png', //Selene
-    1471: 'Placeholder.jpg' //Yumeno
+    1471: 'Yumeno.png' //Yumeno
 };
 
 // Function to load the correct image for the current subject
@@ -41,3 +41,4 @@ function loadSubjectImage() {
 
 // Run when the page loads
 document.addEventListener('DOMContentLoaded', loadSubjectImage);
+
