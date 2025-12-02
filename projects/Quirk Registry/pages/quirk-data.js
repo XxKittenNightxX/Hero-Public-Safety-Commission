@@ -2078,7 +2078,7 @@ const quirkRegistryData = {
         quirkType: 'Emitter',
         quirkClassification: 'Common',
         hereditaryStatus: 'Hereditary',
-        villainTag: 'WATCH LIST ',
+        villainTag: 'WATCH LIST',
         description: `Allows the user to produce and pluck off sticky spheres from their head. The spheres stick to anything except the user. UA Class 1-A student.`,
         age: 24,
         birthDate: 'October 8th 2009',
@@ -2401,4 +2401,5 @@ const quirkRegistryData = {
         imagePath: 'img/Placeholder.jpg',
         clearanceNotice: `This record is classified under Level 5 clearance. UA Principal. Animal with quirk manifestation. Extremely high intelligence.`
     }
+
 };
