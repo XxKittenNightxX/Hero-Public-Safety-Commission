@@ -41,4 +41,3 @@ function loadSubjectImage() {
 
 // Run when the page loads
 document.addEventListener('DOMContentLoaded', loadSubjectImage);
-

@@ -24,7 +24,7 @@ const subjectData = {
         birthDate: 'July 3rd',
         bloodType: 'Type A',
         height: '5\' 4"',
-        clearanceLevel: 'Level 3',
+        clearanceLevel: 'Level 2',
         titles: [],
         quirkName: 'Progenitor',
         quirkType: 'Emitter',
@@ -39,14 +39,14 @@ const subjectData = {
         birthDate: 'January 18th',
         bloodType: 'Unknown BloodType',
         height: '5\' (outdated)',
-        clearanceLevel: 'Level 4',
+        clearanceLevel: 'Level 3',
         titles: [],
         quirkName: 'Puppeteer',
         quirkType: 'Emitter',
         quirkDescription: 'Subject can create a unbreakable highly reflective invisible thread that can be wrapped around the others and control them, or be able to pull his body to the location he attached himself to'
     },
-    1709: { // Raden
-        name: 'Raden',
+    1709: { // Raden Ashford
+        name: 'Raden Ashford',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'A Class Class',
@@ -54,14 +54,14 @@ const subjectData = {
         birthDate: 'February 27th',
         bloodType: 'Type O+',
         height: '5\' 7" (outdated)',
-        clearanceLevel: 'Level 4',
+        clearanceLevel: 'Level 3',
         titles: [],
         quirkName: 'Flux Shift',
         quirkType: 'Emitter',
         quirkDescription: 'Raden has the ability to modify energy'
     },
-    1751: { // Moon
-        name: 'Moon',
+    1751: { // Moon ██████
+        name: 'Moon ██████',
         status: 'Tracked',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'SS Class',
@@ -90,8 +90,8 @@ const subjectData = {
         quirkType: 'Emitter',
         quirkDescription: 'The individual\'s Quirk grants the capacity for shadow manipulation, allowing for the dynamic control of darkness within their environment. Concurrently, a significant enhancement in cognitive processing is observed, suggesting a direct link between the Quirk\'s function and heightened intellectual capabilities.'
     },
-    1755: { // Xanti
-        name: 'Xanti',
+    1755: { // Xanti Featherstone
+        name: 'Xanti Featherstone',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'A Class',
@@ -99,14 +99,14 @@ const subjectData = {
         birthDate: 'December 3rd',
         bloodType: 'Type O-',
         height: '5\' 5"',
-        clearanceLevel: 'Level 4',
+        clearanceLevel: 'Level 3',
         titles: [],
         quirkName: 'Fallen Angel',
         quirkType: 'Mutant',
         quirkDescription: 'the subject can manipulate each feather that comes off their body, to preform actions, while being able to manipulate the feathers form, the subject can also fly with their wings'
     },
-    1758: { // Arata
-        name: 'Arata',
+    1758: { // Arata Nakamura
+        name: 'Arata Nakamura',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'A Class',
@@ -114,7 +114,7 @@ const subjectData = {
         birthDate: 'January 4th',
         bloodType: 'Type O-',
         height: '5\' 6"',
-        clearanceLevel: 'Level 4',
+        clearanceLevel: 'Level 3',
         titles: [],
         quirkName: 'Quirkless',
         quirkType: 'N/a',
@@ -129,14 +129,14 @@ const subjectData = {
         birthDate: 'March 3rd',
         bloodType: 'Type AB',
         height: '5\' 5"',
-        clearanceLevel: 'Level 4',
+        clearanceLevel: 'Level 5',
         titles: ['The Enforcer', 'Violet Reaper'],
         quirkName: 'Celestial Conduit',
         quirkType: 'Emitter',
         quirkDescription: 'Akako , can create stable, two-way portals between any two locations she has memorized the precise coordinates of. These portals don\'t just open; they rip a shimmering tear in the fabric of reality, revealing a swirling, breathtaking galaxy within. The size of the portal is initially limited to a small circle, but with practice and training, Akako can expand the portal\'s diameter to a maximum of 5 meters.'
     },
-    1794: { // Haruto
-        name: 'Haruto',
+    1794: { // Haruto Sero
+        name: 'Haruto Sero',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'SS Class',
@@ -144,7 +144,7 @@ const subjectData = {
         birthDate: 'February 27th',
         bloodType: 'Type O+',
         height: '6\' (outdated)',
-        clearanceLevel: 'Level 5',
+        clearanceLevel: 'Level 4',
         titles: [],
         quirkName: 'Gravity Manipulation',
         quirkType: 'Emitter',
@@ -166,8 +166,8 @@ const subjectData = {
         quirkType: 'Emmitter & Mutant',
         quirkDescription: 'can manipulate her the robotic part of her body and can manipulate it to form to whatever she can think of (Needs to be studied more)'
     },
-    2008: { // Violet
-        name: 'Violet',
+    2008: { // Violet Shadowmere
+        name: 'Violet Shadowmere',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'SS Class',
@@ -181,8 +181,8 @@ const subjectData = {
         quirkType: 'Emmitter & Mutant',
         quirkDescription: 'The subject possesses the capacity for somatic morphing, enabling the transformation of her physical form into that of other biological organisms. This process necessitates the acquisition of comprehensive biological data pertaining to the target species. Furthermore, the subject demonstrates the ability to undergo partial transformations, manifesting specific anatomical or physiological characteristics of the selected creature..'
     },
-    2012: { // Solar
-        name: 'Solar',
+    2012: { // Solar Brightwell
+        name: 'Solar Brightwell',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'SS Class',
@@ -190,14 +190,14 @@ const subjectData = {
         birthDate: 'November 24th',
         bloodType: 'Type O+',
         height: '4\' 8"',
-        clearanceLevel: 'Level 5',
+        clearanceLevel: 'Level 4',
         titles: [],
         quirkName: 'Solar Energy',
         quirkType: 'Emitter',
         quirkDescription: 'Can absorb and convert solar energy into various forms of energy projection and enhancement.'
     },
-    2037: { // Michi
-        name: 'Michi',
+    2037: { // Michi Yuma
+        name: 'Michi Yuma',
         status: 'Deceased',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'B Class',
@@ -205,14 +205,14 @@ const subjectData = {
         birthDate: 'January 15th',
         bloodType: 'Type O-',
         height: '4\' 5"',
-        clearanceLevel: 'Level 5',
+        clearanceLevel: 'Level 4',
         titles: [],
         quirkName: 'Regenerator',
         quirkType: 'Emitter',
         quirkDescription: 'Can visualize and create optimal paths through any environment or situation.'
     },
-    2099: { // Mia
-        name: 'Mia',
+    2099: { // Mia Inferno
+        name: 'Mia Inferno',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'S Class',
@@ -226,8 +226,8 @@ const subjectData = {
         quirkType: 'Emitter',
         quirkDescription: 'This Quirk grants fire-based abilities fueled by "Infernal Energy." Increased energy use intensifies flames, causing a physical transformation into a demonic form with enhanced aggression. Once energy output lessens, the transformation and aggressive traits subside.'
     },
-    1821: { // Selene
-        name: 'Selene',
+    1821: { // Selene Moonshadow
+        name: 'Selene Moonshadow',
         status: 'Under Observation',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'Unclassified',
@@ -242,23 +242,8 @@ const subjectData = {
         quirkType: 'Emitter',
         quirkDescription: 'The user manifests an "Objective Oracle," a mental voice that provides strategic guidance. When the user sets a specific goal and identifies a target, the Oracle offers the most effective path to achieve that objective. The Oracle\'s knowledge isn\'t universal, but it\'s omniscient within the context of the user\'s goals, delivering detailed insights and strategic advice.'
     },
-    2008: { // Violet
-        name: 'Violet',
-        status: 'Missing',
-        // Tracked, Missing, Terminated, Deceased, Alive
-        classification: 'SS Class',
-        age: 16,
-        birthDate: 'November 1st',
-        bloodType: 'Type B',
-        height: '5\' (outdated)',
-        clearanceLevel: 'Level 5',
-        titles: ['The Walking Calamity'],
-        quirkName: 'Transmutation',
-        quirkType: 'Emmitter & Mutant',
-        quirkDescription: 'The subject possesses the capacity for somatic morphing, enabling the transformation of her physical form into that of other biological organisms. This process necessitates the acquisition of comprehensive biological data pertaining to the target species. Furthermore, the subject demonstrates the ability to undergo partial transformations, manifesting specific anatomical or physiological characteristics of the selected creature..'
-    },
-        2012: { // Solar
-        name: 'Solar',
+        2012: { // Solar Brightwell
+        name: 'Solar Brightwell',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'SS',
@@ -266,7 +251,7 @@ const subjectData = {
         birthDate: 'November 24th',
         bloodType: 'O+',
         height: '4\'8" (outdated)',
-        clearanceLevel: 'Level 5',
+        clearanceLevel: 'Level 4',
         titles: [],
         quirkName: 'Sun',
         quirkType: 'Emitter',
@@ -281,14 +266,14 @@ const subjectData = {
         birthDate: 'January 15th',
         bloodType: 'O-',
         height: '4\' 5"',
-        clearanceLevel: 'Level 5',
+        clearanceLevel: 'Level 2',
         titles: [],
         quirkName: 'Regenerator',
         quirkType: 'Emitter',
         quirkDescription: 'The body of the person will always and forever keep regenerating back, if a body is too beyond repair, it\'ll repair itself from the living tissue closest or furthest apart.'
     },
-        2099: { // Mia
-        name: 'Mia',
+        2099: { // Mia Inferno
+        name: 'Mia Inferno',
         status: 'Missing',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'S',
@@ -302,8 +287,8 @@ const subjectData = {
         quirkType: 'Emitter',
         quirkDescription: 'This Quirk grants fire-based abilities fueled by "Infernal Energy." Increased energy use intensifies flames, causing a physical transformation into a demonic form with enhanced aggression. Once energy output lessens, the transformation and aggressive traits subside.'
     },
-        1471: { // Yumeno
-        name: 'Yumeno',
+        1471: { // Yumeno Pixelhart
+        name: 'Yumeno Pixelhart',
         status: 'Graduated',
         // Tracked, Missing, Terminated, Deceased, Alive
         classification: 'SS',

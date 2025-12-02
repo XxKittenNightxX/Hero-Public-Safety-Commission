@@ -346,25 +346,67 @@ function applyFilters(searchQuery = '') {
     renderSubjects(filteredSubjects);
 }
 
+// Save filters to localStorage
+function saveFilters() {
+    const searchValue = document.getElementById('searchBox').value;
+    const statusValue = document.getElementById('statusFilter').value;
+    const clearanceValue = document.getElementById('clearanceFilter').value;
+    const pagesActive = document.getElementById('filterPages').classList.contains('active');
+    
+    localStorage.setItem('chimaraSearchBox', searchValue);
+    localStorage.setItem('chimaraStatusFilter', statusValue);
+    localStorage.setItem('chimaraClearanceFilter', clearanceValue);
+    localStorage.setItem('chimaraPagesFilter', pagesActive);
+}
+
+// Load filters from localStorage
+function loadFilters() {
+    const savedSearch = localStorage.getItem('chimaraSearchBox') || '';
+    const savedStatus = localStorage.getItem('chimaraStatusFilter') || 'all';
+    const savedClearance = localStorage.getItem('chimaraClearanceFilter') || 'all';
+    const savedPages = localStorage.getItem('chimaraPagesFilter') === 'true';
+    
+    document.getElementById('searchBox').value = savedSearch;
+    document.getElementById('statusFilter').value = savedStatus;
+    document.getElementById('clearanceFilter').value = savedClearance;
+    
+    if (savedPages) {
+        document.getElementById('filterPages').classList.add('active');
+    }
+    
+    activeFilters.status = savedStatus;
+    activeFilters.clearance = savedClearance;
+    activeFilters.pages = savedPages;
+    
+    // Apply filters if any were saved
+    if (savedSearch || savedStatus !== 'all' || savedClearance !== 'all' || savedPages) {
+        applyFilters(savedSearch);
+    }
+}
+
 // Event listeners
 document.getElementById('searchBox').addEventListener('input', (e) => {
     applyFilters(e.target.value);
+    saveFilters();
 });
 
 document.getElementById('statusFilter').addEventListener('change', function() {
     activeFilters.status = this.value;
     applyFilters(document.getElementById('searchBox').value);
+    saveFilters();
 });
 
 document.getElementById('clearanceFilter').addEventListener('change', function() {
     activeFilters.clearance = this.value;
     applyFilters(document.getElementById('searchBox').value);
+    saveFilters();
 });
 
 document.getElementById('filterPages').addEventListener('click', function() {
     this.classList.toggle('active');
     activeFilters.pages = this.classList.contains('active');
     applyFilters(document.getElementById('searchBox').value);
+    saveFilters();
 });
 
 document.getElementById('clearFilter').addEventListener('click', () => {
@@ -377,8 +419,18 @@ document.getElementById('clearFilter').addEventListener('click', () => {
         clearance: 'all',
         pages: false
     };
+    
+    // Clear localStorage
+    localStorage.removeItem('chimaraSearchBox');
+    localStorage.removeItem('chimaraStatusFilter');
+    localStorage.removeItem('chimaraClearanceFilter');
+    localStorage.removeItem('chimaraPagesFilter');
+    
     applyFilters('');
 });
 
-// Initial render
-renderSubjects(allSubjects);
+// Initial render - load saved filters first
+loadFilters();
+if (!localStorage.getItem('chimaraSearchBox')) {
+    renderSubjects(allSubjects);
+}
