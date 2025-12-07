@@ -744,7 +744,7 @@ const quirkRegistryData = {
         registryOfficer: 'Kuroda Arata',
         lastUpdated: 'September 2025',
         associatedPrograms: [],
-        imagePath: './img/Ebony.png',
+        imagePath: 'img/Ebony.png',
         clearanceNotice: `This record is classified under Level 3 clearance. Subject exhibits stable quirk control.`
     },
     
@@ -1264,7 +1264,7 @@ const quirkRegistryData = {
         registryOfficer: 'Gran Torino',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Toshinori.jpg',
         clearanceNotice: `This record is classified under Level 5 clearance. Symbol of Peace. Retired hero.`
     },
 
@@ -1287,7 +1287,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Enji.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. #1 Pro Hero.`
     },
 
@@ -1310,7 +1310,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Keigo.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. #2 Pro Hero. HPSC operative.`
     },
 
@@ -1333,7 +1333,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Tsunagu.jpg',
         clearanceNotice: `This record is classified under Level 3 clearance. #4 Pro Hero.`
     },
 
@@ -1419,7 +1419,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Rumi.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. #5 Pro Hero.`
     },
 
@@ -1442,20 +1442,20 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Taishiro.webp',
         clearanceNotice: `This record is classified under Level 3 clearance. #8 Pro Hero.`
     },
 
     3009: {
         registryId: 'QRK-3009',
-        subjectName: 'Shinya Kamihara',
+        subjectName: 'Mirai Sasaki',
         clearanceLevel: 'Level 4',
         clearanceNumber: 4,
         quirkName: 'Foresight',
         quirkType: 'Emitter',
         quirkClassification: 'Unique',
         hereditaryStatus: 'Hereditary',
-        description: `Allows the user to see into the future of a specific target after making eye contact and analyzing their vitals. Can predict movements up to one hour in advance. Former #7 Pro Hero (Sir Nighteye).`,
+        description: `Allows the user to see into the future of a specific target after making eye contact and analyzing their vitals. Can predict movements up to one hour in advance.`,
         age: 46,
         birthDate: 'January 2nd 1987',
         bloodType: 'Type AB',
@@ -1465,7 +1465,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Shinya Kamihara.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. Former #7 Pro Hero. Deceased.`
     },
 
@@ -1512,7 +1512,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Shota.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. Pro Hero and UA teacher.`
     },
 
@@ -1535,7 +1535,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Hizashi.webp',
         clearanceNotice: `This record is classified under Level 3 clearance. Pro Hero and UA teacher.`
     },
 
@@ -1558,7 +1558,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Nemuri.jpg',
         clearanceNotice: `This record is classified under Level 3 clearance. Pro Hero and UA teacher. Deceased.`
     },
 
@@ -1604,7 +1604,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Sorahiko.jpg',
         clearanceNotice: `This record is classified under Level 5 clearance. Retired Pro Hero. All Might's mentor.`
     },
 
@@ -1627,7 +1627,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Chiyo.jpg',
         clearanceNotice: `This record is classified under Level 3 clearance. UA medical staff.`
     },
 
@@ -1674,7 +1674,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Katsuki.png',
         clearanceNotice: `This record is classified under Level 3 clearance. UA student.`
     },
 
@@ -1697,7 +1697,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Shoto.jpg',
         clearanceNotice: `This record is classified under Level 3 clearance. UA student. Endeavor's son.`
     },
 
@@ -1720,7 +1720,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Ochaco.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1743,7 +1743,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Tenya.webp',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1766,7 +1766,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Eijiro.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1789,7 +1789,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Momo.png',
         clearanceNotice: `This record is classified under Level 3 clearance. UA student.`
     },
 
@@ -1812,7 +1812,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Denki.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1835,7 +1835,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Kyoka.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1858,7 +1858,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Mina.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1881,7 +1881,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Fumikage.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1927,7 +1927,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Hanta.jpeg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1950,7 +1950,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Mashirao.webp',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -1996,7 +1996,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Koji.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -2019,7 +2019,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Rikido.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -2042,7 +2042,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Mezo.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -2065,7 +2065,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Yuga.webp',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student. Artificial quirk.`
     },
 
@@ -2078,7 +2078,7 @@ const quirkRegistryData = {
         quirkType: 'Emitter',
         quirkClassification: 'Common',
         hereditaryStatus: 'Hereditary',
-        villainTag: 'WATCH LIST',
+        villainTag: 'WATCH LIST ',
         description: `Allows the user to produce and pluck off sticky spheres from their head. The spheres stick to anything except the user. UA Class 1-A student.`,
         age: 24,
         birthDate: 'October 8th 2009',
@@ -2089,7 +2089,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Minoru.jpg',
         clearanceNotice: `This record is classified under Level 2 clearance. UA student.`
     },
 
@@ -2114,7 +2114,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Tomura.jpg',
         clearanceNotice: `This record is classified under Level 5 clearance. EXTREMELY DANGEROUS. Leader of League of Villains.`
     },
 
@@ -2138,7 +2138,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Dabi.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. DANGEROUS. League of Villains member. Endeavor's son.`
     },
 
@@ -2162,7 +2162,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Himiko.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. DANGEROUS. League of Villains member.`
     },
 
@@ -2186,7 +2186,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Kurogiri.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. League of Villains member. Currently in custody.`
     },
 
@@ -2210,7 +2210,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Atsuhiro.jpg',
         clearanceNotice: `This record is classified under Level 3 clearance. League of Villains member.`
     },
 
@@ -2234,7 +2234,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Shuichi.jpg',
         clearanceNotice: `This record is classified under Level 3 clearance. League of Villains member.`
     },
 
@@ -2258,7 +2258,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Jin.webp',
         clearanceNotice: `This record is classified under Level 4 clearance. League of Villains member. Deceased.`
     },
 
@@ -2306,7 +2306,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/AllForOne.webp',
         clearanceNotice: `This record is classified under Level 5 clearance. EXTREMELY DANGEROUS. Currently imprisoned in Tartarus. Symbol of Evil.`
     },
 
@@ -2329,7 +2329,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Hitoshi.webp',
         clearanceNotice: `This record is classified under Level 3 clearance. UA student. Training under Aizawa.`
     },
 
@@ -2352,7 +2352,7 @@ const quirkRegistryData = {
         registryOfficer: 'Enji Todoroki',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Toya.webp',
         clearanceNotice: `This record is classified under Level 5 clearance. EXTREMELY DANGEROUS. True identity of Dabi. Son of #1 Hero Endeavor.`
     },
 
@@ -2375,7 +2375,7 @@ const quirkRegistryData = {
         registryOfficer: 'UA Administration',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Oboro.jpg',
         clearanceNotice: `This record is classified under Level 4 clearance. Deceased. Body used to create Kurogiri. Former UA student.`
     },
 
@@ -2398,10 +2398,7 @@ const quirkRegistryData = {
         registryOfficer: 'HPSC Admin',
         lastUpdated: 'December 2025',
         associatedPrograms: [],
-        imagePath: 'img/Placeholder.jpg',
+        imagePath: 'img/Nezu.webp',
         clearanceNotice: `This record is classified under Level 5 clearance. UA Principal. Animal with quirk manifestation. Extremely high intelligence.`
     }
-
 };
-
-
