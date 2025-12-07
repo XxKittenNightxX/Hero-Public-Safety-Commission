@@ -744,7 +744,7 @@ const quirkRegistryData = {
         registryOfficer: 'Kuroda Arata',
         lastUpdated: 'September 2025',
         associatedPrograms: [],
-        imagePath: 'img/Ebony.png',
+        imagePath: './img/Ebony.png',
         clearanceNotice: `This record is classified under Level 3 clearance. Subject exhibits stable quirk control.`
     },
     
@@ -2403,4 +2403,5 @@ const quirkRegistryData = {
     }
 
 };
+
 
