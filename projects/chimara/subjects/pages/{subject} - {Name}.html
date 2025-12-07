@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Subject ID         - {SUBJECT_ID_PADDED}
+Full Name          - {SUBJECT_NAME}
+
+Alive or Deceased  - {STATUS_CLASS}
+Status             - {STATUS_TEXT}
+
+CLASSIFICATION     - {CLASSIFICATION} Class
+Age                - {AGE}
+Birth Date         - {BIRTH_DATE}
+Blood Type         - {BLOOD_TYPE}
+Height             - {HEIGHT}
+Clearance Level    - {CLEARANCE_LEVEL}
+Recruitment Date   - {RECRUITMENT_DATE}
+Titles             - {TAG_1}, {TAG_2}, {TAG_3}, {TAG_4}, {TAG_5}
+Subject Image      - {SUBJECT_IMAGE_PATH}
+
+Quirk Name         - {QUIRK_NAME}
+Quirk Type         - {QUIRK_TYPE}
+Quirk Description  - {QUIRK_DESCRIPTION}
+
+Ability 1 Name     - {ABILITY_1_NAME}
+Ability 1 Desc     - {ABILITY_1_DESCRIPTION}
+
+Ability 2 Name     - {ABILITY_2_NAME}
+Ability 2 Desc     - {ABILITY_2_DESCRIPTION}
+
+Ability 3 Name     - {ABILITY_3_NAME}
+Ability 3 Desc     - {ABILITY_3_DESCRIPTION}
+
+Additional Notes   - {ADDITIONAL_NOTES}
+
+Report 1 Name      - {Report_1_Name}
+Report 1 Content   - {REPORT_1_CONTENT}
+
+Report 2 Name      - {Report_2_Name}
+Report 2 Content   - {REPORT_2_CONTENT}
+
+Report 3 Name      - {Report_3_Name}
+Report 3 Content   - {REPORT_3_CONTENT}
+
+Report 4 Name      - {Report_4_Name}
+Report 4 Content   - {REPORT_4_CONTENT}
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject #{SUBJECT_ID} - {SUBJECT_NAME}</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header class="project-header">
+        <div class="container">
+            <div class="header-content">
+                <img src="../../../../img/HPSC.jpeg" alt="HPSC Logo" class="header-logo">
+                <div class="header-text">
+                    <h1>The Chimera Project</h1>
+                    <p class="project-subtitle">Next Generation Hero Development Program</p>
+                </div>
+            </div>
+            <nav class="project-nav">
+                <a href="../../home.html">Dashboard</a>
+                <a href="../list.html">Subjects</a>
+                <a href="../../Classifications.html">Classifications</a>
+                <a href="../../../../index.html" class="logout-btn">← Logout</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="subject-page">
+        <div class="container">
+            <div class="subject-header">
+                <div class="subject-id">SUBJECT #{SUBJECT_ID_PADDED}</div>
+                <h1 class="subject-title">{SUBJECT_NAME}</h1>
+                <div class="titles-row">
+                    <span class="title-badge">{TAG_1}</span>
+                    <span class="title-badge">{TAG_2}</span>
+                    <span class="title-badge">{TAG_3}</span>
+                    <span class="title-badge">{TAG_4}</span>
+                    <span class="title-badge">{TAG_5}</span>
+                </div>
+                <div class="status-info">
+                    <span class="status-badge-large {STATUS_CLASS}">{STATUS_TEXT}</span>
+                    <span class="classification-badge">{CLASSIFICATION} Class</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Basic Information</h2>
+                <div class="basic-info-layout">
+                    <div class="subject-image-container">
+                        <img src="../img/Placeholder.jpg" alt="Subject {SUBJECT_ID_PADDED} - {SUBJECT_NAME}" class="subject-image">
+                        <div class="image-label">SUBJECT PHOTOGRAPH</div>
+                    </div>
+                    <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Subject ID</div>
+                        <div class="info-value">#{SUBJECT_ID_PADDED}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Name</div>
+                        <div class="info-value">{SUBJECT_NAME}</div>
+                    </div>
+                    <div class="info-item status-item">
+                        <div class="info-label">Status</div>
+                        <div class="info-value">
+                            <span class="status-badge-small {STATUS_CLASS}">{STATUS_TEXT}</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Classification</div>
+                        <div class="info-value">{CLASSIFICATION} Class</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Age</div>
+                        <div class="info-value">{AGE}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Birth Date</div>
+                        <div class="info-value">{BIRTH_DATE}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Blood Type</div>
+                        <div class="info-value">{BLOOD_TYPE}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Height</div>
+                        <div class="info-value">{HEIGHT}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Clearance Level</div>
+                        <div class="info-value">{CLEARANCE_LEVEL}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Recruitment Date</div>
+                        <div class="info-value">{RECRUITMENT_DATE}</div>
+                    </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="info-section">
+                <h2>Quirk Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Quirk Name</div>
+                        <div class="info-value">{QUIRK_NAME}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Quirk Type</div>
+                        <div class="info-value">{QUIRK_TYPE}</div>
+                    </div>
+                </div>
+                <p class="description">
+                    {QUIRK_DESCRIPTION}
+                </p>
+            </div>
+            
+            <div class="info-section">
+                <h2>Abilities</h2>
+                
+                <div class="ability-item">
+                    <div class="ability-header">
+                        <h3 class="ability-name">{ABILITY_1_NAME}</h3>
+                    </div>
+                    <p class="ability-description">{ABILITY_1_DESCRIPTION}</p>
+                </div>
+
+                <div class="ability-item">
+                    <div class="ability-header">
+                        <h3 class="ability-name">{ABILITY_2_NAME}</h3>
+                    </div>
+                    <p class="ability-description">{ABILITY_2_DESCRIPTION}</p>
+                </div>
+
+                <div class="ability-item">
+                    <div class="ability-header">
+                        <h3 class="ability-name">{ABILITY_3_NAME}</h3>
+                    </div>
+                    <p class="ability-description">{ABILITY_3_DESCRIPTION}</p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Notes</h2>
+                <p class="description">
+                    {ADDITIONAL_NOTES}
+                </p>
+            </div>
+
+            <div class="info-section">
+                <h2>Reports</h2>
+                
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 1</span>
+                        <span class="report-title">{Report_1_Name}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>{REPORT_1_CONTENT}</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 2</span>
+                        <span class="report-title">{Report_2_Name}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>{REPORT_2_CONTENT}</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 3</span>
+                        <span class="report-title">{Report_3_Name}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>{REPORT_3_CONTENT}</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="report-item">
+                    <div class="report-header">
+                        <span class="report-number">Report 4</span>
+                        <span class="report-title">{Report_4_Name}</span>
+                    </div>
+                    <details class="report-details">
+                        <summary class="report-summary">View Report</summary>
+                        <div class="report-content">
+                            <p>{REPORT_4_CONTENT}</p>
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+
+            <div class="nav-buttons">
+                <a href="../list.html" class="btn btn-primary">← Back to Subject List</a>
+                <a href="../../home.html" class="btn btn-secondary">Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="project-footer">
+        <div class="container">
+            <p>&copy; 2025 Hero Public Safety Commission - The Chimera Project</p>
+            <p class="security-text">CLASSIFIED - Level 4 Clearance Required</p>
+        </div>
+    </footer>
+    <script src="../img/subject-images.js"></script>
+</body>
+</html>
