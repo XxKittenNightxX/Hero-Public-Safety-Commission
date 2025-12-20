@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRK-1396 - Amir Yaoyorozu - National Quirk Registry</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="../../auth.js"></script>
     <style>body { visibility: hidden; }</style>
 </head>
 <body data-project="quirk-registry">
     <script>
-        // Protect this page - require Level 2 (clerk) access or higher
-        protectPage('researcher');
+        // Protect this page - require Level 4 (admin) access or higher
+        protectPage('admin');
     </script>
     
     <header class="project-header">

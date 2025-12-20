@@ -57,7 +57,18 @@ function generateRegistryCards() {
         }
 
         // Add link to full entry
-        const nameLinkPart = firstName.replace(/[█\s]+/g, '');
+        // If name has multiple spaces (like "All For One"), use full name with underscores
+        // Otherwise use just first name
+        let nameLinkPart;
+        const spaceCount = (fullName.match(/\s/g) || []).length;
+        if (spaceCount >= 2) {
+            // Multi-word single name like "All For One"
+            nameLinkPart = fullName.replace(/█+/g, '').replace(/\s+/g, '_');
+        } else {
+            // Normal first/last name, use just first name
+            nameLinkPart = firstName.replace(/█+/g, '').replace(/\s+/g, '_');
+        }
+        
         cardHTML += `
             <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
                 <a href="pages/${quirkData.registryId}-${nameLinkPart}.html" style="color: #8e44ad; text-decoration: none; font-weight: 600;">→ View Full Registry Entry</a>
