@@ -250,7 +250,8 @@ function renderSubjects(subjects) {
         
         if (subject.hasPage) {
             const link = document.createElement('a');
-            const fileName = `pages/${subject.id} - ${subject.name}.html`;
+            // Use URL encoding for the filename to handle special characters and spaces
+            const fileName = `pages/${encodeURIComponent(subject.id + ' - ' + subject.name + '.html')}`;
             link.href = fileName;
             link.textContent = `${subject.name} →`;
             
