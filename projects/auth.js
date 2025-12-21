@@ -3,7 +3,7 @@ const users = {
     'red': {
         password: 'Chimara1976',
         accessLevel: 'director',
-        projects: ['chimara', 'quirk-registry'] // Can access all projects
+        projects: ['chimara', 'quirk-registry']
     },
     'ShotaAizawa': {
         password: 'Aizawa2020',
@@ -12,7 +12,12 @@ const users = {
     },
     'Akako': {
         password: 'Akako2020',
-        accessLevel: 'admin',
+        accessLevel: 'mod',
+        projects: ['chimara','quirk-registry']
+    },
+    'Yumeno': {
+        password: 'Arcade21',
+        accessLevel: 'mod',
         projects: ['chimara','quirk-registry']
     },
     'Admin': {
@@ -33,9 +38,48 @@ const users = {
     'Level1': {
         password: 'Lv1',
         accessLevel: 'viewer',
-        projects: ['chimara','quirk-registry'] // Read-only access
+        projects: ['quirk-registry'] // Read-only access
     }
 };
+
+// Custom alert function to avoid showing URL
+function customAlert(message, callback) {
+    // Hide body content
+    const originalVisibility = document.body.style.visibility;
+    document.body.style.visibility = 'hidden';
+    
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('custom-alert-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'custom-alert-modal';
+        modal.innerHTML = `
+            <div class="custom-alert-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 999999; display: flex; align-items: center; justify-content: center; visibility: visible;">
+                <div class="custom-alert-box" style="background: #1a1a2e; border: 2px solid #dc3545; border-radius: 8px; padding: 30px; min-width: 400px; box-shadow: 0 4px 20px rgba(220,53,69,0.3); visibility: visible;">
+                    <div class="custom-alert-message" style="color: #fff; font-size: 1.1rem; margin-bottom: 20px; white-space: pre-line; visibility: visible;"></div>
+                    <button class="custom-alert-ok" style="background: #dc3545; color: white; border: none; padding: 10px 30px; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600; width: 100%; visibility: visible;">OK</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+    
+    // Make modal visible
+    modal.style.visibility = 'visible';
+    
+    // Remove old event listeners and add new one
+    const okButton = modal.querySelector('.custom-alert-ok');
+    const newOkButton = okButton.cloneNode(true);
+    okButton.parentNode.replaceChild(newOkButton, okButton);
+    
+    newOkButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+        if (callback) callback();
+    });
+    
+    modal.querySelector('.custom-alert-message').textContent = message;
+    modal.style.display = 'block';
+}
 
 // Get the current project from the page's data attribute or path
 function getCurrentProject() {
@@ -126,9 +170,15 @@ function hasAccessLevel(requiredLevel) {
         'viewer': 1,
         'clerk': 2,
         'researcher': 3,
-        'admin': 4,
-        'director': 5
+        'mod': 4,
+        'admin': 5,
+        'director': 6
     };
+    
+    // Special case: mod can access admin-level content
+    if (requiredLevel === 'admin' && currentLevel === 'mod') {
+        return true;
+    }
     
     return levels[currentLevel] >= levels[requiredLevel];
 }
@@ -141,8 +191,24 @@ function protectPage(requiredLevel = null) {
     }
     
     if (requiredLevel && !hasAccessLevel(requiredLevel)) {
-        alert('ACCESS DENIED: Insufficient clearance level');
-        window.history.back();
+        // Make body visible so modal can show
+        document.body.style.visibility = 'visible';
+        
+        // Get numeric access level
+        const currentLevel = sessionStorage.getItem('accessLevel');
+        const levels = {
+            'viewer': 1,
+            'clerk': 2,
+            'researcher': 3,
+            'mod': 4,
+            'admin': 5,
+            'director': 6
+        };
+        const numericLevel = levels[currentLevel] || 0;
+        
+        customAlert(`ACCESS DENIED: Insufficient clearance level\nYour Access level ${numericLevel}`, function() {
+            window.history.back();
+        });
         return;
     }
     
@@ -168,12 +234,16 @@ function mapClearanceLevelToAccess(clearanceLevel) {
     if (levelStr.includes('level 3')) {
         return 'researcher';
     }
-    // Level 4: admin can access
+    // Level 4: mod can access
     if (levelStr.includes('level 4')) {
+        return 'mod';
+    }
+    // Level 5: admin can access
+    if (levelStr.includes('level 5')) {
         return 'admin';
     }
-    // Level 5+: director can access
-    if (levelStr.includes('level 5') || levelStr.includes('level 6')) {
+    // Level 6+: director can access
+    if (levelStr.includes('level 6') || levelStr.includes('level 7')) {
         return 'director';
     }
     
@@ -189,10 +259,24 @@ function protectSubjectPage(clearanceLevel) {
     
     const requiredAccess = mapClearanceLevelToAccess(clearanceLevel);
     if (requiredAccess && !hasAccessLevel(requiredAccess)) {
-        // Immediately hide content and redirect
-        document.body.style.display = 'none';
-        alert(`ACCESS DENIED: ${clearanceLevel} required\nYour access level: ${sessionStorage.getItem('accessLevel')}`);
-        window.history.back();
+        // Make body visible so modal can show
+        document.body.style.visibility = 'visible';
+        
+        // Get numeric access level
+        const currentLevel = sessionStorage.getItem('accessLevel');
+        const levels = {
+            'viewer': 1,
+            'clerk': 2,
+            'researcher': 3,
+            'mod': 4,
+            'admin': 5,
+            'director': 6
+        };
+        const numericLevel = levels[currentLevel] || 0;
+        
+        customAlert(`ACCESS DENIED: ${clearanceLevel} required\nYour Access level ${numericLevel}`, function() {
+            window.history.back();
+        });
         return;
     }
     

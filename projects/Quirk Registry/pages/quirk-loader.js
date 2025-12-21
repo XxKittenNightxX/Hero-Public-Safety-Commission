@@ -16,15 +16,28 @@ function loadQuirkData() {
             1: 'viewer',
             2: 'clerk',
             3: 'researcher',
-            4: 'admin',
-            5: 'director'
+            4: 'mod',
+            5: 'admin',
+            6: 'director'
         };
         
         const requiredAccess = accessLevels[data.clearanceNumber];
         if (requiredAccess && !hasAccessLevel(requiredAccess)) {
-            document.body.style.display = 'none';
-            alert(`ACCESS DENIED: ${data.clearanceLevel} required\nYour access level: ${sessionStorage.getItem('accessLevel')}`);
-            window.location.href = '../Registry.html';
+            // Get numeric access level
+            const currentLevel = sessionStorage.getItem('accessLevel');
+            const levels = {
+                'viewer': 1,
+                'clerk': 2,
+                'researcher': 3,
+                'mod': 4,
+                'admin': 5,
+                'director': 6
+            };
+            const numericLevel = levels[currentLevel] || 0;
+            
+            customAlert(`ACCESS DENIED: ${data.clearanceLevel} required\nYour Access level ${numericLevel}`, function() {
+                window.location.href = '../Registry.html';
+            });
             return;
         }
     }
