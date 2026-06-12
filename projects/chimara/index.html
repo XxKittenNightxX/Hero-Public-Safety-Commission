@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Chimera Project</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-inner">
+        <img class="logo" src="../../img/HPSC.jpeg" alt="HPSC Logo" />
+        <div class="hero-copy">
+          <p class="eyebrow">The Chimera Project</p>
+          <h1>Secure Project Dashboard</h1>
+          <p>Authorized personnel only. Monitor project status, clearance directives, and mission objectives from one central access point.</p>
+        </div>
+      </div>
+      <nav class="hero-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="subjects/list.html">Subjects</a>
+        <a href="Classifications.html">Classifications</a>
+        <a href="login.html?logout=1">← Logout</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="about">
+        <div class="section-title">
+          <h2>Welcome to The Chimera Project</h2>
+          <p>An innovative initiative designed to train and empower youth to become formidable heroes. This program ensures that there is always a new generation of protectors ready to step in whenever an active hero retires or passes away.</p>
+        </div>
+      </section>
+
+      <section class="projects">
+        <div class="section-title">
+          <h2>Project Metrics</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="card-heading">
+              <h3>Active Subjects</h3>
+            </div>
+            <p>Tracking current candidates in training and evaluation across all Chimera divisions.</p>
+            <div class="card-meta"><span id="activeSubjectsCount">0</span><span>In Training</span></div>
+          </article>
+          <article class="project-card">
+            <div class="card-heading">
+              <h3>Graduated Heroes</h3>
+            </div>
+            <p>Heroes who have successfully completed the program and are deployed for duty.</p>
+            <div class="card-meta"><span id="graduatedHeroesCount">0</span><span>Graduated</span></div>
+          </article>
+          <article class="project-card">
+            <div class="card-heading">
+              <h3>Graduation Rate</h3>
+            </div>
+            <p>Percentage of subjects who have graduated out of the generated subject roster.</p>
+            <div class="card-meta"><span id="successRateCount">0%</span><span>Graduated</span></div>
+          </article>
+        </div>
+        <details class="metrics-dropdown" id="statusBreakdown">
+          <summary>View exact status percentages</summary>
+          <div class="metrics-body">
+            <div class="metrics-row"><span>In Training:</span> <strong id="inTrainingPercent">0%</strong></div>
+            <div class="metrics-row"><span>Transferred:</span> <strong id="transferredPercent">0%</strong></div>
+            <div class="metrics-row"><span>Other:</span> <strong id="otherPercent">0%</strong></div>
+            <div class="metrics-row"><span>Expelled:</span> <strong id="expelledPercent">0%</strong></div>
+            <div class="metrics-row"><span>Graduated:</span> <strong id="graduatedPercent">0%</strong></div>
+          </div>
+        </details>
+      </section>
+
+      <section class="contact">
+        <div class="section-title">
+          <h2>Program Objectives</h2>
+          <p>Follow these priority goals to maintain operational readiness and strategic continuity within Chimera.</p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Core Goals</h3>
+            <ul class="goals-list">
+              <li>Identify and recruit promising youth with exceptional quirks</li>
+              <li>Provide intensive combat and rescue training to prepare them for real-world heroics</li>
+              <li>Develop leadership and strategic thinking skills</li>
+              <li>Ensure seamless hero succession planning</li>
+              <li>Maintain public safety continuity</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="contentinfo">
+      <div>
+        <p>© 20XX Hero Public Safety Commission - The Chimera Project</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="json/name-generator.js"></script>
+  <script>
+    (function() {
+      const sessionKey = 'chimeraLoggedInUser';
+      const rawSession = localStorage.getItem(sessionKey);
+      if (!rawSession) {
+        window.location.href = 'login.html';
+        return;
+      }
+      try {
+        JSON.parse(rawSession);
+      } catch (error) {
+        console.error('Invalid Chimera session, redirecting to login.', error);
+        localStorage.removeItem(sessionKey);
+        window.location.href = 'login.html';
+        return;
+      }
+
+      async function updateMetrics() {
+        try {
+          const response = await fetch('json/subjects.json', { cache: 'no-store' });
+          if (!response.ok) throw new Error('Failed to load subjects');
+          const existing = await response.json();
+          const marked = existing.map(s => ({ ...s, hasPage: true }));
+          const generated = generateSubjectList(marked, 2600, defaultStatusConfig);
+          const allSubjects = [...marked, ...generated];
+
+          const counts = allSubjects.reduce((acc, subject) => {
+            const status = subject.status || 'In Training';
+            acc[status] = (acc[status] || 0) + 1;
+            return acc;
+          }, {});
+
+          const total = allSubjects.length;
+          document.getElementById('activeSubjectsCount').textContent = counts['In Training'] || 0;
+          document.getElementById('graduatedHeroesCount').textContent = counts['Graduated'] || 0;
+          document.getElementById('successRateCount').textContent = total ? `${((counts['Graduated'] || 0) / total * 100).toFixed(0)}%` : '0%';
+          document.getElementById('inTrainingPercent').textContent = total ? `${((counts['In Training'] || 0) / total * 100).toFixed(2)}%` : '0%';
+          document.getElementById('transferredPercent').textContent = total ? `${((counts['Transferred'] || 0) / total * 100).toFixed(2)}%` : '0%';
+          const otherCount = (counts['Missing'] || 0) + (counts['Under Observation'] || 0);
+          document.getElementById('otherPercent').textContent = total ? `${(otherCount / total * 100).toFixed(2)}%` : '0%';
+          document.getElementById('expelledPercent').textContent = total ? `${((counts['Expelled'] || 0) / total * 100).toFixed(2)}%` : '0%';
+          document.getElementById('graduatedPercent').textContent = total ? `${((counts['Graduated'] || 0) / total * 100).toFixed(2)}%` : '0%';
+        } catch (error) {
+          console.error('Error updating dashboard metrics:', error);
+        }
+      }
+
+      updateMetrics();
+    })();
+  </script>
+</body>
+</html>
