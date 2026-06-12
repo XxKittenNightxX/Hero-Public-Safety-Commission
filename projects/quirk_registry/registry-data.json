@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Ghost Gate",
+    "registryId": "QR-78-781",
+    "quirkName": "Celestial Conduit",
+    "type": "Emitter",
+    "hereditary": "Mutation",
+    "details": " Can create stable, two-way portals between any two locations she has memorized the precise coordinates of.",
+    "image": "img/Akako.png",
+    "tag": "Hero"
+  },
+    {
+    "name": "Akari Datenshi",
+    "registryId": "QR-78-102",
+    "quirkName": "Quirkless",
+    "type": "",
+    "hereditary": "",
+    "details": "",
+    "image": "img/Akari.webp",
+    "tag": ""
+  },
+    {
+    "name": "Amir Yaoyorozu",
+    "registryId": "QR-78-396",
+    "quirkName": "Puppeteer",
+    "type": "Emitter",
+    "hereditary": "Mutation",
+    "details": "Subject can create unbreakable highly reflective invisible threads that can be wrapped around others to control them, or used to pull the user's body to locations where threads are attached.",
+    "image": "",
+    "tag": ""
+  },
+    {
+    "name": "Arata Nakamura",
+    "registryId": "QR-78-758",
+    "quirkName": "Quirkless",
+    "type": "",
+    "hereditary": "",
+    "details": "",
+    "image": "",
+    "tag": ""
+  },
+    {
+    "name": "Arthur Stormborne",
+    "registryId": "QR-78-105",
+    "quirkName": "Black Lightning",
+    "type": "Emitter",
+    "hereditary": "Mutation",
+    "details": "Can create and manipulate black-colored electricity with unique properties distinct from standard electrical generation quirks. Exact differences under study.",
+    "image": "img/Arthur.png",
+    "tag": ""
+  },
+    {
+    "name": "Chiyo Shuuzenji",
+    "registryId": "QR-78-025",
+    "quirkName": "Heal",
+    "type": "Emitter",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to accelerate and amplify the target's healing process with a kiss, using the target's own stamina as fuel.",
+    "image": "img/Chiyo.jpg",
+    "tag": ""
+  }
+]
