@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quirk Registry - Search Registry</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    /* Minimal thumbnail improvements only */
+    .registry-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 0 12px 0;
+      display: block;
+    }
+
+    .registry-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .registry-content p { margin: 8px 0; color: #cbd5e1; }
+    .search-wrap { min-width: 320px; width: clamp(320px, 45%, 420px); }
+    /* Tag badges (minimal, non-invasive) */
+    .tag-badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 8px;
+    }
+    .tag-hero { background: rgba(34,197,94,0.12); color: #86efac; }
+    .tag-watch-list { background: rgba(245,158,11,0.10); color: #ffd580; }
+    .tag-vigilante { background: rgba(168,85,247,0.10); color: #e9d5ff; }
+    .tag-villian { background: rgba(239,68,68,0.10); color: #ffb4b4; }
+    .tag-normal { background: rgba(148,163,184,0.06); color: #cbd5e1; }
+  </style>
+</head>
+<body data-project="quirk-registry">
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-inner">
+        <img class="logo" src="../../img/HPSC.jpeg" alt="HPSC Logo" />
+        <div class="hero-copy">
+          <p class="eyebrow">National Quirk Registry</p>
+          <h1>Search Registry</h1>
+          <p>Browse authorized entries for quirk users, their abilities, and hereditary classifications.</p>
+        </div>
+      </div>
+
+      <nav class="hero-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="Registry.html" class="active">Search Registry</a>
+        <a href="Statistics.html">Statistics</a>
+        <a href="../../index.html">← Logout</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="about">
+        <div class="section-title">
+          <h2>Authorized Quirk Registry Entries</h2>
+          <p>Each record contains approved biometric and quirk metadata. Access is restricted to commission personnel only.</p>
+        </div>
+      </section>
+
+      <section class="projects">
+        <div class="section-header">
+          <div>
+            <h2>Registrant Records</h2>
+          </div>
+          <div class="search-wrap">
+            <input id="registry-search" type="search" placeholder="Search by name or quirk..." aria-label="Search registry" />
+          </div>
+        </div>
+
+        <div class="project-grid" id="registry-entries">
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Hero Public Safety Commission - National Quirk Registry</p>
+      <p>Authorized Access Only - Data Protected Under Quirk Privacy Act</p>
+    </footer>
+  </div>
+  <script src="registry-scripts.js"></script>
