@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Akako Miller",
+    "registryId": "QR-1781",
+    "quirkName": "Celestial Conduit",
+    "type": "Emitter",
+    "hereditary": "Mutation",
+    "details": " Can create stable, two-way portals between any two locations she has memorized the precise coordinates of.",
+    "image": "img/Akako.png",
+    "tag": "Hero"
+  },
+    {
+    "name": "Akari Datenshi",
+    "registryId": "QR-2102",
+    "quirkName": "Quirkless",
+    "type": "",
+    "hereditary": "",
+    "details": "",
+    "image": "img/Akari.webp",
+    "tag": ""
+  },
+    {
+    "name": "Amir Yaoyorozu",
+    "registryId": "QR-1396",
+    "quirkName": "Puppeteer",
+    "type": "Emitter",
+    "hereditary": "Mutation",
+    "details": "Subject can create unbreakable highly reflective invisible threads that can be wrapped around others to control them, or used to pull the user's body to locations where threads are attached.",
+    "image": "",
+    "tag": ""
+  },
+    {
+    "name": "Arata Nakamura",
+    "registryId": "QR-1758",
+    "quirkName": "Quirkless",
+    "type": "",
+    "hereditary": "",
+    "details": "",
+    "image": "",
+    "tag": ""
+  },
+    {
+    "name": "Arthur Stormborne",
+    "registryId": "QR-2105",
+    "quirkName": "Black Lightning",
+    "type": "Emitter",
+    "hereditary": "Mutation",
+    "details": "Can create and manipulate black-colored electricity with unique properties distinct from standard electrical generation quirks. Exact differences under study.",
+    "image": "img/Arthur.png",
+    "tag": ""
+  },
+    {
+    "name": "Chiyo Shuuzenji",
+    "registryId": "QR-3025",
+    "quirkName": "Heal",
+    "type": "Emitter",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to accelerate and amplify the target's healing process with a kiss, using the target's own stamina as fuel.",
+    "image": "img/Chiyo.jpg",
+    "tag": "Hero"
+  },
+  {
+    "name": "Denki Kaminari",
+    "registryId": "QR-3107",
+    "quirkName": "Electrification",
+    "type": "Emitter",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to generate electricity and discharge it in various ways. Overuse causes temporary mental impairment.",
+    "image": "",
+    "tag": "Hero"
+  },
+  {
+    "name": "Ebony Deathmark",
+    "registryId": "QR-2100",
+    "quirkName": "Quirkless",
+    "type": "",
+    "hereditary": "",
+    "details": "",
+    "image": "",
+    "tag": ""
+  },
+  {
+    "name": "Eijiro Kirishima",
+    "registryId": "QR-3108",
+    "quirkName": "Hardening",
+    "type": "Transformation",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to harden and sharpen their body to become nearly indestructible. The harder the user hardens, the more stamina it consumes.",
+    "image": "",
+    "tag": "Hero"
+  },
+  {
+    "name": "Eva Yaoyorozu",
+    "registryId": "QR-1884",
+    "quirkName": "OmiArm",
+    "type": "Emitter & Mutant",
+    "hereditary": "Mutation",
+    "details": "Can manipulate the robotic components of her body, transforming them into various forms and tools limited only by imagination and understanding of mechanics. Requires further study.",
+    "image": "",
+    "tag": ""
+  },
+  {
+    "name": "Fumikage Tokoyami",
+    "registryId": "QR-3110",
+    "quirkName": "Dark Shadow",
+    "type": "Emitter",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to manifest a sentient shadow monster from their body. Stronger in darkness but harder to control. Weaker in light but more manageable.",
+    "image": "",
+    "tag": "Hero"
+  },
+  {
+    "name": "Hanta Sero",
+    "registryId": "QR-3112",
+    "quirkName": "Tape",
+    "type": "Emitter",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to shoot tape-like material from their elbows. The tape is strong enough to support weight and can be used for binding or mobility.",
+    "image": "",
+    "tag": "Hero"
+  },
+  {
+    "name": "Hizashi Yamada",
+    "registryId": "QR-3113",
+    "quirkName": "Flashbang",
+    "type": "Emitter",
+    "hereditary": "Hereditary",
+    "details": "Allows the user to emit a blinding flash of light from their body, temporarily incapacitating those who look directly at it. The intensity and duration of the flash can be controlled.",
+    "image": "",
+    "tag": "Hero"
+  },
+  {
+    "name": "Haruto Sero",
+    "registryId": "QR-1794",
+    "quirkName": "Gravity Manipulation",
+    "type": "Combination",
+    "hereditary": "Hereditary",
+    "details": "The ability to manipulate gravitational forces in a localized area. Can increase, decrease, or redirect gravity affecting objects and individuals.",
+    "image": "",
+    "tag": ""
+  }
+]
