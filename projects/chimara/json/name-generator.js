@@ -84,22 +84,30 @@ const otherLastNames = [
 
 // Default status distribution for generated subjects
 const defaultStatusConfig = {
-    expelled: 0.01,
-    missing: 0.09,
-    transferred: 0.50,
-    underObservation: 0.01,
-    graduatedBelow1000: 0.30,
-    graduatedAbove1000: 0.00
+    graduatedBelow1000: 0.7090909091,
+    trainingTransferMax: 0.25
 };
 
 const defaultClassificationConfig = {
-    SS: 0.09,
-    S: 2.5,
-    A: 5,
-    B: 8.5,
-    C: 13,
-    D: 18.5,
-    E: 25
+    SS: 1,
+    S: 4,
+    A: 10,
+    B: 15,
+    C: 20,
+    D: 20,
+    E: 15,
+    F: 15
+};
+
+const transferredClassificationConfig = {
+    SS: 1,
+    S: 4,
+    A: 10,
+    B: 15,
+    C: 20,
+    D: 20,
+    E: 15,
+    F: 15
 };
 
 function normalizeDistribution(dist) {
@@ -111,23 +119,33 @@ function normalizeDistribution(dist) {
 }
 
 function pickClassification(status, rand, config = defaultClassificationConfig) {
-    const modifiers = status === 'Transferred'
-        ? { SS: 0.25, S: 0.45, A: 0.8, B: 1.0, C: 1.4, D: 1.8, E: 2.2 }
-        : { SS: 1, S: 1, A: 1, B: 1, C: 1, D: 1, E: 1 };
+    let activeConfig = status === 'Transferred' ? transferredClassificationConfig : config;
+    if (status === 'Graduated') {
+        activeConfig = {
+            SS: activeConfig.SS || 0,
+            S: activeConfig.S || 0,
+            A: activeConfig.A || 0,
+            B: activeConfig.B || 0,
+            C: 0,
+            D: 0,
+            E: 0,
+            F: 0
+        };
+    }
 
     const weighted = {};
-    for (const [key, value] of Object.entries(config)) {
-        weighted[key] = Number(value || 0) * (modifiers[key] || 1);
+    for (const [key, value] of Object.entries(activeConfig)) {
+        weighted[key] = Number(value || 0);
     }
 
     const normalized = normalizeDistribution(weighted);
     let threshold = 0;
-    for (const classification of ['SS', 'S', 'A', 'B', 'C', 'D', 'E']) {
+    for (const classification of ['SS', 'S', 'A', 'B', 'C', 'D', 'E', 'F']) {
         threshold += normalized[classification] || 0;
         if (rand < threshold) return classification;
     }
 
-    return 'E';
+    return status === 'Transferred' ? 'F' : 'E';
 }
 
 // Generate a seeded random number for consistent name generation
@@ -142,44 +160,16 @@ function createSeededRandom(seed) {
  * Pick the subject status based on a seeded value and configuration
  */
 function pickStatus(id, rand, config = defaultStatusConfig) {
-    // Base probabilities from config (ensure numeric)
-    const expelled = (id > 2100) ? (Number(config.expelled) || 0) : 0;
-    const missing = (id > 1000 && id < 2400) ? (Number(config.missing) || 0) : 0;
-    // transferred applies for IDs less than 2301 per requirement
-    const transferred = (id < 2301) ? (Number(config.transferred) || 0) : 0;
-    const underObservation = (id > 1600) ? (Number(config.underObservation) || 0) : 0;
+    if (id >= 1101) {
+        const maxTransfer = Number(config.trainingTransferMax) || 0.4;
+        const rangeSize = 2600 - 1101;
+        const relative = (2600 - id) / rangeSize;
+        const transferProbability = maxTransfer * relative;
+        return rand < transferProbability ? 'Transferred' : 'In Training';
+    }
 
-    // Base remaining mass that would otherwise be 'In Training'
-    const baseSum = expelled + missing + transferred + underObservation;
-    const inTrainingBase = Math.max(0, 1 - baseSum);
-
-    // Graduated ramp: 0% at ID 2201, 100% at ID 1201, linear in between
-    let graduatedFactor = 0;
-    if (id <= 1201) graduatedFactor = 1;
-    else if (id >= 2201) graduatedFactor = 0;
-    else graduatedFactor = (2201 - id) / 1000; // linear from 0..1 over IDs 2201->1201
-
-    // Portion of the In Training bucket converted to Graduated for this ID
-    const graduatedPortion = graduatedFactor * inTrainingBase;
-
-    // Build cumulative thresholds and decide
-    let cursor = 0;
-    cursor += expelled;
-    if (rand < cursor) return 'Expelled';
-
-    cursor += missing;
-    if (rand < cursor) return 'Missing';
-
-    cursor += transferred;
-    if (rand < cursor) return 'Transferred';
-
-    cursor += underObservation;
-    if (rand < cursor) return 'Under Observation';
-
-    cursor += graduatedPortion;
-    if (rand < cursor) return 'Graduated';
-
-    return 'In Training';
+    const graduatedChance = Number(config.graduatedBelow1000) || 0;
+    return rand < graduatedChance ? 'Graduated' : 'Transferred';
 }
 
 /**
@@ -226,11 +216,24 @@ function generateSubjectList(subjectsWithPages = [], maxSubjectId = 2000, status
         
         // Generate status from the next random value
         const statusRand = seededRandom();
-        const status = pickStatus(id, statusRand, statusConfig);
+        let status = pickStatus(id, statusRand, statusConfig);
 
         // Generate classification and then derive a matching level
         const classificationRand = seededRandom();
         const classification = pickClassification(status, classificationRand);
+
+        // Only bias S-class subjects toward In Training for IDs within the training range.
+        if (classification === 'S' && status === 'Transferred' && id >= 1101) {
+            const trainingBias = seededRandom();
+            if (trainingBias < 0.45) {
+                status = 'In Training';
+            }
+        }
+
+        // F-class subjects must be Transferred
+        if (classification === 'F') {
+            status = 'Transferred';
+        }
 
         const levelRand = seededRandom();
         const classificationLevelMap = {
@@ -240,7 +243,8 @@ function generateSubjectList(subjectsWithPages = [], maxSubjectId = 2000, status
             B: [2, 3],
             C: [1, 2],
             D: [1, 2],
-            E: [1]
+            E: [1],
+            F: [1]
         };
         const availableLevels = classificationLevelMap[classification] || [1];
         const level = String(availableLevels[Math.floor(levelRand * availableLevels.length)]);

@@ -85,6 +85,86 @@
 			.clear-btn:focus { outline: 2px solid rgba(59,130,246,0.25); }
 			/* remove any visible scrollbar that could appear in some browsers */
 			.search-wrap::-webkit-scrollbar { height: 0; }
+			/* Advanced search styles */
+			.advanced-search-panel {
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(148, 163, 184, 0.12);
+				border-radius: 10px;
+				padding: 16px;
+				margin-top: 16px;
+				display: none;
+			}
+			.advanced-search-panel.active {
+				display: block;
+			}
+			.advanced-search-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 16px;
+				margin-bottom: 16px;
+			}
+			.advanced-search-group {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+			.advanced-search-group label {
+				color: #cbd5e1;
+				font-size: 0.9rem;
+				font-weight: 500;
+			}
+			.advanced-search-group input[type="number"] {
+				background: rgba(255, 255, 255, 0.06);
+				color: #cbd5e1;
+				border: 1px solid rgba(148, 163, 184, 0.12);
+				border-radius: 8px;
+				padding: 8px 10px;
+				font-size: 0.9rem;
+				outline: none;
+			}
+			.advanced-search-group input[type="number"]:focus {
+				box-shadow: 0 6px 18px rgba(2, 6, 23, 0.35);
+				border-color: rgba(59, 130, 246, 0.28);
+			}
+			.advanced-search-checkboxes {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+			.checkbox-item {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.checkbox-item input[type="checkbox"] {
+				cursor: pointer;
+				accent-color: #3b82f6;
+			}
+			.checkbox-item label {
+				cursor: pointer;
+				color: #cbd5e1;
+				margin: 0;
+				font-size: 0.9rem;
+			}
+			.advanced-btn-group {
+				display: flex;
+				gap: 8px;
+				justify-content: flex-end;
+			}
+			.toggle-advanced-btn {
+				background: transparent;
+				color: #cbd5e1;
+				border: 1px solid rgba(148, 163, 184, 0.2);
+				padding: 8px 12px;
+				border-radius: 999px;
+				font-size: 0.9rem;
+				cursor: pointer;
+				transition: all 0.2s ease;
+			}
+			.toggle-advanced-btn:hover {
+				border-color: rgba(59, 130, 246, 0.5);
+				color: #3b82f6;
+			}
 	</style>
 </head>
 <body>
@@ -114,7 +194,7 @@
 					<div id="subjectCount" style="color:#cbd5e1; margin-top:10px; font-size:0.95rem;">Showing 0 subjects</div>
 				</div>
 
-				<div class="search-wrap" style="margin-bottom:24px; display:flex; flex-wrap:nowrap; gap:8px; align-items:center;">
+				<div class="search-wrap" style="margin-bottom:16px; display:flex; flex-wrap:nowrap; gap:8px; align-items:center;">
 				<input type="search" id="searchInput" placeholder="Search by name, quirk, status, classification, level, or ID..." />
 				<select id="classificationFilter">
 					<option value="">All classifications</option>
@@ -125,6 +205,7 @@
 					<option value="c">C</option>
 					<option value="d">D</option>
 					<option value="e">E</option>
+					<option value="f">F</option>
 				</select>
 				<select id="levelFilter">
 					<option value="">All levels</option>
@@ -144,7 +225,105 @@
 					<option value="graduated">Graduated</option>
 				</select>
 				<button id="clearFiltersBtn" class="clear-btn" title="Clear search and filters">Clear</button>
+				<button id="toggleAdvancedBtn" class="toggle-advanced-btn" title="Toggle advanced search">⚙ Advanced</button>
+			</div>
+
+			<!-- Advanced Search Panel -->
+			<div id="advancedSearchPanel" class="advanced-search-panel">
+				<div class="advanced-search-grid">
+					<div class="advanced-search-group">
+						<label for="minIdInput">Minimum ID</label>
+						<input type="number" id="minIdInput" placeholder="e.g., 1300" min="1" max="2600" />
+					</div>
+					<div class="advanced-search-group">
+						<label for="maxIdInput">Maximum ID</label>
+						<input type="number" id="maxIdInput" placeholder="e.g., 2600" min="1" max="2600" />
+					</div>
+					<div class="advanced-search-group">
+						<label for="minLevelInput">Minimum Access Level</label>
+						<input type="number" id="minLevelInput" placeholder="e.g., 1" min="1" max="5" />
+					</div>
+					<div class="advanced-search-group">
+						<label for="maxLevelInput">Maximum Access Level</label>
+						<input type="number" id="maxLevelInput" placeholder="e.g., 5" min="1" max="5" />
+					</div>
 				</div>
+
+				<div class="advanced-search-grid">
+					<div class="advanced-search-group">
+						<label>Classifications</label>
+						<div class="advanced-search-checkboxes">
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckSS" value="ss" />
+								<label for="classCheckSS">SS</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckS" value="s" />
+								<label for="classCheckS">S</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckA" value="a" />
+								<label for="classCheckA">A</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckB" value="b" />
+								<label for="classCheckB">B</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckC" value="c" />
+								<label for="classCheckC">C</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckD" value="d" />
+								<label for="classCheckD">D</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckE" value="e" />
+								<label for="classCheckE">E</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="classCheckF" value="f" />
+								<label for="classCheckF">F</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="advanced-search-group">
+						<label>Status</label>
+						<div class="advanced-search-checkboxes">
+							<div class="checkbox-item">
+								<input type="checkbox" id="statusCheckInTraining" value="in training" />
+								<label for="statusCheckInTraining">In Training</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="statusCheckTransferred" value="transferred" />
+								<label for="statusCheckTransferred">Transferred</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="statusCheckMissing" value="missing" />
+								<label for="statusCheckMissing">Missing</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="statusCheckUnderObs" value="under observation" />
+								<label for="statusCheckUnderObs">Under Observation</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="statusCheckExpelled" value="expelled" />
+								<label for="statusCheckExpelled">Expelled</label>
+							</div>
+							<div class="checkbox-item">
+								<input type="checkbox" id="statusCheckGraduated" value="graduated" />
+								<label for="statusCheckGraduated">Graduated</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="advanced-btn-group">
+					<button id="clearAdvancedBtn" class="toggle-advanced-btn" style="border-color: rgba(148, 163, 184, 0.15);">Clear Advanced</button>
+					<button id="applyAdvancedBtn" class="clear-btn">Apply Filters</button>
+				</div>
+			</div>
 
 			<div class="project-grid subjects-grid" id="subjectsGrid">
 					<!-- Subject cards inserted here -->
@@ -292,7 +471,51 @@
 			const selectedClassification = classificationFilter.value.toLowerCase();
 			const selectedLevel = levelFilter.value.toLowerCase();
 			const selectedStatus = statusFilter.value.toLowerCase();
+
+			// Get advanced filters
+			const minId = parseInt(document.getElementById('minIdInput').value) || 0;
+			const maxId = parseInt(document.getElementById('maxIdInput').value) || MAX_SUBJECT_ID;
+			const minLevel = parseInt(document.getElementById('minLevelInput').value) || 0;
+			const maxLevel = parseInt(document.getElementById('maxLevelInput').value) || 5;
+
+			// Get selected classifications from checkboxes
+			const selectedClassifications = [];
+			['SS', 'S', 'A', 'B', 'C', 'D', 'E', 'F'].forEach(cls => {
+				if (document.getElementById('classCheck' + cls)?.checked) {
+					selectedClassifications.push(cls.toLowerCase());
+				}
+			});
+
+			// Get selected statuses from checkboxes
+			const selectedStatuses = [];
+			const statusCheckboxes = [
+				{ id: 'statusCheckInTraining', value: 'in training' },
+				{ id: 'statusCheckTransferred', value: 'transferred' },
+				{ id: 'statusCheckMissing', value: 'missing' },
+				{ id: 'statusCheckUnderObs', value: 'under observation' },
+				{ id: 'statusCheckExpelled', value: 'expelled' },
+				{ id: 'statusCheckGraduated', value: 'graduated' }
+			];
+			statusCheckboxes.forEach(cb => {
+				if (document.getElementById(cb.id)?.checked) {
+					selectedStatuses.push(cb.value);
+				}
+			});
+
 			const filtered = allSubjects.filter(s => {
+				// ID range filter
+				const subjectId = parseInt(s.id);
+				if (subjectId < minId || subjectId > maxId) {
+					return false;
+				}
+
+				// Level range filter
+				const subjectLevel = parseInt(s.level || 0);
+				if (subjectLevel < minLevel || subjectLevel > maxLevel) {
+					return false;
+				}
+
+				// Basic dropdown filters
 				if (selectedClassification && String(s.classification || '').toLowerCase() !== selectedClassification) {
 					return false;
 				}
@@ -302,6 +525,19 @@
 				if (selectedStatus && String(s.status || '').toLowerCase() !== selectedStatus) {
 					return false;
 				}
+
+				// Advanced checkbox filters (only if some are selected)
+				if (selectedClassifications.length > 0) {
+					if (!selectedClassifications.includes(String(s.classification || '').toLowerCase())) {
+						return false;
+					}
+				}
+				if (selectedStatuses.length > 0) {
+					if (!selectedStatuses.includes(String(s.status || '').toLowerCase())) {
+						return false;
+					}
+				}
+
 				if (!lowerQuery) return true;
 				return (
 					String(s.name || '').toLowerCase().includes(lowerQuery) ||
@@ -330,10 +566,86 @@
 				levelFilter.value = '';
 				statusFilter.value = '';
 				searchInput.value = '';
+				// Also clear advanced filters
+				document.getElementById('minIdInput').value = '';
+				document.getElementById('maxIdInput').value = '';
+				document.getElementById('minLevelInput').value = '';
+				document.getElementById('maxLevelInput').value = '';
+				['SS', 'S', 'A', 'B', 'C', 'D', 'E', 'F'].forEach(cls => {
+					const elem = document.getElementById('classCheck' + cls);
+					if (elem) elem.checked = false;
+				});
+				const statusCheckboxes = [
+					'statusCheckInTraining', 'statusCheckTransferred', 'statusCheckMissing',
+					'statusCheckUnderObs', 'statusCheckExpelled', 'statusCheckGraduated'
+				];
+				statusCheckboxes.forEach(id => {
+					const elem = document.getElementById(id);
+					if (elem) elem.checked = false;
+				});
 				filterSubjects('');
 				searchInput.focus();
 			});
 		}
+
+		// Advanced search panel toggle
+		const toggleAdvancedBtn = document.getElementById('toggleAdvancedBtn');
+		const advancedSearchPanel = document.getElementById('advancedSearchPanel');
+		if (toggleAdvancedBtn && advancedSearchPanel) {
+			toggleAdvancedBtn.addEventListener('click', () => {
+				advancedSearchPanel.classList.toggle('active');
+				toggleAdvancedBtn.textContent = advancedSearchPanel.classList.contains('active') ? '⚙ Advanced ▲' : '⚙ Advanced';
+			});
+		}
+
+		// Advanced search apply button
+		const applyAdvancedBtn = document.getElementById('applyAdvancedBtn');
+		if (applyAdvancedBtn) {
+			applyAdvancedBtn.addEventListener('click', () => {
+				filterSubjects(searchInput.value);
+			});
+		}
+
+		// Advanced search clear button
+		const clearAdvancedBtn = document.getElementById('clearAdvancedBtn');
+		if (clearAdvancedBtn) {
+			clearAdvancedBtn.addEventListener('click', () => {
+				document.getElementById('minIdInput').value = '';
+				document.getElementById('maxIdInput').value = '';
+				document.getElementById('minLevelInput').value = '';
+				document.getElementById('maxLevelInput').value = '';
+					['SS', 'S', 'A', 'B', 'C', 'D', 'E', 'F'].forEach(cls => {
+					const elem = document.getElementById('classCheck' + cls);
+					if (elem) elem.checked = false;
+				});
+				const statusCheckboxes = [
+					'statusCheckInTraining', 'statusCheckTransferred', 'statusCheckMissing',
+					'statusCheckUnderObs', 'statusCheckExpelled', 'statusCheckGraduated'
+				];
+				statusCheckboxes.forEach(id => {
+					const elem = document.getElementById(id);
+					if (elem) elem.checked = false;
+				});
+				filterSubjects(searchInput.value);
+			});
+		}
+
+		// Add input listeners to advanced search fields to trigger filtering
+		const advancedInputs = [
+			'minIdInput', 'maxIdInput', 'minLevelInput', 'maxLevelInput'
+		];
+		advancedInputs.forEach(id => {
+			const elem = document.getElementById(id);
+			if (elem) {
+				elem.addEventListener('change', () => filterSubjects(searchInput.value));
+			}
+		});
+
+		// Add listeners to checkboxes
+		const allCheckboxes = document.querySelectorAll('.advanced-search-checkboxes input[type="checkbox"]');
+		allCheckboxes.forEach(cb => {
+			cb.addEventListener('change', () => filterSubjects(searchInput.value));
+		});
 
 		// load more button handler
 		const loadMoreBtn = document.getElementById('loadMoreBtn');
