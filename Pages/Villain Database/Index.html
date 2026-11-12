@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <title>Villain Database | Hero Public Safety Commission</title>
+  <link rel="stylesheet" href="data/css/style.css">
+  <link rel="stylesheet" href="../../Data/CSS/registry-chimara.css" onload="if (!this.sheet || !this.sheet.cssRules.length) this.onerror()" onerror="fetch(this.href).then(response => { if (!response.ok) throw new Error('Stylesheet unavailable'); return response.text(); }).then(css => { const style = document.createElement('style'); style.textContent = css; this.after(style); }).catch(console.error)">
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="header-brand" href="../../Index.html">
+      <img src="../../Data/img/HPSCLogo.png" alt="">
+      <span class="header-brand-copy">
+        <strong>Hero Public Safety Commission</strong>
+        <small>Protecting the public. Supporting heroes.</small>
+      </span>
+    </a>
+    <div class="header-page" aria-label="Current page"><small>Page</small><strong>Villain Database</strong></div>
+    <nav class="header-quick-links" aria-label="Quick access">
+      <a class="header-projects" href="../../Index.html">Active Projects</a>
+      <a class="header-projects" href="../Login.html?project=Villain%20Database">Sign-in</a>
+    </nav>
+  </header>
+  <main>
+    <div class="registry-intro">
+      <div>
+        <p class="eyebrow">Hero Public Safety Commission</p>
+        <h1>Villain Database</h1>
+        <p class="lead">Restricted records for known villains, their Quirks, threat profiles, and current incidents.</p>
+      </div>
+    </div>
+    <div class="database-layout">
+    <section class="database-content" aria-label="Villain database records">
+    <form class="registry-filters simple-search" id="registry-filters" role="search">
+      <div class="filter-heading">
+        <div><h2>Find a villain</h2><p>Search by villain name, legal name, or Quirk.</p></div>
+        <button class="registry-reset" id="villain-reset" type="button">Clear filters</button>
+      </div>
+      <div class="filter-field">
+        <label for="villain-search">Search records</label>
+        <input id="villain-search" type="search" placeholder="Search by name or Quirk" autocomplete="off">
+      </div>
+      <div class="filter-field"><label for="villain-sort">Sort by</label><select id="villain-sort"><option value="original">Registry order</option><option value="name-asc">Name: A to Z</option><option value="name-desc">Name: Z to A</option><option value="clearance-asc">Clearance: low to high</option><option value="clearance-desc">Clearance: high to low</option></select></div>
+      <div class="filter-field"><label for="villain-type">Quirk type</label><select id="villain-type"><option value="">Any type</option></select></div>
+      <div class="filter-field"><label for="villain-clearance">Clearance</label><select id="villain-clearance"><option value="">Any clearance</option><option value="1">Level 1</option><option value="2">Level 2</option><option value="3">Level 3</option><option value="4">Level 4</option><option value="5">Level 5</option></select></div>
+      <div class="filter-field"><label for="villain-status">Status</label><select id="villain-status"><option value="">Any status</option></select></div>
+    </form>
+    <section class="villain-list" id="villain-list" aria-label="Villain records" aria-live="polite"></section>
+    <p class="search-empty" id="search-empty" hidden>No matching villain records.</p>
+    <p class="registry-message" id="registry-message" role="status"><strong>Loading registry</strong>Villain records are being loaded.</p>
+    <a class="back" href="../../Index.html">&larr; Return to active projects</a>
+    </section>
+    <aside class="database-sidebar" aria-label="Villain database information">
+      <section class="database-sidebar-panel" aria-labelledby="villain-overview-heading">
+        <h2 id="villain-overview-heading">Database overview</h2>
+        <dl class="database-sidebar-stats">
+          <div class="database-sidebar-stat"><dt>Matching profiles</dt><dd id="villain-sidebar-matches" aria-live="polite">—</dd></div>
+          <div class="database-sidebar-stat"><dt>Registered villains</dt><dd id="villain-sidebar-total">—</dd></div>
+          <div class="database-sidebar-stat"><dt>Active filters</dt><dd id="villain-sidebar-filters">—</dd></div>
+        </dl>
+      </section>
+      <section class="database-sidebar-panel" aria-labelledby="villain-access-heading">
+        <h2 id="villain-access-heading">Restricted records</h2>
+        <p class="database-sidebar-copy"><strong>Access is clearance-based.</strong> Some files may be restricted. Search by name, Quirk, type, status, or clearance to locate a record.</p>
+      </section>
+    </aside>
+    </div>
+  </main>
+  <footer>&copy; 20XX Hero Public Safety Commission</footer>
+  <dialog class="profile-dialog database-dialog" id="profile-dialog" aria-labelledby="dialog-name">
+    <div class="dialog-topline"></div>
+    <div class="dialog-portrait-wrap" id="dialog-portrait-wrap"></div>
+    <div class="dialog-header">
+      <div class="dialog-identity">
+        <p class="eyebrow">Hero Public Safety Commission · restricted file</p>
+        <h2 id="dialog-name"></h2>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Close villain file">&times;</button>
+    </div>
+    <nav class="dialog-page-nav" aria-label="Villain file pages">
+      <button type="button" data-page="personal" data-compact-label="Info" aria-label="Personal File" title="Personal File" aria-current="page"><span>Personal File</span></button>
+      <button type="button" data-page="threat" data-compact-label="Threat" aria-label="Threat Profile" title="Threat Profile"><span>Threat Profile</span></button>
+      <button type="button" data-page="affiliations" data-compact-label="Groups" aria-label="Affiliations" title="Affiliations"><span>Affiliations</span></button>
+      <button type="button" data-page="incidents" data-compact-label="Cases" aria-label="Current Incidents" title="Current Incidents"><span>Current Incidents</span></button>
+      <button type="button" data-page="background" data-compact-label="History" aria-label="Background" title="Background"><span>Background</span></button>
+      <button type="button" data-page="connected" data-compact-label="Links" aria-label="Connected Pages" title="Connected Pages"><span>Connected Pages</span></button>
+    </nav>
+    <div class="dialog-pages">
+      <section class="dialog-page" id="personal-page" aria-labelledby="personal-page-heading">
+        <h3 class="dialog-page-heading" id="personal-page-heading">Personal File</h3>
+        <div class="dialog-profile-layout">
+          <div class="dialog-info-column">
+            <dl class="dialog-fields" id="dialog-fields"></dl>
+          </div>
+          <div class="dialog-portrait-column">
+            <dl class="dialog-primary-fields" id="dialog-primary-fields"></dl>
+          </div>
+        </div>
+        <section class="dialog-quirk" aria-labelledby="dialog-quirk-heading">
+          <div class="dialog-quirk-heading">
+            <h4 id="dialog-quirk-heading"></h4>
+            <span class="dialog-quirk-type" id="dialog-quirk-type"></span>
+          </div>
+          <p id="dialog-description"></p>
+        </section>
+      </section>
+      <section class="dialog-page" id="threat-page" aria-labelledby="threat-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="threat-page-heading">Threat Profile</h3>
+        <p class="dialog-page-description">Threat assessment, combat approach, equipment, and known moves.</p>
+        <dl class="dialog-records">
+          <div><dt>Threat level</dt><dd id="threat-level"></dd></div>
+          <div><dt>Threat summary</dt><dd id="threat-summary"></dd></div>
+          <div><dt>Combat style</dt><dd id="combat-style"></dd></div>
+          <div><dt>Combat tools</dt><dd id="combat-tools"></dd></div>
+          <div><dt>Known moves</dt><dd id="combat-moves"></dd></div>
+        </dl>
+      </section>
+      <section class="dialog-page" id="affiliations-page" aria-labelledby="affiliations-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="affiliations-page-heading">Affiliations</h3>
+        <p class="dialog-page-description">Organizations, known associates, and locations connected to this individual.</p>
+        <dl class="dialog-records">
+          <div><dt>Affiliations</dt><dd id="affiliations"></dd></div>
+          <div><dt>Known associates</dt><dd id="known-associates"></dd></div>
+          <div><dt>Known locations</dt><dd id="known-locations"></dd></div>
+        </dl>
+      </section>
+      <section class="dialog-page" id="incidents-page" aria-labelledby="incidents-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="incidents-page-heading">Current Incidents</h3>
+        <p class="dialog-page-description">Active cases, locations, and briefings.</p>
+        <dl class="dialog-records">
+          <div><dt>Current incidents</dt><dd id="current-incidents"></dd></div>
+          <div><dt>Incident location</dt><dd id="incident-location"></dd></div>
+          <div><dt>Incident briefing</dt><dd id="incident-briefing"></dd></div>
+        </dl>
+      </section>
+      <section class="dialog-page" id="background-page" aria-labelledby="background-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="background-page-heading">Background</h3>
+        <p class="dialog-page-description">Full background information for this villain.</p>
+        <div class="dialog-background" id="dialog-background"></div>
+      </section>
+      <section class="dialog-page" id="connected-pages" aria-labelledby="connected-pages-heading" hidden>
+        <h3 class="dialog-page-heading" id="connected-pages-heading">Connected Pages</h3>
+        <p class="dialog-page-description">Records linked by Registry ID.</p>
+        <a class="registry-record-link" id="registry-record-link">View Quirk Registry Record</a>
+        <a class="registry-record-link" id="chimara-record-link" hidden>View Chimara Project Record</a>
+      </section>
+    </div>
+  </dialog>
+  <script src="data/js/script.js"></script>
+</body>
+</html>
