@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <meta name="description" content="Sign in to a Hero Public Safety Commission project.">
+  <title>Project Sign-in | Hero Public Safety Commission</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17313c;
+      --muted: #65777d;
+      --navy: #102a36;
+      --teal: #087c78;
+      --gold: #d7a84c;
+      --paper: #f7f8f5;
+      --line: #e3e9e6;
+      --white: #fff;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 5px auto 1fr auto;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid #e6b64e;
+      outline-offset: 3px;
+    }
+    .topline { background: var(--gold); }
+    header {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 112px;
+      padding: 14px max(24px, calc((100% - 1120px) / 2));
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(150px, .8fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+      color: var(--white);
+      background: radial-gradient(ellipse at 78% 50%, rgb(8 124 120 / 25%), transparent 34%), linear-gradient(110deg, #102a36, #153b47);
+    }
+    header::after { position: absolute; z-index: -1; top: -92px; right: 12%; width: 270px; height: 270px; border: 1px solid rgb(255 255 255 / 8%); border-radius: 50%; box-shadow: 0 0 0 34px rgb(255 255 255 / 2.5%), 0 0 0 68px rgb(255 255 255 / 2%); content: ""; pointer-events: none; }
+    .brand {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: inherit;
+      text-decoration: none;
+    }
+    .brand img { width: 82px; height: 82px; display: block; object-fit: contain; }
+    .brand strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .brand small { color: #b9c9cc; font-size: 10px; }
+    .header-page {
+      position: relative;
+      z-index: 1;
+      justify-self: center;
+      display: grid;
+      gap: 4px;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .header-page small { color: #f4cd79; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .header-page strong { color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: 400; }
+    .header-quick-links { position: relative; z-index: 1; justify-self: end; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .header-projects {
+      padding: 6px 11px;
+      border: 1px solid rgb(244 205 121 / 55%);
+      border-radius: 3px;
+      color: #f4cd79;
+      background: rgb(255 255 255 / 4%);
+      font-size: 11px;
+      text-decoration: none;
+      transition: border-color .18s ease, color .18s ease, background .18s ease;
+    }
+    .header-projects:hover { border-color: #f4cd79; color: #fff; background: rgb(255 255 255 / 9%); }
+    .header-projects[aria-current="page"] { color: var(--navy); background: #f4cd79; }
+    @media (max-width: 760px) {
+      header { min-height: 0; grid-template-columns: 1fr; justify-items: center; gap: 12px; padding: 13px 18px 15px; }
+      .header-page { grid-row: 2; }
+      .header-quick-links { grid-row: 3; justify-self: center; }
+    }
+    main {
+      width: min(460px, calc(100% - 36px));
+      align-self: center;
+      justify-self: center;
+      margin: 44px auto;
+    }
+    .eyebrow {
+      margin: 0 0 9px;
+      color: var(--teal);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+    }
+    .intro { margin: 9px 0 23px; color: var(--muted); font-size: 13px; }
+    .login-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--white);
+      box-shadow: 0 15px 40px rgb(21 48 57 / 7%);
+    }
+    .field { display: grid; gap: 6px; margin-bottom: 15px; }
+    label { color: #344b53; font-size: 11px; font-weight: 650; }
+    input, select {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 11px;
+      border: 1px solid #d5dfdc;
+      border-radius: 3px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 13px;
+    }
+    .submit {
+      width: 100%;
+      min-height: 43px;
+      border: 0;
+      border-radius: 3px;
+      color: var(--white);
+      background: var(--teal);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .submit:hover { background: #076a66; }
+    .back {
+      display: inline-block;
+      margin-top: 17px;
+      color: var(--teal);
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+    .error { min-height: 18px; margin: 10px 0 0; color: #a23932; font-size: 11px; }
+    footer {
+      padding: 17px 24px;
+      color: #c4d0d1;
+      background: #0c222c;
+      font-size: 10px;
+      text-align: center;
+    }
+    @media (max-width: 500px) {
+      header { min-height: 0; grid-template-columns: 1fr; justify-items: center; gap: 12px; padding: 13px 18px 15px; }
+      .brand { gap: 8px; }
+      .brand img { width: 60px; height: 60px; }
+      .brand strong { max-width: 175px; font-size: 9px; }
+      .brand small { font-size: 9px; }
+      .header-page { grid-row: 2; }
+      .header-page strong { font-size: 19px; }
+      .header-quick-links { grid-row: 3; justify-self: center; }
+      .header-projects { padding: 6px 10px; font-size: 10px; white-space: nowrap; }
+      .login-card { padding: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="brand" href="../Index.html">
+      <img src="../Data/img/HPSCLogo.png" alt="">
+      <span>
+        <strong>Hero Public Safety Commission</strong>
+        <small>Protecting the public. Supporting heroes.</small>
+      </span>
+    </a>
+    <div class="header-page" aria-label="Current page"><small>Page</small><strong>Project Sign-in</strong></div>
+    <nav class="header-quick-links" aria-label="Quick access">
+      <a class="header-projects" href="../Index.html">Active Projects</a>
+      <a class="header-projects" href="#login-form" aria-current="page">Sign-in</a>
+    </nav>
+  </header>
+  <main>
+    <p class="eyebrow">Commission projects</p>
+    <h1>Project sign-in</h1>
+    <p class="intro">Sign in to continue to the project you selected.</p>
+    <form class="login-card" id="login-form">
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="off" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="off" required>
+      </div>
+      <button class="submit" id="submit-button" type="submit" disabled>Sign in</button>
+      <p class="error" id="form-error" role="alert" aria-live="polite"></p>
+    </form>
+    <a class="back" href="../Index.html">&larr; Back to active projects</a>
+  </main>
+  <footer>&copy; 20XX Hero Public Safety Commission</footer>
+  <script>
+    const projects = {
+      "Chimara Project": "Chimara%20Project/Index.html",
+      "Quirk Registry": "Quirk%20Registry/Index.html",
+      "Hero Database": "Hero%20Database/Index.html",
+      "Villain Database": "Villain%20Database/Index.html"
+    };
+    const formError = document.querySelector("#form-error");
+    const submitButton = document.querySelector("#submit-button");
+    const requestedProject = new URLSearchParams(window.location.search).get("project");
+    const requestedProfile = new URLSearchParams(window.location.search).get("profile");
+    const requestedSubject = new URLSearchParams(window.location.search).get("subject");
+    const selectedProject = Object.hasOwn(projects, requestedProject) ? requestedProject : null;
+
+    if (selectedProject) {
+      submitButton.disabled = false;
+    } else {
+      formError.textContent = "Select a project from the active projects page before signing in.";
+    }
+
+    document.querySelector("#login-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!selectedProject) {
+        formError.textContent = "Select a project from the active projects page before signing in.";
+        return;
+      }
+
+      authenticate();
+    });
+
+    async function authenticate() {
+      submitButton.disabled = true;
+      formError.textContent = "";
+      sessionStorage.removeItem("hpsc-clearance");
+      sessionStorage.removeItem("hpsc-project-access");
+
+      try {
+        const response = await fetch("../Data/json/credentials.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Credentials could not be loaded (HTTP ${response.status}).`);
+        }
+
+        const accounts = await response.json();
+        if (!Array.isArray(accounts)) {
+          throw new Error("The credentials file has an invalid format.");
+        }
+
+        const username = document.querySelector("#username").value;
+        const password = document.querySelector("#password").value;
+        const account = accounts.find((entry) =>
+          entry && entry.username === username && entry.password === password
+        );
+
+        if (!account) {
+          formError.textContent = "Username or password is incorrect.";
+          return;
+        }
+
+        if (!Array.isArray(account.projectAccess) || !account.projectAccess.includes(selectedProject)) {
+          formError.textContent = "Your account does not have access to this project.";
+          return;
+        }
+
+        if (!Number.isInteger(account.clearance) || account.clearance < 1 || account.clearance > 5) {
+          formError.textContent = "Your account does not have a valid clearance level.";
+          return;
+        }
+
+        sessionStorage.setItem("hpsc-clearance", String(account.clearance));
+        sessionStorage.setItem("hpsc-project-access", JSON.stringify(account.projectAccess));
+        const profileQuery = requestedProfile ? `?profile=${encodeURIComponent(requestedProfile)}`
+          : selectedProject === "Chimara Project" && requestedSubject ? `?subject=${encodeURIComponent(requestedSubject)}` : "";
+        window.location.href = `${projects[selectedProject]}${profileQuery}`;
+      } catch (error) {
+        console.error("Project sign-in failed:", error);
+        formError.textContent = window.location.protocol === "file:"
+          ? "Could not load credentials. Open this site through a local web server to sign in."
+          : "Could not load the credentials file. Please try again later.";
+      } finally {
+        submitButton.disabled = false;
+      }
+    }
+
+  </script>
+</body>
+</html>
