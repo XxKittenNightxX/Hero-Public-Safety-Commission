@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <meta name="description" content="Explore active Hero Public Safety Commission projects and public initiatives.">
+  <title>Active Projects | Hero Public Safety Commission</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17313c;
+      --muted: #65777d;
+      --navy: #102a36;
+      --navy-light: #193b48;
+      --teal: #087c78;
+      --teal-soft: #e5f3f0;
+      --gold: #d7a84c;
+      --paper: #f7f8f5;
+      --line: #e3e9e6;
+      --white: #fff;
+      --shadow: 0 15px 40px rgb(21 48 57 / 8%);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    [hidden] { display: none !important; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 3px solid #e6b64e;
+      outline-offset: 3px;
+    }
+
+    .topline { height: 5px; background: var(--gold); }
+    .site-header {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      background: var(--navy);
+    }
+    .header-inner, .hero-inner, main, .footer-inner {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .header-inner {
+      min-height: 104px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+    .brand img { width: 82px; height: 82px; display: block; object-fit: contain; }
+    .brand-copy { display: grid; line-height: 1.18; }
+    .brand-copy strong {
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .brand-copy span {
+      margin-top: 5px;
+      color: #b9c9cc;
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+    .main-nav { display: flex; align-items: center; gap: 31px; }
+    .main-nav a {
+      color: #d1dcdd;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color .18s ease;
+    }
+    .main-nav a:hover, .main-nav a[aria-current="page"] { color: #f4cd79; }
+    .nav-contact {
+      padding: 9px 15px;
+      border: 1px solid rgb(255 255 255 / 35%);
+      border-radius: 3px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 82% 45%, rgb(38 122 121 / 38%), transparent 34%),
+        linear-gradient(112deg, #102a36 5%, #163b46 69%, #1c5156 100%);
+    }
+    .hero::after {
+      position: absolute;
+      top: -110px;
+      right: -40px;
+      width: 440px;
+      height: 440px;
+      border: 1px solid rgb(255 255 255 / 9%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 48px rgb(255 255 255 / 3%), 0 0 0 96px rgb(255 255 255 / 2%);
+      content: "";
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      padding-top: 25px;
+      padding-bottom: 32px;
+    }
+    .hero-copy { max-width: 650px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 15px;
+      color: #efc96f;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 26px; height: 1px; background: currentColor; content: ""; }
+    h1 {
+      max-width: 610px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 5vw, 57px);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1.08;
+    }
+    .hero-copy > p:last-child {
+      max-width: 550px;
+      margin: 17px 0 0;
+      color: #d0dddf;
+      font-size: 15px;
+    }
+    .hero-stamp {
+      position: absolute;
+      right: 12px;
+      bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d8e5e3;
+      font-size: 10px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .hero-stamp span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #75c4a4;
+      box-shadow: 0 0 0 4px rgb(117 196 164 / 17%);
+    }
+
+    main { padding-top: 42px; padding-bottom: 66px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 23px;
+    }
+    .section-kicker {
+      margin: 0 0 4px;
+      color: var(--teal);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+    .project-count {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .project-count strong { color: var(--ink); }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--white);
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter-button {
+      padding: 7px 12px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      color: #5e7075;
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .filter-button:hover { border-color: var(--line); color: var(--ink); }
+    .filter-button[aria-pressed="true"] {
+      border-color: #c9e2dd;
+      color: #086c68;
+      background: var(--teal-soft);
+      font-weight: 600;
+    }
+    .search-wrap {
+      position: relative;
+      width: min(250px, 100%);
+      flex: 0 0 250px;
+    }
+    .search-wrap svg {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      width: 15px;
+      height: 15px;
+      color: #7a8a8e;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      padding: 9px 12px 9px 35px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 12px;
+    }
+    .search-input::placeholder { color: #879599; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+    .project-card {
+      position: relative;
+      min-height: 284px;
+      display: flex;
+      flex-direction: column;
+      padding: 23px 22px 18px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--white);
+      box-shadow: 0 2px 6px rgb(21 48 57 / 2%);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #cbd9d5;
+      box-shadow: var(--shadow);
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 19px;
+    }
+    .project-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      color: var(--teal);
+      background: var(--teal-soft);
+    }
+    .project-icon svg { width: 22px; height: 22px; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 2px;
+      color: #287452;
+      background: #eaf5ee;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+    }
+    .status::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4a9d6d;
+      content: "";
+    }
+    .project-card h3 {
+      margin: 0 0 9px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -.02em;
+      line-height: 1.25;
+    }
+    .project-card > p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 19px;
+    }
+    .project-category {
+      color: #738389;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+    .details-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0;
+      border: 0;
+      color: var(--teal);
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .details-button:hover { color: #075754; }
+    .details-button svg { width: 14px; height: 14px; transition: transform .18s ease; }
+    .details-button:hover svg { transform: translateX(3px); }
+    .empty-state {
+      display: none;
+      padding: 38px 20px;
+      border: 1px dashed #cbd7d4;
+      border-radius: 5px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .empty-state strong { display: block; margin-bottom: 4px; color: var(--ink); }
+
+    .notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 31px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--gold);
+      background: #f0f2ed;
+    }
+    .notice svg { width: 18px; height: 18px; flex: 0 0 auto; color: #9c7525; }
+    .notice p { margin: 0; color: #5f6e70; font-size: 12px; }
+    .notice strong { color: var(--ink); }
+
+    .site-footer {
+      color: #c4d0d1;
+      background: #0c222c;
+    }
+    .footer-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 11px;
+    }
+    .footer-inner p { margin: 0; }
+    .footer-links { display: flex; gap: 19px; }
+    .footer-links a { color: #c4d0d1; text-decoration: none; }
+    .footer-links a:hover { color: #f4cd79; }
+
+    @media (max-width: 760px) {
+      .header-inner, .hero-inner, main, .footer-inner { width: min(100% - 34px, 600px); }
+      .header-inner { min-height: 94px; }
+      .main-nav { gap: 15px; }
+      .main-nav a:not([aria-current="page"]) { display: none; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-inner { min-height: 280px; }
+      .hero-stamp { right: 3px; bottom: 21px; }
+    }
+    @media (max-width: 540px) {
+      .brand-copy strong { font-size: 11px; }
+      .brand-copy span { font-size: 9px; }
+      .brand img { width: 68px; height: 68px; }
+      .main-nav { gap: 0; }
+      .hero-inner { min-height: 300px; padding-top: 20px; padding-bottom: 58px; }
+      .hero-stamp { bottom: 20px; left: 0; right: auto; }
+      main { padding-top: 33px; padding-bottom: 45px; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+      .toolbar { align-items: stretch; flex-direction: column-reverse; }
+      .search-wrap { width: 100%; flex-basis: auto; }
+      .filters { gap: 4px; }
+      .filter-button { padding: 7px 9px; font-size: 11px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 260px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding-top: 17px; padding-bottom: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="Index.html" aria-label="Hero Public Safety Commission home">
+        <img src="Data/img/HPSCLogo.png" alt="">
+        <span class="brand-copy">
+          <strong>Hero Public Safety Commission</strong>
+          <span>Protecting the public. Supporting heroes.</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#projects" aria-current="page">Projects</a>
+        <a href="#about">About</a>
+        <a class="nav-contact" href="mailto:info@hpsc.example">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Our work in progress</p>
+        <h1 id="page-title">Building a safer future, together.</h1>
+        <p>Discover the initiatives helping strengthen public trust, improve hero coordination, and prepare our communities for what comes next.</p>
+      </div>
+      <div class="hero-stamp"><span aria-hidden="true"></span> Commission initiatives</div>
+    </div>
+  </section>
+
+  <main id="projects">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">Transparency &amp; progress</p>
+        <h2>Active projects</h2>
+      </div>
+      <p class="project-count" id="project-count"><strong>4</strong> active initiatives</p>
+    </div>
+
+    <section class="toolbar" aria-label="Find a project">
+      <div class="filters" role="group" aria-label="Filter projects by category">
+        <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All projects</button>
+        <button class="filter-button" type="button" data-filter="research" aria-pressed="false">Research</button>
+        <button class="filter-button" type="button" data-filter="public-services" aria-pressed="false">Public services</button>
+        <button class="filter-button" type="button" data-filter="coordination" aria-pressed="false">Coordination</button>
+      </div>
+      <label class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+        <input class="search-input" id="project-search" type="search" placeholder="Search projects" autocomplete="off">
+      </label>
+    </section>
+
+    <section class="project-grid" aria-label="Active project list" aria-live="polite">
+      <article class="project-card" data-category="research" data-search="chimara project research community resilience preparedness">
+        <div class="card-top">
+          <span class="project-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19 6v5c0 4.8-3 8-7 10-4-2-7-5.2-7-10V6l7-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </span>
+          <span class="status">Active</span>
+        </div>
+        <h3>Chimara Project</h3>
+        <p>The Chimara Project is an initiative designed to train and empower youth to become the next generation of heroes, helping ensure communities have protectors ready to step in as service needs change.</p>
+        <div class="card-bottom">
+          <span class="project-category">Research</span>
+          <a class="details-button" href="Pages/Login.html?project=Chimara%20Project" aria-label="Sign in to open the Chimara Project">
+            Sign in to access
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="public-services" data-search="quirk registry public services records standards access">
+        <div class="card-top">
+          <span class="project-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5v-17Z"></path><path d="M5 5v16M9 7h7M9 11h7M9 15h4"></path></svg>
+          </span>
+          <span class="status">Active</span>
+        </div>
+        <h3>Quirk Registry</h3>
+        <p>Developing clearer, more consistent records and public-service standards for hero licensing.</p>
+        <div class="card-bottom">
+          <span class="project-category">Public services</span>
+          <a class="details-button" href="Pages/Login.html?project=Quirk%20Registry" aria-label="Sign in to open the Quirk Registry">
+            Sign in to access
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="public-services" data-search="hero database licensed heroes personnel profiles agencies">
+        <div class="card-top">
+          <span class="project-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20v-1.5a6.5 6.5 0 0 1 13 0V20zM16 5.2a3.5 3.5 0 0 1 0 6.6M18 14a5.5 5.5 0 0 1 3.5 5.1V20h-4"></path></svg>
+          </span>
+          <span class="status">Active</span>
+        </div>
+        <h3>Hero Database</h3>
+        <p>A centralized directory for hero profiles, affiliations, and licensing information.</p>
+        <div class="card-bottom">
+          <span class="project-category">Public services</span>
+          <a class="details-button" href="Pages/Login.html?project=Hero%20Database" aria-label="Sign in to open the Hero Database">
+            Sign in to access
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="coordination" data-search="villain database coordination incident analysis patterns response">
+        <div class="card-top">
+          <span class="project-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg>
+          </span>
+          <span class="status">Active</span>
+        </div>
+        <h3>Villain Database</h3>
+        <p>Improving incident analysis and information-sharing to support better coordinated responses.</p>
+        <div class="card-bottom">
+          <span class="project-category">Coordination</span>
+          <a class="details-button" href="Pages/Login.html?project=Villain%20Database" aria-label="Sign in to open the Villain Database">
+            Sign in to access
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </article>
+    </section>
+    <p class="empty-state" id="empty-state"><strong>No matching projects</strong>Try a different search or select another category.</p>
+
+    <aside class="notice" id="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>
+      <p><strong>About this page</strong><br>Project summaries are intended as a public overview. For additional information, please contact the Commission.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 20XX Hero Public Safety Commission</p>
+      <div class="footer-links">
+        <a href="#about">About the Commission</a>
+        <a href="mailto:info@hpsc.example">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll(".project-card"));
+    const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
+    const searchInput = document.querySelector("#project-search");
+    const emptyState = document.querySelector("#empty-state");
+    const projectCount = document.querySelector("#project-count");
+    let activeFilter = "all";
+
+    function updateProjects() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const categoryMatches = activeFilter === "all" || card.dataset.category === activeFilter;
+        const textMatches = card.dataset.search.includes(query);
+        const isVisible = categoryMatches && textMatches;
+        card.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      emptyState.style.display = visibleCount === 0 ? "block" : "none";
+      projectCount.innerHTML = `<strong>${visibleCount}</strong> ${visibleCount === 1 ? "active initiative" : "active initiatives"}`;
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        updateProjects();
+      });
+    });
+    searchInput.addEventListener("input", updateProjects);
+
+  </script>
+</body>
+</html>
