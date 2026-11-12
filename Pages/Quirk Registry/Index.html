@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <title>Quirk Registry | Hero Public Safety Commission</title>
+  <link rel="stylesheet" href="data/css/style.css">
+  <link rel="stylesheet" href="../../Data/CSS/registry-chimara.css" onload="if (!this.sheet || !this.sheet.cssRules.length) this.onerror()" onerror="fetch(this.href).then(response => { if (!response.ok) throw new Error('Stylesheet unavailable'); return response.text(); }).then(css => { const style = document.createElement('style'); style.textContent = css; this.after(style); }).catch(console.error)">
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="header-brand" href="../../Index.html">
+      <img src="../../Data/img/HPSCLogo.png" alt="">
+      <span class="header-brand-copy">
+        <strong>Hero Public Safety Commission</strong>
+        <small>Protecting the public. Supporting heroes.</small>
+      </span>
+    </a>
+    <div class="header-page" aria-label="Current page"><small>Page</small><strong>Quirk Registry</strong></div>
+    <nav class="header-quick-links" aria-label="Quick access">
+      <a class="header-projects" href="../../Index.html">Active Projects</a>
+      <a class="header-projects" href="../Login.html?project=Quirk%20Registry">Sign-in</a>
+    </nav>
+  </header>
+  <main>
+    <div class="registry-intro">
+      <div>
+        <p class="eyebrow">Hero Public Safety Commission</p>
+        <h1>Quirk Registry</h1>
+        <p class="lead">Commission personnel, registered quirks, and classifications.</p>
+      </div>
+    </div>
+    <div class="registry-layout">
+      <aside class="registry-sidebar" aria-label="Registry information">
+        <section class="sidebar-panel" aria-labelledby="registry-overview-heading">
+          <h2 id="registry-overview-heading">Registry overview</h2>
+          <dl class="sidebar-stats">
+            <div class="sidebar-stat"><dt>Matching profiles</dt><dd id="sidebar-match-count" aria-live="polite">—</dd></div>
+            <div class="sidebar-stat"><dt>Directory entries</dt><dd id="sidebar-directory-count">—</dd></div>
+            <div class="sidebar-stat"><dt>Active filters</dt><dd id="sidebar-filter-count">—</dd></div>
+          </dl>
+        </section>
+        <section class="sidebar-panel" aria-labelledby="registry-status-heading">
+          <h2 id="registry-status-heading">Status key</h2>
+          <ul class="sidebar-legend">
+            <li><span class="record-warning record-warning--hero">Hero</span><span>Registered hero or student</span></li>
+            <li><span class="record-warning record-warning--villain">Villain</span><span>Villain alert</span></li>
+            <li><span class="record-warning record-warning--watch-list">Watch-list</span><span>Under Commission watch</span></li>
+            <li><span class="record-warning record-warning--missing">Missing</span><span>Missing person report</span></li>
+            <li><span class="record-warning record-warning--vigilante">Vigilante</span><span>Unlicensed activity</span></li>
+            <li><span class="record-warning record-warning--deceased">Deceased</span><span>Record marked deceased</span></li>
+          </ul>
+          <p class="sidebar-legend-note">Status markers also appear on matching personnel cards.</p>
+        </section>
+        <section class="sidebar-panel" aria-labelledby="registry-about-heading">
+          <h2 id="registry-about-heading">About this registry</h2>
+          <p class="sidebar-about"><strong>Search the Commission index</strong> by name, Quirk, or profile details. Select an available personnel card to open its file.</p>
+        </section>
+      </aside>
+      <section class="registry-content" aria-label="Personnel registry">
+      <form class="registry-filters" id="registry-filters" role="search">
+      <div class="filter-heading">
+        <div>
+          <h2><button class="filter-title-toggle" id="directory-toggle" type="button" aria-pressed="false" title="Show or hide the randomized directory entries">Find personnel</button></h2>
+          <p>Search by name, Registry ID, or Quirk, then narrow by profile details.</p>
+        </div>
+        <div class="filter-actions">
+          <button id="clear-filters" type="reset">Clear filters</button>
+        </div>
+      </div>
+      <div class="filter-query-grid">
+        <div class="filter-field">
+          <label for="name-filter">Name</label>
+          <input id="name-filter" type="search" placeholder="Search by legal name" autocomplete="off">
+        </div>
+        <div class="filter-field">
+          <label for="quirk-filter">Quirk</label>
+          <input id="quirk-filter" type="search" placeholder="Search by quirk name" autocomplete="off">
+        </div>
+        <div class="filter-field" id="registry-id-filter-field" hidden>
+          <label for="registry-id-filter">Registry ID</label>
+          <input id="registry-id-filter" type="search" placeholder="Search by Registry ID" autocomplete="off">
+        </div>
+      </div>
+      <div class="filter-grid">
+        <div class="filter-field">
+          <label for="quirk-type-filter">Quirk type</label>
+          <select id="quirk-type-filter">
+            <option value="">All quirk types</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="blood-type-filter">Blood type</label>
+          <select id="blood-type-filter">
+            <option value="">All blood types</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <span class="filter-label">Record status</span>
+          <details class="status-picker" id="status-filter">
+            <summary id="status-filter-summary">Any status</summary>
+            <div class="status-options" role="group" aria-label="Select one or more statuses">
+              <label><input type="checkbox" value="missing"><span class="record-warning record-warning--missing">Missing</span></label>
+              <label><input type="checkbox" value="watch-list"><span class="record-warning record-warning--watch-list">Watch-list</span></label>
+              <label><input type="checkbox" value="villain"><span class="record-warning record-warning--villain">Villain</span></label>
+              <label><input type="checkbox" value="vigilante"><span class="record-warning record-warning--vigilante">Vigilante</span></label>
+              <label><input type="checkbox" value="hero"><span class="record-warning record-warning--hero">Hero</span></label>
+              <label><input type="checkbox" value="civilian"><span class="record-warning record-warning--misc">Civilian</span></label>
+              <label><input type="checkbox" value="deceased"><span class="record-warning record-warning--deceased">Deceased</span></label>
+            </div>
+          </details>
+        </div>
+      </div>
+    </form>
+    <p class="record-count" id="record-count" aria-live="polite"></p>
+    <section class="character-list" id="character-list" aria-label="Personnel records" aria-live="polite"></section>
+    <p class="search-empty" id="search-empty" hidden>No matching personnel records.</p>
+    <nav class="registry-pagination" id="registry-pagination" aria-label="Registry pages" hidden>
+      <button id="previous-page" type="button">Previous</button>
+      <span class="page-indicator" id="page-indicator" aria-live="polite"></span>
+      <button id="next-page" type="button">Next</button>
+    </nav>
+    <p class="registry-message" id="registry-message"><strong>Loading registry</strong>Personnel records are being loaded.</p>
+    <a class="back" href="../../Index.html">&larr; Return to active projects</a>
+      </section>
+    </div>
+  </main>
+  <footer>&copy; 20XX Hero Public Safety Commission</footer>
+  <dialog class="profile-dialog" id="profile-dialog" aria-labelledby="dialog-name">
+    <div class="dialog-topline"></div>
+    <div class="dialog-portrait-wrap" id="dialog-portrait-wrap"></div>
+    <div class="dialog-header">
+      <div>
+        <p class="character-label">Hero Public Safety Commission · personnel file</p>
+        <h2 id="dialog-name"></h2>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Close personnel file">&times;</button>
+    </div>
+    <nav class="dialog-page-nav" aria-label="Personnel file tabs" role="tablist">
+      <button id="personal-tab" type="button" role="tab" aria-controls="personal-page" aria-selected="true">Personal File</button>
+      <button id="family-tab" type="button" role="tab" aria-controls="family-page" aria-selected="false" tabindex="-1">Family Info</button>
+      <button id="background-tab" type="button" role="tab" aria-controls="background-page" aria-selected="false" tabindex="-1">Background</button>
+      <button id="notes-tab" type="button" role="tab" aria-controls="notes-page" aria-selected="false" tabindex="-1">Notes</button>
+      <button id="connected-tab" type="button" role="tab" aria-controls="connected-pages" aria-selected="false" tabindex="-1" hidden>Connected Pages</button>
+    </nav>
+    <div class="dialog-pages">
+      <section class="dialog-page" id="personal-page" role="tabpanel" aria-labelledby="personal-tab">
+        <div class="dialog-body">
+          <section class="dialog-record" aria-label="Personal file">
+            <div class="dialog-warnings" id="dialog-warnings"></div>
+            <dl class="dialog-fields" id="dialog-fields"></dl>
+            <section class="dialog-assessment family-member-quirk">
+              <span class="family-member-quirk-label">Registered Quirk</span>
+              <div class="family-member-quirk-heading">
+                <strong id="dialog-quirk-name" class="family-member-quirk-name"></strong>
+                <span id="dialog-quirk-type" class="family-member-quirk-type"></span>
+              </div>
+              <p id="dialog-description"></p>
+            </section>
+          </section>
+        </div>
+      </section>
+      <section class="dialog-page" id="family-page" role="tabpanel" aria-labelledby="family-tab" hidden>
+        <h3 class="dialog-page-heading">Family Info</h3>
+        <div class="family-member-list" id="dialog-family-text"></div>
+      </section>
+      <section class="dialog-page" id="background-page" role="tabpanel" aria-labelledby="background-tab" hidden>
+        <h3 class="dialog-page-heading">Background</h3>
+        <div class="dialog-notes-content" id="dialog-background-text"></div>
+      </section>
+      <section class="dialog-page" id="notes-page" role="tabpanel" aria-labelledby="notes-tab" hidden>
+        <h3 class="dialog-page-heading">Notes</h3>
+        <div class="dialog-notes-content" id="dialog-notes-text"></div>
+      </section>
+      <section class="dialog-page" id="connected-pages" role="tabpanel" aria-labelledby="connected-tab" hidden>
+        <h3 class="dialog-page-heading">Connected Pages</h3>
+        <div class="connected-pages-list" id="dialog-database-profile-links"></div>
+      </section>
+    </div>
+  </dialog>
+  <script src="../../Data/js/formatted-note.js"></script>
+  <script src="data/js/script.js"></script>
+</body>
+</html>
