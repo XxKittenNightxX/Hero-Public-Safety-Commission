@@ -1,0 +1,262 @@
+{
+  "subjects": [
+    {
+      "registryName": "ID: 3824-9845-9981",
+      "strand": "QX-7 “Genesis Vector”",
+      "sourceRegistryName": "ID: 4049-5556-7360",
+      "description": "Test subject for Project Genesis; injected with the Genesis Vector."
+    }
+  ],
+  "generatedSubjects": [
+    {
+      "subjectNumber": "2085",
+      "legalName": "Fukuda, Akari",
+      "strand": "QX-2 “Helix Vector”"
+    },
+    {
+      "subjectNumber": "2327",
+      "legalName": "Aoki, Haruto",
+      "strand": "QX-5 “Nexus Vector”"
+    },
+    {
+      "subjectNumber": "2569",
+      "legalName": "Hoshino, Yui",
+      "strand": "QX-8-A “Ascendant Variant”"
+    },
+    {
+      "subjectNumber": "2178",
+      "legalName": "Ito, Kaede",
+      "strand": "QX-3 “Catalyst Vector”"
+    },
+    {
+      "subjectNumber": "2420",
+      "legalName": "Kato, Sora",
+      "strand": "QX-6-A “Horizon Variant”"
+    },
+    {
+      "subjectNumber": "2271",
+      "legalName": "Hayashi, Rin",
+      "strand": "QX-4-A “Echo Variant”"
+    },
+    {
+      "subjectNumber": "2513",
+      "legalName": "Ishikawa, Ren",
+      "strand": "QX-7-B “Genesis Variant B”"
+    },
+    {
+      "subjectNumber": "2122",
+      "legalName": "Kobayashi, Aoi",
+      "strand": "QX-2-A “Helix Variant”"
+    },
+    {
+      "subjectNumber": "2364",
+      "legalName": "Fujita, Mei",
+      "strand": "QX-5-B “Nexus Variant”"
+    },
+    {
+      "subjectNumber": "2215",
+      "legalName": "Endo, Kaito",
+      "strand": "QX-3-B “Catalyst Variant”"
+    },
+    {
+      "subjectNumber": "2457",
+      "legalName": "Matsuda, Sakura",
+      "strand": "QX-7-A “Genesis Variant A”"
+    },
+    {
+      "subjectNumber": "2066",
+      "legalName": "Kimura, Nao",
+      "strand": "QX-1-A “Origin Variant”"
+    },
+    {
+      "subjectNumber": "2308",
+      "legalName": "Aoki, Aoi",
+      "strand": "QX-5 “Nexus Vector”"
+    },
+    {
+      "subjectNumber": "2401",
+      "legalName": "Ito, Hinata",
+      "strand": "QX-6 “Horizon Vector”"
+    },
+    {
+      "subjectNumber": "2010",
+      "legalName": "Miyamoto, Masaru",
+      "strand": "QX-1 “Origin Vector”"
+    },
+    {
+      "subjectNumber": "2252",
+      "legalName": "Saito, Sora",
+      "strand": "QX-4 “Echo Vector”"
+    },
+    {
+      "subjectNumber": "2494",
+      "legalName": "Watanabe, Ayaka",
+      "strand": "QX-7-B “Genesis Variant B”"
+    },
+    {
+      "subjectNumber": "2103",
+      "legalName": "Aida, Hiroshi",
+      "strand": "QX-2-A “Helix Variant”"
+    },
+    {
+      "subjectNumber": "2345",
+      "legalName": "Asano, Misaki",
+      "strand": "QX-5-B “Nexus Variant”"
+    },
+    {
+      "subjectNumber": "2587",
+      "legalName": "Furuta, Tatsuya",
+      "strand": "QX-8-A “Ascendant Variant”"
+    },
+    {
+      "subjectNumber": "2196",
+      "legalName": "Fujita, Chika",
+      "strand": "QX-3-B “Catalyst Variant”"
+    },
+    {
+      "subjectNumber": "2438",
+      "legalName": "Kimura, Izumi",
+      "strand": "QX-7 “Genesis Vector”"
+    },
+    {
+      "subjectNumber": "2289",
+      "legalName": "Murakami, Naoki",
+      "strand": "QX-4-A “Echo Variant”"
+    },
+    {
+      "subjectNumber": "2531",
+      "legalName": "Shinohara, Yuna",
+      "strand": "QX-8 “Ascendant Vector”"
+    },
+    {
+      "subjectNumber": "2140",
+      "legalName": "Yokoyama, Emi",
+      "strand": "QX-2-A “Helix Variant”"
+    },
+    {
+      "subjectNumber": "2382",
+      "legalName": "Akamine, Kaito",
+      "strand": "QX-6 “Horizon Vector”"
+    },
+    {
+      "subjectNumber": "2475",
+      "legalName": "Chiba, Ren",
+      "strand": "QX-7-A “Genesis Variant A”"
+    },
+    {
+      "subjectNumber": "2084",
+      "legalName": "Hasegawa, Akako",
+      "strand": "QX-2 “Helix Vector”"
+    },
+    {
+      "subjectNumber": "2326",
+      "legalName": "Hashimoto, Haruka",
+      "strand": "QX-5 “Nexus Vector”"
+    },
+    {
+      "subjectNumber": "2568",
+      "legalName": "Kudo, Kenta",
+      "strand": "QX-8 “Ascendant Vector”"
+    },
+    {
+      "subjectNumber": "2177",
+      "legalName": "Noguchi, Sakura",
+      "strand": "QX-3 “Catalyst Vector”"
+    },
+    {
+      "subjectNumber": "2419",
+      "legalName": "Takeda, Akiko",
+      "strand": "QX-6-A “Horizon Variant”"
+    },
+    {
+      "subjectNumber": "2028",
+      "legalName": "Sero, Hibiki",
+      "strand": "QX-1 “Origin Vector”"
+    },
+    {
+      "subjectNumber": "2270",
+      "legalName": "Ando, Mai",
+      "strand": "QX-4 “Echo Vector”"
+    },
+    {
+      "subjectNumber": "2512",
+      "legalName": "Enomoto, Shiori",
+      "strand": "QX-7-B “Genesis Variant B”"
+    },
+    {
+      "subjectNumber": "2214",
+      "legalName": "Takara, Asahi",
+      "strand": "QX-3-B “Catalyst Variant”"
+    },
+    {
+      "subjectNumber": "2456",
+      "legalName": "Ishikawa, Hiro",
+      "strand": "QX-7 “Genesis Vector”"
+    },
+    {
+      "subjectNumber": "2065",
+      "legalName": "Matsumoto, Mei",
+      "strand": "QX-1-A “Origin Variant”"
+    },
+    {
+      "subjectNumber": "2307",
+      "legalName": "Oshima, Takeshi",
+      "strand": "QX-4-A “Echo Variant”"
+    },
+    {
+      "subjectNumber": "2549",
+      "legalName": "Ueno, Ayame",
+      "strand": "QX-8 “Ascendant Vector”"
+    },
+    {
+      "subjectNumber": "2400",
+      "legalName": "Adachi, Honoka",
+      "strand": "QX-6 “Horizon Vector”"
+    },
+    {
+      "subjectNumber": "2009",
+      "legalName": "Asai, Mitsuki",
+      "strand": "QX-1 “Origin Vector”"
+    },
+    {
+      "subjectNumber": "2251",
+      "legalName": "Furukawa, Yui",
+      "strand": "QX-4 “Echo Vector”"
+    },
+    {
+      "subjectNumber": "2493",
+      "legalName": "Fujimoto, Daichi",
+      "strand": "QX-7-A “Genesis Variant A”"
+    },
+    {
+      "subjectNumber": "2102",
+      "legalName": "Kikuchi, Jun",
+      "strand": "QX-2 “Helix Vector”"
+    },
+    {
+      "subjectNumber": "2344",
+      "legalName": "Morita, Natsuki",
+      "strand": "QX-5-B “Nexus Variant”"
+    },
+    {
+      "subjectNumber": "2586",
+      "legalName": "Shimizu, Yusuke",
+      "strand": "QX-8-A “Ascendant Variant”"
+    },
+    {
+      "subjectNumber": "2195",
+      "legalName": "Yamamoto, Fumiko",
+      "strand": "QX-3 “Catalyst Vector”"
+    },
+    {
+      "subjectNumber": "2437",
+      "legalName": "Akagi, Kana",
+      "strand": "QX-6-A “Horizon Variant”"
+    },
+    {
+      "subjectNumber": "2046",
+      "legalName": "Baba, Riku",
+      "strand": "QX-1-A “Origin Variant”"
+    }
+  ]
+}

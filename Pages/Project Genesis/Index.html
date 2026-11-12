@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <title>Project Genesis | Hero Public Safety Commission</title>
+  <link rel="stylesheet" href="data/css/style.css">
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="brand" href="../../Index.html">
+      <img src="../../Data/img/HPSCLogo.png" alt="">
+      <span class="brand-copy"><strong>Hero Public Safety Commission</strong><small>Protecting the public. Supporting heroes.</small></span>
+    </a>
+    <div class="header-right">
+      <a class="header-link" href="../Chimara%20Project/Index.html">&larr; Chimara Project</a>
+    </div>
+  </header>
+  <main>
+    <section id="access-denied" aria-labelledby="access-title">
+      <p class="eyebrow">Restricted file</p>
+      <h1 id="access-title">Access restricted</h1>
+      <p class="lead">This file requires Chimara Project access and clearance level 5.</p>
+      <a class="back" href="../Login.html?project=Chimara%20Project">Sign in to the Chimara Project</a>
+    </section>
+    <article id="project-file" hidden>
+      <div class="project-hero">
+        <div>
+          <p class="eyebrow">Restricted research &nbsp; / &nbsp; Project file</p>
+          <h1>Project Genesis</h1>
+          <p class="lead">Exploring the copying, modification, and transfer of powerful Quirks.</p>
+        </div>
+        <dl class="hero-meta">
+          <div><dt>Access</dt><dd>Clearance 5</dd></div>
+          <div><dt>Connected project</dt><dd>Chimara</dd></div>
+          <div><dt>File type</dt><dd>Research</dd></div>
+        </dl>
+      </div>
+      <div class="section-heading">
+        <div><p class="eyebrow">Project overview</p><h2>The research</h2></div>
+        <p>Purpose and intended applications of the project.</p>
+      </div>
+      <div class="overview">
+        <section class="panel panel--wide">
+          <span class="panel-label">01 / Objective</span>
+          <h2>Project objective</h2>
+          <p>Project Genesis aims to copy a powerful Quirk, modify the copy, and give it to another person, whether or not they already possess a Quirk. The project also explores modifying an existing Quirk.</p>
+        </section>
+        <section class="panel">
+          <span class="panel-label">02 / Application</span>
+          <h2>Intended applications</h2>
+          <p>A transferred Quirk could give a Quirkless person an ability or allow someone with a Quirk to possess multiple abilities. Modifications could also change a person's existing Quirk.</p>
+        </section>
+      </div>
+      <div class="research-layout">
+        <section class="subjects-section" aria-labelledby="subjects-title">
+          <div class="section-heading">
+            <div><p class="eyebrow">Subject files</p><h2 id="subjects-title">Connected subjects</h2></div>
+            <p>Open a subject file for strand and profile details.</p>
+          </div>
+          <div class="subject-search">
+            <label for="subject-search">Find a subject</label>
+            <input id="subject-search" type="search" placeholder="Search by name or strand..." autocomplete="off" aria-controls="connected-subjects">
+            <p id="subject-search-status" role="status" aria-live="polite">Loading connected subjects...</p>
+          </div>
+          <p id="subject-link-message" class="subject-error" role="status" hidden></p>
+          <div id="connected-subjects" class="subject-list"><p>Loading connected subjects...</p></div>
+        </section>
+        <aside class="vectors-section" aria-labelledby="vectors-title">
+          <p class="eyebrow">Research directory</p>
+          <h2 id="vectors-title">Genesis vectors</h2>
+          <p class="vectors-description">Select a vector to view its variants.</p>
+          <div id="genesis-vectors" class="vector-list" aria-live="polite" tabindex="0" aria-label="Genesis vectors"><p>Loading vectors...</p></div>
+        </aside>
+      </div>
+      <a class="back" href="../Chimara%20Project/Index.html">&larr; Return to Chimara Project</a>
+    </article>
+  </main>
+  <dialog id="subject-dialog" class="subject-dialog" aria-labelledby="subject-dialog-title">
+    <div class="subject-dialog-header">
+      <div class="subject-dialog-identity">
+        <p id="subject-dialog-kicker"></p>
+        <h2 id="subject-dialog-title"></h2>
+      </div>
+      <button id="subject-dialog-close" class="subject-dialog-close" type="button" aria-label="Close subject details">&times;</button>
+    </div>
+    <div class="subject-dialog-body">
+      <div id="subject-dialog-portrait"></div>
+      <div class="subject-dialog-details">
+        <div id="subject-dialog-tabs" class="subject-dialog-tabs" role="tablist" aria-label="Subject details"></div>
+        <div id="subject-dialog-content" class="subject-dialog-content"></div>
+        <div id="subject-dialog-footer" class="subject-dialog-footer" hidden></div>
+      </div>
+    </div>
+  </dialog>
+  <footer>&copy; 20XX Hero Public Safety Commission</footer>
+  <script src="../Chimara%20Project/data/js/portrait.js"></script>
+  <script src="data/js/script.js"></script>
+</body>
+</html>

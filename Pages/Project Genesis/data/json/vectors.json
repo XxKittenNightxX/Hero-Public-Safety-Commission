@@ -1,0 +1,19 @@
+[
+  { "code": "QX-1", "name": "Origin Vector" },
+  { "code": "QX-1-A", "name": "Origin Variant" },
+  { "code": "QX-2", "name": "Helix Vector" },
+  { "code": "QX-2-A", "name": "Helix Variant" },
+  { "code": "QX-3", "name": "Catalyst Vector" },
+  { "code": "QX-3-B", "name": "Catalyst Variant" },
+  { "code": "QX-4", "name": "Echo Vector" },
+  { "code": "QX-4-A", "name": "Echo Variant" },
+  { "code": "QX-5", "name": "Nexus Vector" },
+  { "code": "QX-5-B", "name": "Nexus Variant" },
+  { "code": "QX-6", "name": "Horizon Vector" },
+  { "code": "QX-6-A", "name": "Horizon Variant" },
+  { "code": "QX-7", "name": "Genesis Vector" },
+  { "code": "QX-7-A", "name": "Genesis Variant A" },
+  { "code": "QX-7-B", "name": "Genesis Variant B" },
+  { "code": "QX-8", "name": "Ascendant Vector" },
+  { "code": "QX-8-A", "name": "Ascendant Variant" }
+]
