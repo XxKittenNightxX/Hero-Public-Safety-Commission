@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="data/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <title>Chimara Project | Hero Public Safety Commission</title>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="header-brand" href="../../Index.html">
+      <img src="../../Data/img/HPSCLogo.png" alt="">
+      <span class="header-brand-copy">
+        <strong>Hero Public Safety Commission</strong>
+        <small>Protecting the public. Supporting heroes.</small>
+      </span>
+    </a>
+    <div class="header-page" aria-label="Current page"><small>Page</small><strong>Chimara Project</strong></div>
+    <nav class="header-quick-links" aria-label="Quick access">
+      <a class="header-projects" href="../../Index.html">Active Projects</a>
+      <button id="subprojects-button" class="header-projects" type="button" aria-haspopup="dialog" aria-controls="subprojects-dialog" hidden>Subprojects</button>
+      <a id="dev-view-link" class="header-projects" href="?view=dev">Dev statistics</a>
+      <a class="header-projects" href="../Login.html?project=Chimara%20Project">Sign-in</a>
+    </nav>
+  </header>
+  <main>
+    <div id="roster-intro">
+      <p class="eyebrow">Active project</p>
+      <h1>Chimara Project</h1>
+      <p class="lead">An initiative designed to train and empower youth to become the next generation of heroes, helping ensure communities have protectors ready to step in as service needs change.</p>
+    </div>
+    <section id="dev-view" aria-label="Chimara Project statistics" hidden>
+      <p class="eyebrow">Developer view</p>
+      <h1>Chimara Statistics</h1>
+      <p class="lead">A live overview of registered and generated subjects, based on the current Chimara roster.</p>
+      <p id="dev-stats-message" class="roster-message" role="status" aria-live="polite">Loading subject statistics...</p>
+      <form id="stats-range-form" class="stats-range-form">
+        <label class="stats-range-field" for="stats-range-from">From subject #<input id="stats-range-from" type="number" min="1" max="2600" step="1" inputmode="numeric"></label>
+        <label class="stats-range-field" for="stats-range-to">To subject #<input id="stats-range-to" type="number" min="1" max="2600" step="1" inputmode="numeric"></label>
+        <button class="stats-range-button stats-range-button--apply" type="submit">Apply range</button>
+        <button id="stats-range-reset" class="stats-range-button" type="button">All subjects</button>
+      </form>
+      <p id="stats-range-summary" class="stats-range-summary" role="status" aria-live="polite">Showing all subjects</p>
+      <div id="stats-kpis" class="stats-kpis"></div>
+      <div class="stats-grid">
+        <section class="stats-panel" aria-labelledby="stats-class-title">
+          <h2 id="stats-class-title">Class distribution</h2>
+          <p>Subjects in each class and their share of the full roster.</p>
+          <div id="stats-class-bars" class="stats-bars"></div>
+        </section>
+        <section class="stats-panel" aria-labelledby="stats-status-title">
+          <h2 id="stats-status-title">Status distribution</h2>
+          <p>Current in-memory status, including generated transfers and breakout subjects.</p>
+          <div id="stats-status-bars" class="stats-bars"></div>
+        </section>
+        <section class="stats-panel" aria-labelledby="stats-clearance-title">
+          <h2 id="stats-clearance-title">Clearance levels</h2>
+          <p>Subject count by assigned clearance level.</p>
+          <div id="stats-clearance-bars" class="stats-bars"></div>
+        </section>
+        <section class="stats-panel" aria-labelledby="stats-source-title">
+          <h2 id="stats-source-title">Roster source</h2>
+          <p>Registered entries and subjects generated at runtime.</p>
+          <div id="stats-source-bars" class="stats-bars"></div>
+        </section>
+        <section class="stats-panel stats-panel--role" aria-labelledby="stats-role-title">
+          <h2 id="stats-role-title">Role distribution</h2>
+          <p>Subjects grouped by their current Chimara role.</p>
+          <div id="stats-role-bars" class="stats-bars"></div>
+        </section>
+        <section class="stats-panel stats-panel--points" aria-labelledby="stats-points-title">
+          <h2 id="stats-points-title">Points by class</h2>
+          <p>Class counts and min-to-max point ranges, with the average marked.</p>
+          <div class="stats-table-wrap"><table class="stats-table stats-points-table"><thead><tr><th>Class / subjects</th><th>Points range</th><th>Average</th></tr></thead><tbody id="stats-points-table"></tbody></table></div>
+        </section>
+        <section class="stats-panel stats-panel--cohorts" aria-labelledby="stats-cohorts-title">
+          <h2 id="stats-cohorts-title">Subject-number cohorts</h2>
+          <p>Counts and outcomes grouped into 100-subject number ranges.</p>
+          <div class="stats-table-wrap"><table class="stats-table stats-cohorts-table"><thead><tr><th>Cohort</th><th>Subjects</th><th>Avg pts</th><th>Graduated</th><th>Missing</th><th>Transferred</th></tr></thead><tbody id="stats-cohorts-table"></tbody></table></div>
+        </section>
+      </div>
+      <a class="stats-back" href="Index.html">&larr; Return to subject roster</a>
+    </section>
+    <section id="roster-view" aria-label="Chimara roster">
+      <div class="roster-layout">
+      <div class="roster-content">
+      <div class="roster-tools">
+        <div class="roster-tools-heading">
+          <button id="toggle-roster-view" class="subject-view-toggle" type="button" aria-label="Hide generated subjects" title="Hide generated subjects" aria-pressed="true">Find a subject</button>
+          <button id="reset-subject-filters" class="reset-subject-filters" type="button">Clear filters</button>
+        </div>
+        <div class="subject-search">
+          <div class="subject-search-controls">
+            <input id="subject-search-input" type="search" placeholder="Number, name, ID, codename..." autocomplete="off" aria-label="Find a subject" aria-controls="roster">
+            <button id="clear-subject-search" type="button" aria-label="Clear search" title="Clear search" hidden>Clear</button>
+          </div>
+        </div>
+        <div class="roster-control">
+          <label for="subject-sort">Sort by</label>
+          <select id="subject-sort" aria-label="Sort subjects">
+            <option value="subject-desc">Subject number: high to low</option>
+            <option value="subject-asc">Subject number: low to high</option>
+            <option value="class-desc">Class: high to low</option>
+            <option value="class-asc">Class: low to high</option>
+            <option value="clearance-desc">Clearance: high to low</option>
+            <option value="clearance-asc">Clearance: low to high</option>
+            <option value="name-asc">Legal name: A to Z</option>
+            <option value="role-asc">Role: A to Z</option>
+            <option value="status-asc">Status: A to Z</option>
+          </select>
+        </div>
+        <div class="roster-control"><label for="class-filter">Class</label><select id="class-filter"><option value="">Any class</option></select></div>
+        <div class="roster-control"><label for="clearance-filter">Clearance</label><select id="clearance-filter"><option value="">Any clearance</option></select></div>
+        <div class="roster-control"><label for="role-filter">Role</label><select id="role-filter"><option value="">Any role</option></select></div>
+        <div class="roster-control"><label for="status-filter">Status</label><select id="status-filter"><option value="">Any status</option></select></div>
+      </div>
+      <p id="subject-no-results" class="subject-no-results" role="status" hidden>No subjects match the current search and filters.</p>
+      <div id="roster" class="roster"></div>
+      <nav class="roster-pagination" aria-label="Subject pages, bottom">
+        <button type="button" data-page-action="previous" disabled>Previous</button>
+        <span class="roster-page-summary" aria-live="polite">Page 1 of 1</span>
+        <button type="button" data-page-action="next" disabled>Next</button>
+      </nav>
+      <p id="roster-message" class="roster-message" role="status" aria-live="polite">Loading Chimara roster...</p>
+      </div>
+      <aside class="roster-sidebar" aria-label="Chimara roster information">
+        <section class="roster-sidebar-panel" aria-labelledby="roster-overview-heading">
+          <h2 id="roster-overview-heading">Roster overview</h2>
+          <dl class="roster-sidebar-stats">
+            <div class="roster-sidebar-stat"><dt>Matching subjects</dt><dd id="roster-sidebar-matches">—</dd></div>
+            <div class="roster-sidebar-stat"><dt>Total subjects</dt><dd id="roster-sidebar-total">—</dd></div>
+            <div class="roster-sidebar-stat"><dt>Active filters</dt><dd id="roster-sidebar-filters">—</dd></div>
+          </dl>
+        </section>
+        <section class="roster-sidebar-panel" aria-labelledby="roster-search-heading">
+          <h2 id="roster-search-heading">Search tips</h2>
+          <p class="roster-sidebar-copy"><strong>Find a subject</strong> by number, name, Registry ID, or codename. You can also search numeric ranges such as <strong>10 &lt; 20</strong> or comparisons like <strong>&gt; 100</strong>.</p>
+        </section>
+      </aside>
+      </div>
+    </section>
+    <a class="back" href="../../Index.html">&larr; Return to active projects</a>
+  </main>
+  <dialog id="subprojects-dialog" class="subprojects-dialog" aria-labelledby="subprojects-heading">
+    <div class="subprojects-dialog-header">
+      <div>
+        <p class="eyebrow">Chimara Project / Research directory</p>
+        <h2 id="subprojects-heading">Subprojects</h2>
+        <p class="subprojects-intro">Explore research projects connected to Chimara.</p>
+      </div>
+      <form method="dialog"><button class="member-detail-dialog-close" type="submit" aria-label="Close subprojects">&times;</button></form>
+    </div>
+    <ul class="subproject-list">
+      <li><button type="button" class="subproject-card" data-project="Project Aegis" data-clearance="2">
+        <span class="subproject-label">Research file &middot; Clearance 2</span>
+        <strong>Project Aegis</strong>
+        <span>Explores defensive Quirk applications and subject protection.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><button type="button" class="subproject-card" data-project="Project Atlas" data-clearance="2">
+        <span class="subproject-label">Research file &middot; Clearance 2</span>
+        <strong>Project Atlas</strong>
+        <span>Studies physical endurance and sustainable training programs.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><button type="button" class="subproject-card" data-project="Project Beacon" data-clearance="1">
+        <span class="subproject-label">Research file &middot; Clearance 1</span>
+        <strong>Project Beacon</strong>
+        <span>Develops communication and coordination for field teams.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><div class="subproject-card subproject-card--unavailable" data-project="Project Catalyst" data-clearance="5">
+        <span class="subproject-label">Research file &middot; Clearance 5</span>
+        <strong>Project Catalyst</strong>
+        <span>Modifies underperforming subjects using a member's Quirk to help them use their abilities more effectively.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </div></li>
+      <li>
+        <a class="subproject-card" href="../Project%20Genesis/Index.html" data-project="Project Genesis" data-clearance="5">
+          <span class="subproject-label">Research file &middot; Clearance 5</span>
+          <strong>Project Genesis</strong>
+          <span>Quirk replication and transfer research.</span>
+          <span class="subproject-action">Open project &rarr;</span>
+        </a>
+      </li>
+      <li><button type="button" class="subproject-card" data-project="Project Horizon" data-clearance="4">
+        <span class="subproject-label">Research file &middot; Clearance 4</span>
+        <strong>Project Horizon</strong>
+        <span>Examines how Quirks develop as subjects grow and train.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><button type="button" class="subproject-card" data-project="Project Lantern" data-clearance="1">
+        <span class="subproject-label">Research file &middot; Clearance 1</span>
+        <strong>Project Lantern</strong>
+        <span>Focuses on search, rescue, and locating people in danger.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><button type="button" class="subproject-card" data-project="Project Meridian" data-clearance="3">
+        <span class="subproject-label">Research file &middot; Clearance 3</span>
+        <strong>Project Meridian</strong>
+        <span>Studies complementary Quirks and coordinated team exercises.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><button type="button" class="subproject-card" data-project="Project Sentinel" data-clearance="4">
+        <span class="subproject-label">Research file &middot; Clearance 4</span>
+        <strong>Project Sentinel</strong>
+        <span>Explores observation, situational awareness, and early warning.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+      <li><button type="button" class="subproject-card" data-project="Project Wayfinder" data-clearance="3">
+        <span class="subproject-label">Research file &middot; Clearance 3</span>
+        <strong>Project Wayfinder</strong>
+        <span>Investigates navigation and mobility in challenging environments.</span>
+        <span class="subproject-action">Open project &rarr;</span>
+      </button></li>
+    </ul>
+    <p id="subproject-message" class="subproject-message" role="status" aria-live="polite" hidden></p>
+  </dialog>
+  <dialog id="member-detail-dialog" class="member-detail-dialog" aria-labelledby="member-detail-title">
+    <div id="member-detail-portrait" class="member-detail-dialog-portrait"></div>
+    <div class="member-detail-dialog-header">
+      <div class="member-detail-dialog-title">
+        <p class="member-detail-kicker">Chimara subject file</p>
+        <h2 id="member-detail-title"></h2>
+        <p id="member-detail-subtitle"></p>
+      </div>
+      <button id="member-detail-close" class="member-detail-dialog-close" type="button" aria-label="Close subject details" title="Close">&times;</button>
+    </div>
+    <div class="member-detail-dialog-body">
+      <div id="member-detail-tabs" class="member-detail-tabs" role="tablist" aria-label="Subject details" aria-orientation="horizontal"></div>
+      <div id="member-detail-panels" class="member-detail-panels"></div>
+    </div>
+  </dialog>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">&#8593;</span></button>
+  <footer>&copy; 20XX Hero Public Safety Commission</footer>
+  <script src="../../Data/js/formatted-note.js"></script>
+  <script src="data/js/portrait.js"></script>
+  <script src="data/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+[
+    {
+        "registryName": "ID: 1908-2870-7668",
+        "LegalNameOverride": "Akako ██████",
+        "subjectNumber": "1781",
+        "ChimaraCodeName": [
+            "Ghost Enforcer",
+            "Violet Enforcer"
+        ],
+        "ChimaraPts": 24320,
+        "Role": "Chimara Enforcer",
+        "status": "In-Training",
+        "ClearanceLevel": "5",
+        "Notes": {
+            "1": "",
+            "2": "**Chimara Project Record**\n**Subject:** Akako \u2588\u2588\u2588\u2588\u2588\u2588\n**Role:** Chimara Enforcer\n\nAkako was brought into the Chimara Project at a young age. She performed well in most areas of training, including combat without the use of a Quirk.",
+            "3": "**Training Assessment**\nAkako struggled to use her Quirk effectively in combat despite her performance in other areas. The resulting loss of points caused her to fall to E rank.",
+            "4": "**Current Standing:** SS Rank\n**Operational Role:** Chimara Enforcer\n\nAkako's performance later improved, and she steadily earned points until she reached SS rank. She is one of the people in charge of the Chimara Project when the Director is unavailable or has died.",
+            "5": "**Restricted Project Record: Project Catalyst**\nAfter falling to E rank, Akako was admitted to Project Catalyst. Following the project, her eyes became crimson and her performance began to improve."
+        }
+    },
+    {
+        "registryName": "ID: 7674-4864-4748",
+        "LegalNameOverride": "",
+        "subjectNumber": "1092",
+        "ChimaraCodeName": [
+            "Rebellion Leader"
+        ],
+        "ChimaraPts": 5956,
+        "Role": "Chimara Subject",
+        "status": "Transferred",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "**Chimara Project Record**\n**Subject Number:** 1092\n**Role:** Chimara Subject\n\n**Sparring Incident**\nDuring a sparring match, Subject 1092 killed Subject 1086. He deeply regrets his friend's death. In the aftermath, his performance declined, and his rank fell from SS to A class.",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 9912-7216-1723",
+        "LegalNameOverride": "",
+        "subjectNumber": "2099",
+        "ChimaraCodeName": [
+            "Infernal Demon"
+        ],
+        "ChimaraPts": 9273,
+        "Role": "Chimara Subject",
+        "status": "In-Training",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 3824-9845-9981",
+        "LegalNameOverride": "",
+        "subjectNumber": "2598",
+        "ConnectedProjects": ["Project Genesis"],
+        "ChimaraCodeName": [
+            ""
+        ],
+        "ChimaraPts": 1436,
+        "Role": "Chimara Subject",
+        "status": "In-Training",
+        "ClearanceLevel": "4",
+        "QuirkNameOverride": "Shadow demon",
+        "QuirkTypeOverride": "Emitter / Mutation",
+        "QuirkDescriptionOverride": "The individual's Quirk grants the capacity for shadow manipulation, allowing for the dynamic control of darkness within their environment.",
+        "Notes": {
+            "1": "",
+            "2": "**Chimara Project Record**\n**Subject:** Ebony Deathmark\n**Subject Number:** 2598\n**Status:** In-Training\n\nEbony is currently training to catch up with the other Chimara subjects.",
+            "3": "**Admission and Training**\nEbony was brought into the Chimara Project within the last year. She was older than subjects normally are when they enter the project, and her training is focused on helping her catch up with the other subjects.",
+            "4": "**Admission Record**\nEbony was brought into the project by someone known as the \"Special Guest.\"",
+            "5": "**Restricted Project Record: Project Genesis**\nEbony was originally Quirkless. As a subject of Project Genesis, she gained a Quirk of her own through the program and is now training to develop her abilities."
+        }
+    },
+    {
+        "registryName": "ID: 8823-6020-9841",
+        "LegalNameOverride": "",
+        "subjectNumber": "1755",
+        "ChimaraCodeName": [
+            "The Winged One",
+            "The Feathered One",
+            "The Lost One",
+            "The Missing One",
+            "The Fallen One",
+            "The Angel of Death"
+        ],
+        "ChimaraPts": 4453,
+        "Role": "Chimara Subject",
+        "status": "In-Training",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 7760-7803-7022",
+        "LegalNameOverride": "",
+        "subjectNumber": "1396",
+        "ChimaraCodeName": [
+            "the puppet master",
+            "the string controller"
+        ],
+        "ChimaraPts": 5370,
+        "Role": "Chimara Subject",
+        "status": "Missing",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 9605-3723-2435",
+        "LegalNameOverride": "",
+        "subjectNumber": "1128",
+        "ChimaraCodeName": [
+            "The Creator"
+        ],
+        "ChimaraPts": 2738,
+        "Role": "Chimara Subject",
+        "status": "Transferred",
+        "ClearanceLevel": "3",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 8634-6678-7688",
+        "LegalNameOverride": "",
+        "subjectNumber": "1884",
+        "ChimaraCodeName": [],
+        "ChimaraPts": 0,
+        "Role": "Monitored",
+        "status": "Under Observation",
+        "ClearanceLevel": "2",
+        "Notes": {
+            "1": "",
+            "2": "**Observation Record**\n**Name:** Eva Yaoyorozu\n**Status:** Under Observation\n\nEva was considered for admission to the Chimara Project. She was later spotted attending U.A. High School.",
+            "3": "**Admission History**\nEva was under observation while her admission to the project was being discussed. Her parents agreed to her joining, but she vanished before she could be brought into the project.",
+            "4": "**Restricted Assessment**\nEva's brother, subject 1396, escaped shortly before her disappearance. Project personnel suspect that he learned of the planned admission and hid her from the project. His involvement remains unconfirmed.",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 1342-9218-2380",
+        "LegalNameOverride": "",
+        "subjectNumber": "1674",
+        "ChimaraCodeName": [],
+        "ChimaraPts": 0,
+        "Role": "Monitored",
+        "status": "Under Observation",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 2822-1427-5622",
+        "LegalNameOverride": "",
+        "subjectNumber": "1663",
+        "ChimaraCodeName": [
+            "MoonOracle"
+        ],
+        "ChimaraPts": 0,
+        "Role": "Monitored",
+        "status": "Under Observation",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "**Observation Record**\n**Name:** Selene Moonshadow\n**Status:** Under Observation\n\nSelene was considered for the Chimara Project but was not admitted.",
+            "3": "**Admission History**\nThe project discussed bringing Selene into the program with her orphanage, but the orphanage repeatedly refused.",
+            "4": "**Training Request**\nAfter Selene was adopted by Shota Aizawa, the project approached him about training her. He refused, saying that he had her training handled.",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 2840-7193-5062",
+        "LegalNameOverride": "",
+        "subjectNumber": "2012",
+        "ChimaraCodeName": [],
+        "ChimaraPts": 14665,
+        "Role": "Chimara Subject",
+        "status": "Missing",
+        "ClearanceLevel": "5",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 2811-3610-4088",
+        "LegalNameOverride": "",
+        "subjectNumber": "1794",
+        "ChimaraCodeName": [
+            "Gravity Master",
+            "Arahabaki"
+        ],
+        "ChimaraPts": 14587,
+        "Role": "Chimara Subject",
+        "status": "Missing",
+        "ClearanceLevel": "5",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 5077-6350-5923",
+        "LegalNameOverride": "Violet",
+        "subjectNumber": "2008",
+        "ChimaraCodeName": [
+            "Feral Enforcer",
+            "The Savage"
+        ],
+        "ChimaraPts": 21495,
+        "Role": "Chimara Enforcer",
+        "status": "In-Training",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "**Chimara Project Record**\n**Subject:** Violet\n**Subject Number:** 2008\n**Role:** Chimara Enforcer\n\nViolet is an SS-ranked subject and one of the strongest Chimara Enforcers.",
+            "3": "**Training Assessment**\nViolet was losing points and was on the verge of failing as a subject. After receiving training from subject 1753, her performance improved and she rose to SS rank.",
+            "4": "**Enforcer Standing**\nAlthough Violet has served as an Enforcer for less time than the others, she is considered one of the strongest among them.",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 4049-5556-7360",
+        "LegalNameOverride": "Saburo ██████",
+        "subjectNumber": "1753",
+        "ChimaraCodeName": [
+            "Director's Son",
+            "Demon Prodigy",
+            "Rabid Teacher",
+            "Shadow Tiger",
+            "The Corruptor",
+            "Cheat Code",
+            "Shadow Enforcer"
+        ],
+        "ChimaraPts": 25520,
+        "Role": "Chimara Enforcer",
+        "status": "Missing",
+        "ClearanceLevel": "5",
+        "QuirkNameOverride": "Shadow Synthesis",
+        "QuirkTypeOverride": "Emitter",
+        "QuirkDescriptionOverride": "The individual's Quirk grants the capacity for shadow manipulation, allowing for the dynamic control of darkness within their environment. Concurrently, a significant enhancement in cognitive processing is observed, suggesting a direct link between the Quirk's function and heightened intellectual capabilities.",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "Not Available",
+        "LegalNameOverride": "Moon ██████",
+        "subjectNumber": "1751",
+        "ChimaraCodeName": [
+            "Director's Daughter",
+            "Nightmare Walker",
+            "The Tormentor",
+            "MoonFlower (Saburo)",
+            "Dark Demon"
+        ],
+        "ChimaraPts": 25583,
+        "Role": "Chimara Subject",
+        "status": "In-Training",
+        "ClearanceLevel": "5",
+        "QuirkNameOverride": "Umbral Nexus",
+        "QuirkTypeOverride": "Emitter",
+        "QuirkDescriptionOverride": "Umbral Nexus allows the user to store a unique energy within their body and manipulate it in several forms. When manifested, this energy appears as a black, tar-like substance that can shift between a soft, fluid state and a hardened, solid one. The user can shape it into barriers, weapons, tendrils, or other constructs depending on the situation.\n\nIn addition to physical manifestation, the quirk allows the user to transfer this energy into others through direct contact. The more energy a target receives, the stronger their connection to the user becomes. This connection can be used to influence the target’s unconscious mind, allowing the user to draw them into a dreamscape linked to that bond.",
+        "Notes": {
+            "1": "",
+            "2": "**Chimara Project Record**\n**Subject:** Moon\n**Subject Number:** 1751\n**Quirk:** Umbral Nexus\n\nMoon possesses an exceptionally powerful Quirk and remains a subject in training.",
+            "3": "**Behavioral Assessment**\nMoon has two personas: one emerges at sunrise and the other at sunset. Her attitude toward the project can shift from willing cooperation to a desire to destroy the entire building.",
+            "4": "**Origin and Classification**\nMoon was created by subjects 1128 and 1092. She is one of the few creations of subject 1128 that did not vanish; her power appears to be sustaining her. Her unusual circumstances have prompted debate over whether she is human or a golem.\n\n**Development Assessment**\nWhen created, Moon appeared to be a 17-year-old girl and had a corresponding mindset. She appears to have continued developing mentally and is now assessed as having a mental maturity comparable to someone around 34 years old, although her physical appearance has not visibly aged.",
+            "5": "**Restricted Assessment**\nMoon has escaped the project for periods of time. Personnel suspect that she is plotting something, but she has not revealed what she may be planning. The suspected plot remains unconfirmed."
+        },
+        "ProfileOverrides": {
+            "Birthdate": "05-20",
+            "Age": "17",
+            "BloodType": "ERROR",
+            "Sex": "Female",
+            "Pronouns": "she / her",
+            "Height": "5'4\""
+        }
+    },
+    {
+        "registryName": "ID: 6246-5595-5729",
+        "LegalNameOverride": "",
+        "subjectNumber": "1709",
+        "ChimaraCodeName": [
+            "Energy Manipulator",
+            "Energy Shifter",
+            "Energy Bender"
+        ],
+        "ChimaraPts": 4559,
+        "Role": "Chimara Subject",
+        "status": "Missing",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 6017-6474-9153",
+        "LegalNameOverride": "",
+        "subjectNumber": "1471",
+        "ChimaraCodeName": [
+            "Gamer",
+            "Game master",
+            "Arcade Ace"
+        ],
+        "ChimaraPts": 21363,
+        "Role": "Chimara Subject",
+        "status": "Graduated",
+        "ClearanceLevel": "5",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 8342-3501-5073",
+        "LegalNameOverride": "",
+        "subjectNumber": "1191",
+        "ChimaraCodeName": ["Iron Vein"],
+        "ChimaraPts": 9448,
+        "Role": "Chimara Subject",
+        "status": "Graduated",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        }
+    },
+    {
+        "registryName": "ID: 2470-6504-5610",
+        "LegalNameOverride": "",
+        "subjectNumber": "1086",
+        "ChimaraCodeName": ["Luminous Enforcer"],
+        "ChimaraPts": 12936,
+        "Role": "Chimara Enforcer",
+        "status": "Expelled",
+        "ClearanceLevel": "4",
+        "Notes": {
+            "1": "**Chimara Project Record**\n**Subject Number:** 1086\n**Role:** Chimara Enforcer\n\n**Sparring Incident**\nSubject 1086 was killed during a sparring match with Subject 1092. Subject 1092 is believed to deeply regret his friend's death; afterward, he allowed his standing to fall to Class A.",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
+        },
+        "ProfileOverrides": {
+            "Height": "6'7\""
+        }
+    }
+]
