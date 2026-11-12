@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="data/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a36">
+  <title>Hero Database | Hero Public Safety Commission</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="../../Data/CSS/registry-chimara.css" onload="if (!this.sheet || !this.sheet.cssRules.length) this.onerror()" onerror="fetch(this.href).then(response => { if (!response.ok) throw new Error('Stylesheet unavailable'); return response.text(); }).then(css => { const style = document.createElement('style'); style.textContent = css; this.after(style); }).catch(console.error)">
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <a class="header-brand" href="../../Index.html">
+      <img src="../../Data/img/HPSCLogo.png" alt="">
+      <span class="header-brand-copy">
+        <strong>Hero Public Safety Commission</strong>
+        <small>Protecting the public. Supporting heroes.</small>
+      </span>
+    </a>
+    <div class="header-page" aria-label="Current page"><small>Page</small><strong>Hero Database</strong></div>
+    <nav class="header-quick-links" aria-label="Quick access">
+      <a class="header-projects" href="../../Index.html">Active Projects</a>
+      <a class="header-projects" href="../Login.html?project=Hero%20Database">Sign-in</a>
+    </nav>
+  </header>
+  <main>
+    <div class="registry-intro">
+      <div>
+        <p class="eyebrow">Hero Public Safety Commission</p>
+        <h1>Hero Database</h1>
+        <p class="lead">Licensed heroes and their professional records.</p>
+      </div>
+    </div>
+    <div class="database-layout">
+    <section class="database-content" aria-label="Hero database records">
+    <form class="registry-filters simple-search" id="registry-filters" role="search">
+      <div class="filter-heading">
+        <div><h2>Find a hero</h2><p>Search by hero name, legal name, or Quirk.</p></div>
+        <button class="registry-reset" id="hero-reset" type="button">Clear filters</button>
+      </div>
+      <div class="filter-field">
+        <label for="hero-search">Search records</label>
+        <input id="hero-search" type="search" placeholder="Search by name or Quirk" autocomplete="off">
+      </div>
+      <div class="filter-field"><label for="hero-sort">Sort by</label><select id="hero-sort"><option value="original">Registry order</option><option value="name-asc">Name: A to Z</option><option value="name-desc">Name: Z to A</option><option value="clearance-asc">Clearance: low to high</option><option value="clearance-desc">Clearance: high to low</option></select></div>
+      <div class="filter-field"><label for="hero-type">Quirk type</label><select id="hero-type"><option value="">Any type</option></select></div>
+      <div class="filter-field"><label for="hero-clearance">Clearance</label><select id="hero-clearance"><option value="">Any clearance</option><option value="1">Level 1</option><option value="2">Level 2</option><option value="3">Level 3</option><option value="4">Level 4</option><option value="5">Level 5</option></select></div>
+      <div class="filter-field"><label for="hero-status">Status</label><select id="hero-status"><option value="">Any status</option></select></div>
+    </form>
+    <section class="hero-list" id="hero-list" aria-label="Hero records" aria-live="polite"></section>
+    <p class="search-empty" id="search-empty" hidden>No matching hero records.</p>
+    <p class="registry-message" id="registry-message" role="status"><strong>Loading registry</strong>Hero records are being loaded.</p>
+    <a class="back" href="../../Index.html">&larr; Return to active projects</a>
+    </section>
+    <aside class="database-sidebar" aria-label="Hero database information">
+      <section class="database-sidebar-panel" aria-labelledby="hero-overview-heading">
+        <h2 id="hero-overview-heading">Database overview</h2>
+        <dl class="database-sidebar-stats">
+          <div class="database-sidebar-stat"><dt>Matching heroes</dt><dd id="hero-sidebar-matches" aria-live="polite">—</dd></div>
+          <div class="database-sidebar-stat"><dt>Registered heroes</dt><dd id="hero-sidebar-total">—</dd></div>
+          <div class="database-sidebar-stat"><dt>Active filters</dt><dd id="hero-sidebar-filters">—</dd></div>
+        </dl>
+      </section>
+      <section class="database-sidebar-panel" aria-labelledby="hero-access-heading">
+        <h2 id="hero-access-heading">Personnel files</h2>
+        <p class="database-sidebar-copy"><strong>Access is clearance-based.</strong> Some hero files may be restricted. Use the filters to find heroes by name, Quirk, type, status, or clearance.</p>
+      </section>
+    </aside>
+    </div>
+  </main>
+  <footer>&copy; 20XX Hero Public Safety Commission</footer>
+  <dialog class="profile-dialog database-dialog" id="profile-dialog" aria-labelledby="dialog-name">
+    <div class="dialog-topline"></div>
+    <div class="dialog-portrait-wrap" id="dialog-portrait-wrap"></div>
+    <div class="dialog-header">
+      <div class="dialog-identity">
+        <p class="eyebrow">Hero Public Safety Commission · personnel file</p>
+        <h2 id="dialog-name"></h2>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Close personnel file">&times;</button>
+    </div>
+    <nav class="dialog-page-nav" aria-label="Personnel file pages">
+      <button type="button" data-page="personal" data-compact-label="Info" aria-label="Personal File" title="Personal File" aria-current="page"><span>Personal File</span></button>
+      <button type="button" data-page="combat" data-compact-label="Combat" aria-label="Combat Profile" title="Combat Profile"><span>Combat Profile</span></button>
+      <button type="button" data-page="training" data-compact-label="Training" aria-label="Training" title="Training"><span>Training</span></button>
+      <button type="button" data-page="missions" data-compact-label="Missions" aria-label="Current Jobs/Missions" title="Current Jobs/Missions"><span>Current Jobs/Missions</span></button>
+      <button type="button" data-page="connected" data-compact-label="Links" aria-label="Connected Pages" title="Connected Pages"><span>Connected Pages</span></button>
+    </nav>
+    <div class="dialog-pages">
+      <section class="dialog-page" id="personal-page" aria-labelledby="personal-page-heading">
+          <h3 class="dialog-page-heading" id="personal-page-heading">Personal File</h3>
+          <div class="dialog-profile-layout">
+            <div class="dialog-info-column">
+              <dl class="dialog-fields" id="dialog-fields"></dl>
+            </div>
+            <div class="dialog-portrait-column">
+              <dl class="dialog-primary-fields" id="dialog-primary-fields"></dl>
+            </div>
+          </div>
+          <section class="dialog-quirk" aria-labelledby="dialog-quirk-heading">
+            <div class="dialog-quirk-heading">
+              <h4 id="dialog-quirk-heading"></h4>
+              <span class="dialog-quirk-type" id="dialog-quirk-type"></span>
+            </div>
+            <p id="dialog-description"></p>
+          </section>
+      </section>
+      <section class="dialog-page" id="combat-page" aria-labelledby="combat-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="combat-page-heading">Combat Profile</h3>
+        <p class="dialog-page-description">Record the hero's approach, equipment, and known techniques.</p>
+        <dl class="dialog-section-fields">
+          <div><dt>Combat style</dt><dd id="combat-style"></dd></div>
+          <div><dt>Combat tools</dt><dd id="combat-tools"></dd></div>
+          <div><dt>Moves</dt><dd id="combat-moves"></dd></div>
+        </dl>
+      </section>
+      <section class="dialog-page" id="connected-pages" aria-labelledby="connected-pages-heading" hidden>
+        <h3 class="dialog-page-heading" id="connected-pages-heading">Connected Pages</h3>
+        <p class="dialog-page-description">Records linked by Registry ID.</p>
+        <a class="registry-record-link" id="registry-record-link">View Quirk Registry Record</a>
+        <a class="registry-record-link" id="chimara-record-link" hidden>View Chimara Project Record</a>
+      </section>
+      <section class="dialog-page" id="training-page" aria-labelledby="training-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="training-page-heading">Training</h3>
+        <p class="dialog-page-description">Training goals, completed courses, credentials, and notes.</p>
+        <dl class="dialog-section-fields">
+          <div><dt>Training goals</dt><dd id="training-goals"></dd></div>
+          <div><dt>Completed training</dt><dd id="completed-training"></dd></div>
+          <div><dt>Certifications</dt><dd id="certifications"></dd></div>
+          <div><dt>Training notes</dt><dd id="training-notes"></dd></div>
+        </dl>
+      </section>
+      <section class="dialog-page" id="missions-page" aria-labelledby="missions-page-heading" hidden>
+        <h3 class="dialog-page-heading" id="missions-page-heading">Current Jobs / Missions</h3>
+        <p class="dialog-page-description">Current assignments and mission details.</p>
+        <dl class="dialog-section-fields">
+          <div><dt>Current jobs</dt><dd id="current-jobs"></dd></div>
+          <div><dt>Mission status</dt><dd id="mission-status"></dd></div>
+          <div><dt>Mission location</dt><dd id="mission-location"></dd></div>
+          <div><dt>Mission briefing</dt><dd id="mission-briefing"></dd></div>
+        </dl>
+      </section>
+    </div>
+  </dialog>
+  <script src="data/js/script.js"></script>
+</body>
+</html>
